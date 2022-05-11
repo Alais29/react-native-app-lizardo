@@ -1,13 +1,22 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import Categories from "./Screens/Categories";
-import { colors } from "./Styles/colors";
+import { StyleSheet, View, useColorScheme } from "react-native";
+import { Provider as PaperProvider } from "react-native-paper";
+// import Categories from "./Screens/Categories";
+import HomeScreen from "./Screens/Home";
+import { darkTheme, lightTheme } from "./Styles/colors";
 
 const App = () => {
+  const scheme = useColorScheme();
+  const theme = scheme === "dark" ? darkTheme : lightTheme;
+
   return (
-    <View style={styles.container}>
-      <Categories />
-    </View>
+    <PaperProvider theme={theme}>
+      <View
+        style={[styles.container, { backgroundColor: theme.colors.background }]}
+      >
+        <HomeScreen />
+      </View>
+    </PaperProvider>
   );
 };
 
@@ -17,6 +26,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: colors.light,
   },
 });

@@ -1,9 +1,36 @@
+import { DefaultTheme } from "react-native-paper";
+
 export const colors = {
-  primary: "#13ad9b",
-  secondary: "#66c2cc",
-  tertiary: "#9d56cc",
-  dark: "#1a4a4f",
-  light: "#f0f9fa",
-  info: "#ad72d5",
-  infoDark: "#661d6b",
+  primaryDark: "#562505",
+  secondaryDark: "#C94402",
+  tertiaryDark: "#1C0E05",
+  primaryLight: "#A25F09",
+  secondaryLight: "#E3930A",
+  tertiaryLight: "#C99E3A",
+  light: "#bdbdbd",
+  dark: "#2d2d2d",
+};
+
+export const darkTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: colors.primaryDark,
+    accent: colors.secondaryDark,
+    background: colors.tertiaryDark,
+    surface: colors.primaryLight,
+    text: colors.light,
+  },
+};
+
+export const lightTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: colors.primaryLight,
+    accent: colors.secondaryLight,
+    background: colors.tertiaryLight,
+    surface: colors.primaryDark,
+    text: colors.dark,
+  },
 };
