@@ -6,7 +6,9 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   listcontainer: {
-    height: 305,
+    flexBasis: 340,
+    flexShrink: 1,
     marginVertical: 20,
+    paddingHorizontal: 20,
   },
 });

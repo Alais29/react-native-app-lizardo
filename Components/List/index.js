@@ -6,14 +6,20 @@ import ProductItem from "./ProductItem";
 import NewsItem from "./NewsItem";
 
 const List = ({ data, itemType, numColumns = 1, horizontal = false }) => {
-  const renderItem = ({ item }) => {
+  const renderItem = ({ item, index }) => {
     switch (itemType) {
       case "category":
         return <CategoryItem category={item} />;
       case "product":
         return <ProductItem />;
       case "news":
-        return <NewsItem article={item} />;
+        const isEnd = index === data.length - 1;
+        return (
+          <NewsItem
+            article={item}
+            cardsMarginStyle={{ marginRight: isEnd ? 0 : 15 }}
+          />
+        );
       default:
         <Text>No itemType provided</Text>;
     }
