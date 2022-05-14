@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     flexBasis: 340,
     flexShrink: 1,
     marginVertical: 20,
-    paddingHorizontal: 20,
+    // paddingHorizontal: 20,
+    // alignItems: "center",
   },
 });
