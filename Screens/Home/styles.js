@@ -8,8 +8,6 @@ export const styles = StyleSheet.create({
   listcontainer: {
     flexBasis: 340,
     flexShrink: 1,
-    marginVertical: 20,
-    // paddingHorizontal: 20,
-    // alignItems: "center",
+    // marginVertical: 20,
   },
 });
