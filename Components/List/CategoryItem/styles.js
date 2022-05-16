@@ -3,11 +3,13 @@ import { colors } from "../../../Styles/colors";
 
 export const styles = StyleSheet.create({
   container: {
-    width: 150,
-    height: 150,
-    backgroundColor: colors.secondary,
-    margin: 15,
+    // width: 150,
+    // height: 150,
+    backgroundColor: colors.primaryDark,
+    marginBottom: 15,
     borderRadius: 10,
+    paddingVertical: 30,
+    paddingHorizontal: 30,
   },
   text: {
     fontSize: 18,

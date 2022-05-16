@@ -287,44 +287,62 @@ export const PRODUCTS = [
 export const CATEGORIES = [
   {
     id: 1,
-    name: "Games",
+    name: "Action",
     image:
-      "https://img.freepik.com/free-photo/young-african-american-man-s-screaming-vr-glasses-neon-gradient-background-male-portrait_155003-27280.jpg?t=st=1651774841~exp=1651775441~hmac=c2576b36248d3e25301291825ad704a5c58f845e4543d277da75585cf6471964&w=1380",
+      "https://media.rawg.io/media/games/120/1201a40e4364557b124392ee50317b99.jpg",
   },
   {
     id: 2,
-    name: "Kids",
+    name: "Adventure",
     image:
-      "https://img.freepik.com/free-photo/children-playing-grass_1098-504.jpg?t=st=1651775146~exp=1651775746~hmac=ab0d5cf073001ad73534b6a30de250b9f6196b7910c5f46c1ec7843f750f1dab&w=1380",
+      "https://media.rawg.io/media/crop/600/400/games/021/021c4e21a1824d2526f925eff6324653.jpg",
   },
   {
     id: 3,
-    name: "Home",
+    name: "RPG",
     image:
-      "https://img.freepik.com/free-photo/living-room-interior-wall-mockup-warm-tones-with-leather-sofa-which-is-kitchen-3d-rendering_41470-3753.jpg?t=st=1651775186~exp=1651775786~hmac=2f4a5e7f0ad9011c9b40a6761801b514af9d73b8f859476ee051d4e6e2a70d65&w=1380",
+      "https://media.rawg.io/media/crop/600/400/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg",
   },
   {
     id: 4,
-    name: "Garden",
+    name: "Strategy",
     image:
-      "https://img.freepik.com/free-photo/plants-pot-with-watering-can_23-2148905231.jpg?t=st=1651781306~exp=1651781906~hmac=eb08627d88ffc06a5a4db881646a2652186a28098c431509e1fc03359fc1a880&w=1380",
+      "https://media.rawg.io/media/crop/600/400/games/55e/55ee6432ac2bf224610fa17e4c652107.jpg",
   },
   {
     id: 5,
-    name: "Clothing",
+    name: "Shooter",
     image:
-      "https://img.freepik.com/free-photo/clothes_144627-25214.jpg?t=st=1651781354~exp=1651781954~hmac=91a780048af29e826abdd46baac880e0f22948b167d0cf8d969b99ecbd37e2c1&w=1380",
+      "https://media.rawg.io/media/crop/600/400/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg",
   },
   {
     id: 6,
-    name: "Health",
+    name: "Platformer",
     image:
-      "https://img.freepik.com/free-photo/happy-sportswoman-drinking-water-park_1098-19542.jpg?t=st=1651787492~exp=1651788092~hmac=c14779cfe225847bf89a512948acd73ebf3e5bb87b938cdaa8d9b82c2c73c053&w=1380",
+      "https://media.rawg.io/media/crop/600/400/games/fd8/fd882c8267a44621a0de6f9cec77ae90.jpg",
   },
   {
     id: 7,
-    name: "Electronics",
+    name: "Simulation",
     image:
-      "https://img.freepik.com/free-photo/young-woman-playing-action-video-games-console_482257-7628.jpg?t=st=1651787560~exp=1651788160~hmac=0e45d3e0bf8b8ce210cf24368bad6b94ba177e35094334fdd2aa37c02c3e3d39&w=1380",
+      "https://media.rawg.io/media/crop/600/400/games/174/1743b3dd185bda4a7be349347d4064df.jpg",
+  },
+  {
+    id: 8,
+    name: "Puzzle",
+    image:
+      "https://media.rawg.io/media/crop/600/400/games/328/3283617cb7d75d67257fc58339188742.jpg",
+  },
+  {
+    id: 9,
+    name: "Racing",
+    image:
+      "https://media.rawg.io/media/crop/600/400/games/786/7863e587bac630de82fca50d799236a9.jpg",
+  },
+  {
+    id: 10,
+    name: "Fighting",
+    image:
+      "https://media.rawg.io/media/resize/640/-/games/234/23410661770ae13eac11066980834367.jpg",
   },
 ];

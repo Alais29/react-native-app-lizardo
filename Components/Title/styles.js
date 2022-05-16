@@ -9,12 +9,14 @@ export const styles = StyleSheet.create({
     position: "relative",
     marginVertical: 20,
   },
-  text: {
-    color: colors.light,
+  titleTextContainer: {
     paddingLeft: 10,
     paddingRight: 20,
     paddingVertical: 6,
     borderRadius: 8,
+  },
+  text: {
+    color: colors.light,
     fontSize: 18,
   },
   trianglesContainer: {

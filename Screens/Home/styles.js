@@ -5,9 +5,12 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
   },
-  listcontainer: {
-    flexBasis: 340,
-    flexShrink: 1,
-    // marginVertical: 20,
+  newsContainer: {
+    flex: 1,
+    alignItems: "center",
+  },
+  categoriesContainer: {
+    alignItems: "center",
+    flex: 1,
   },
 });

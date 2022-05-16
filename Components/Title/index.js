@@ -9,14 +9,14 @@ const Title = ({ children }) => {
 
   return (
     <View style={styles.titleContainer}>
-      <Text
+      <View
         style={{
-          ...styles.text,
+          ...styles.titleTextContainer,
           backgroundColor: colorsTheme.surface,
         }}
       >
-        {children}
-      </Text>
+        <Text style={styles.text}>{children}</Text>
+      </View>
       <View style={styles.trianglesContainer}>
         <View
           style={{

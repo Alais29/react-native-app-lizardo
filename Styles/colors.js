@@ -19,7 +19,8 @@ export const darkTheme = {
     accent: colors.secondaryDark,
     background: colors.tertiaryDark,
     surface: colors.primaryLight,
-    text: colors.light,
+    text: colors.dark,
+    header: colors.light,
   },
 };
 
@@ -31,6 +32,7 @@ export const lightTheme = {
     accent: colors.secondaryLight,
     background: colors.tertiaryLight,
     surface: colors.primaryDark,
-    text: colors.dark,
+    text: colors.light,
+    header: colors.dark,
   },
 };
