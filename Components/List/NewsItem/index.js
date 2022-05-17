@@ -1,4 +1,4 @@
-import { Button, Card, Title } from "react-native-paper";
+import { Button, Card, Paragraph, Title } from "react-native-paper";
 import React from "react";
 
 import { styles } from "./styles";
@@ -9,13 +9,11 @@ const NewsItem = ({ article, cardStyle = {} }) => {
     <Card style={{ ...styles.card, ...cardStyle }}>
       <Card.Cover source={{ uri: article.urlToImage }} style={styles.image} />
       <Card.Content>
-        <Title theme={{ colors: { text: colors.light } }}>
-          {article.title.slice(0, 48) + "..."}
+        <Title theme={{ colors: { text: colors.light } }} style={styles.title}>
+          {article.title.slice(0, 46) + "..."}
         </Title>
+        <Paragraph>{article.source.name}</Paragraph>
       </Card.Content>
-      <Card.Actions>
-        <Button mode="outlined">Read More</Button>
-      </Card.Actions>
     </Card>
   );
 };

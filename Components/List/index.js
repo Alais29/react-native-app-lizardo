@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import CategoryItem from "./CategoryItem";
 import ProductItem from "./ProductItem";
 
-const List = ({ data, itemType, numColumns = 1 }) => {
+const List = ({ data, itemType, numColumns = 1, horizontal = false }) => {
   const renderItem = ({ item }) => {
     switch (itemType) {
       case "category":
@@ -22,6 +22,7 @@ const List = ({ data, itemType, numColumns = 1 }) => {
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
       numColumns={numColumns}
+      horizontal={horizontal}
     />
   );
 };

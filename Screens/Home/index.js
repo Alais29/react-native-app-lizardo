@@ -1,4 +1,4 @@
-import { View, useWindowDimensions, SafeAreaView } from "react-native";
+import { View, useWindowDimensions } from "react-native";
 import React, { useState } from "react";
 import { articles } from "../../data/articles";
 import { CATEGORIES } from "../../data/data";
@@ -61,7 +61,11 @@ const HomeScreen = () => {
         )}
         <View style={styles.categoriesContainer}>
           <Title>Categories</Title>
-          <List data={CATEGORIES} itemType="category" />
+          <List
+            data={CATEGORIES}
+            itemType="category"
+            horizontal={showSearchBar ? false : true}
+          />
         </View>
       </View>
     </>

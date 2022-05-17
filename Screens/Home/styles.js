@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
   newsContainer: {
     flex: 1,
     alignItems: "center",
+    flexBasis: 28,
   },
   categoriesContainer: {
     alignItems: "center",
