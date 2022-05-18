@@ -5,7 +5,7 @@ import React from "react";
 
 import { styles } from "./styles";
 
-const Header = ({ onPressSearch }) => {
+const Header = ({ onPressSearch = () => {}, showSearch = true }) => {
   const { colors } = useTheme();
   return (
     <View style={styles.container}>
@@ -25,12 +25,14 @@ const Header = ({ onPressSearch }) => {
         </View>
       </View>
       <View style={styles.icons}>
-        <IconButton
-          icon="magnify"
-          color={colors.header}
-          size={24}
-          onPress={onPressSearch}
-        />
+        {showSearch && (
+          <IconButton
+            icon="magnify"
+            color={colors.header}
+            size={24}
+            onPress={onPressSearch}
+          />
+        )}
         <IconButton
           icon="shopping-outline"
           color={colors.header}

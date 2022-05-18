@@ -1,12 +1,17 @@
-import { Button, Card, Paragraph, Title } from "react-native-paper";
+import { Card, Paragraph, Title } from "react-native-paper";
 import React from "react";
+import * as Linking from "expo-linking";
 
 import { styles } from "./styles";
 import { colors } from "../../../Styles/colors";
 
 const NewsItem = ({ article, cardStyle = {} }) => {
+  const handlePress = () => {
+    Linking.openURL(article.url);
+  };
+
   return (
-    <Card style={{ ...styles.card, ...cardStyle }}>
+    <Card style={{ ...styles.card, ...cardStyle }} onPress={handlePress}>
       <Card.Cover source={{ uri: article.urlToImage }} style={styles.image} />
       <Card.Content>
         <Title theme={{ colors: { text: colors.light } }} style={styles.title}>

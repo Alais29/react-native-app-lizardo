@@ -1,7 +1,7 @@
 import { View, useWindowDimensions } from "react-native";
 import React, { useState } from "react";
 import { articles } from "../../data/articles";
-import { CATEGORIES } from "../../data/data";
+import { CATEGORIES } from "../../data/categories";
 import Header from "../../Components/Header";
 import Title from "../../Components/Title";
 import Carousel from "../../Components/Carousel";
@@ -35,7 +35,7 @@ const HomeScreen = () => {
 
   return (
     <>
-      <Header onPressSearch={onPressSearch} />
+      <Header showSearch={false} />
       <View style={styles.container}>
         {!showSearchBar ? (
           <View style={styles.newsContainer}>
