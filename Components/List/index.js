@@ -10,7 +10,7 @@ const List = ({ data, itemType, numColumns = 1, horizontal = false }) => {
       case "category":
         return <CategoryItem category={item} />;
       case "product":
-        return <ProductItem />;
+        return <ProductItem product={item} />;
       default:
         <Text>No itemType provided</Text>;
     }

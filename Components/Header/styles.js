@@ -1,5 +1,4 @@
-import { StyleSheet, StatusBar } from "react-native";
-import { colors } from "../../Styles/colors";
+import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
@@ -7,7 +6,6 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",
-    paddingTop: StatusBar.currentHeight + 10 || 20,
     paddingBottom: 10,
     paddingHorizontal: 20,
   },
