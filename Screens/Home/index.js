@@ -1,50 +1,56 @@
-import { ScrollView, View, useWindowDimensions } from "react-native";
-import React, { useEffect, useState } from "react";
+import { ScrollView, View } from "react-native";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Searchbar, useTheme } from "react-native-paper";
-import { articles } from "../../data/articles";
-import { CATEGORIES } from "../../data/categories";
+import { ActivityIndicator, useTheme, Text } from "react-native-paper";
+import { isEmpty } from "../../utils/isEmpty";
+import {
+  getProductsAsync,
+  setTopRatedProducts,
+} from "../../Features/products/productsSlice";
+import { getNewsAsync } from "../../Features/news/newsSlice";
+import ScreenContainer from "../../Components/ScreenContainer";
 import Header from "../../Components/Header";
 import Title from "../../Components/Title";
 import Carousel from "../../Components/Carousel";
 import NewsItem from "../../Components/List/NewsItem";
 import ProductItem from "../../Components/List/ProductItem";
-import List from "../../Components/List";
-import { setTopRatedProducts } from "../../Features/products/productsSlice";
 
 import { styles } from "./styles";
 
 const HomeScreen = () => {
-  // const [showSearchBar, setShowSearchBar] = useState(false);
-  // const [searchQuery, setSearchQuery] = React.useState("");
-
-  // const { width } = useWindowDimensions();
-  // const { colors } = useTheme();
-  const { topRatedProducts } = useSelector((state) => state.products);
+  const {
+    status: statusProducts,
+    error: errorProducts,
+    topRatedProducts,
+    products,
+  } = useSelector((state) => state.products);
+  const {
+    status: statusNews,
+    error: errorNews,
+    news,
+  } = useSelector((state) => state.news);
 
   const dispatch = useDispatch();
 
-  const removeBrArticles = articles.filter(
-    (item) => !item.url.includes("br.ign")
-  );
+  const { colors } = useTheme();
 
   useEffect(() => {
-    dispatch(setTopRatedProducts());
+    if (statusProducts === "idle") {
+      dispatch(getProductsAsync());
+    }
+    if (statusNews === "idle") {
+      dispatch(getNewsAsync());
+    }
   }, []);
 
-  // const onPressSearch = () => {
-  //   setShowSearchBar(true);
-  //   setSearchQuery("");
-  // };
-
-  // const onChangeSearch = (query) => setSearchQuery(query);
-
-  // const goBack = () => {
-  //   setShowSearchBar(false);
-  // };
+  useEffect(() => {
+    if (!isEmpty(products)) {
+      dispatch(setTopRatedProducts());
+    }
+  }, [products]);
 
   return (
-    <>
+    <ScreenContainer>
       <Header showSearch={false} />
       <ScrollView
         style={styles.container}
@@ -52,45 +58,59 @@ const HomeScreen = () => {
       >
         <View style={styles.newsContainer}>
           <Title>News</Title>
-          <Carousel
-            data={removeBrArticles}
-            renderItem={({ item }) => <NewsItem article={item} />}
-          />
+          {!isEmpty(news) ? (
+            <Carousel
+              data={news}
+              renderItem={({ item }) => <NewsItem article={item} />}
+            />
+          ) : (
+            <View style={styles.emptyContainerNews}>
+              {errorNews !== "" ? (
+                <View
+                  style={{
+                    backgroundColor: colors.surface,
+                    ...styles.errorTextContainer,
+                  }}
+                >
+                  <Text style={styles.errorText}>{errorProducts}</Text>
+                  <Text style={styles.errorText}>Please try again later</Text>
+                </View>
+              ) : (
+                <ActivityIndicator animating={true} color={colors.surface} />
+              )}
+            </View>
+          )}
         </View>
         <View style={styles.gamesContainer}>
           <Title>Top Rated</Title>
-          <View style={styles.topProductsListContainer}>
-            <Carousel
-              data={topRatedProducts}
-              renderItem={({ item }) => <ProductItem product={item} />}
-              itemWidth={180}
-            />
-          </View>
+          {!isEmpty(topRatedProducts) ? (
+            <View style={styles.topProductsListContainer}>
+              <Carousel
+                data={topRatedProducts}
+                renderItem={({ item }) => <ProductItem product={item} />}
+                itemWidth={180}
+              />
+            </View>
+          ) : (
+            <View style={styles.emptyContainerGames}>
+              {errorProducts !== "" ? (
+                <View
+                  style={{
+                    backgroundColor: colors.surface,
+                    ...styles.errorTextContainer,
+                  }}
+                >
+                  <Text style={styles.errorText}>{errorProducts}</Text>
+                  <Text style={styles.errorText}>Please try again later</Text>
+                </View>
+              ) : (
+                <ActivityIndicator animating={true} color={colors.surface} />
+              )}
+            </View>
+          )}
         </View>
-        {/* {!showSearchBar ? (
-          <View style={styles.newsContainer}>
-            <Title>News</Title>
-            <Carousel
-              data={removeBrArticles}
-              renderItem={({ item }) => <NewsItem article={item} />}
-            />
-          </View>
-        ) : (
-          <View style={{ width: width * 0.9 }}>
-            <Searchbar
-              placeholder="Search in Categories..."
-              onChangeText={onChangeSearch}
-              value={searchQuery}
-              style={styles.search}
-              placeholderTextColor={colors.text}
-            />
-            <Button mode="contained" onPress={goBack}>
-              Go back
-            </Button>
-          </View>
-        )} */}
       </ScrollView>
-    </>
+    </ScreenContainer>
   );
 };
 
