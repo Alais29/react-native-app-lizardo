@@ -33,10 +33,16 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   sectionContainer: {
-    marginVertical: 7,
+    marginVertical: 10,
+  },
+  platFFormSelect: {
+    alignItems: "center",
   },
   description: {
     fontSize: 16,
+  },
+  platformsContainer: {
+    paddingVertical: 10,
   },
   priceContainer: {
     flexDirection: "row",
@@ -45,5 +51,13 @@ export const styles = StyleSheet.create({
   },
   price: {
     fontSize: 20,
+  },
+  dropdownBtnStyle: {
+    borderRadius: 50,
+    height: 35,
+    marginTop: 10,
+  },
+  dropdownTextStyle: {
+    fontSize: 16,
   },
 });

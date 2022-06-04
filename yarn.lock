@@ -4700,6 +4700,11 @@ react-native-screens@~3.10.1:
     react-freeze "^1.0.0"
     warn-once "^0.1.0"
 
+react-native-select-dropdown@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-select-dropdown/-/react-native-select-dropdown-2.0.0.tgz#25ab0a7e4417a0a21908a2f5f5c0d20f0b6ec24c"
+  integrity sha512-5fBBtSjDz+8Dx5XX2z9z3+GOrs/rIPT3gFvw0N6sWxSgzy2K9eP4rb5ZKaPvAOmz04AJR+Qs9VggOp8BO6AWNw==
+
 react-native-snap-carousel@4.0.0-beta.6:
   version "4.0.0-beta.6"
   resolved "https://registry.yarnpkg.com/react-native-snap-carousel/-/react-native-snap-carousel-4.0.0-beta.6.tgz#cc73108f83cbcf227cd1c6367f17926e8451fd01"

@@ -4,14 +4,18 @@ import React from "react";
 
 import { styles } from "./styles";
 
-const Button = ({ children, onPress = () => {} }) => {
+const Button = ({ children, onPress = () => {}, disabled = false }) => {
   const { colors } = useTheme();
+  const btnStyles = [{ backgroundColor: colors.accent }, styles.btn];
+
+  if (disabled) {
+    btnStyles.push({ backgroundColor: colors.disabled });
+  }
   return (
-    <TouchableOpacity
-      style={{ backgroundColor: colors.accent, ...styles.btn }}
-      onPress={onPress}
-    >
-      <Text>{children}</Text>
+    <TouchableOpacity style={btnStyles} onPress={onPress} disabled={disabled}>
+      <Text style={{ color: disabled ? colors.header : colors.text }}>
+        {children}
+      </Text>
     </TouchableOpacity>
   );
 };

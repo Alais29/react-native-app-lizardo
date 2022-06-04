@@ -27,6 +27,7 @@
     "react-native-paper": "^4.12.1",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
+    "react-native-select-dropdown": "^2.0.0",
     "react-native-snap-carousel": "4.0.0-beta.6",
     "react-native-web": "0.17.1",
     "react-redux": "^8.0.2"
