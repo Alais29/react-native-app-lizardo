@@ -1,16 +1,20 @@
-import { Text, View, ImageBackground } from "react-native";
+import React from "react";
+import { Text, View, ImageBackground, TouchableOpacity } from "react-native";
+import { useDispatch } from "react-redux";
 import { useTheme } from "react-native-paper";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import React from "react";
+import { setProductSelected } from "../../../Features/products/productsSlice";
 
 import { styles } from "./styles";
 import { colors } from "../../../Styles/colors";
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, navigation }) => {
   const { colors: colorsTheme } = useTheme();
+
+  const dispatch = useDispatch();
 
   const platforms = product.platforms.reduce((platforms, item) => {
     if (item.slug.includes("play")) platforms.push("playstation");
@@ -61,8 +65,13 @@ const ProductItem = ({ product }) => {
     ),
   };
 
+  const handlePress = () => {
+    dispatch(setProductSelected(product));
+    navigation.navigate("Product");
+  };
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={handlePress} style={styles.container}>
       <ImageBackground
         source={{ uri: product.background_image }}
         resizeMode="cover"
@@ -89,7 +98,7 @@ const ProductItem = ({ product }) => {
           </View>
         </View>
       </ImageBackground>
-    </View>
+    </TouchableOpacity>
   );
 };
 

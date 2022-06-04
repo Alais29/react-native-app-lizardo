@@ -1,18 +1,19 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+  tabBarBlur: {
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
+  },
   tabBar: {
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.25,
-    shadowRadius: 0.25,
-    elevation: 5,
     position: "absolute",
-    bottom: 25,
-    left: 20,
-    right: 20,
-    borderRadius: 15,
-    height: 90,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
+    height: 60,
+    borderWidth: 0,
   },
   item: {
     flex: 1,

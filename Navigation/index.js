@@ -1,15 +1,15 @@
 import React from "react";
-import { useColorScheme } from "react-native";
+import { useSelector } from "react-redux";
 import { Provider as PaperProvider } from "react-native-paper";
 import { NavigationContainer } from "@react-navigation/native";
 import { darkTheme, lightTheme } from "../Styles/colors";
 import UserLogged from "./Tabs/UserLogged";
 
 const MainNavigation = () => {
-  const scheme = useColorScheme();
-  const theme = scheme === "dark" ? darkTheme : lightTheme;
+  const { theme } = useSelector((state) => state.theme);
+  const appTheme = theme === "dark" ? darkTheme : lightTheme;
   return (
-    <PaperProvider theme={theme}>
+    <PaperProvider theme={appTheme}>
       <NavigationContainer>
         <UserLogged />
       </NavigationContainer>

@@ -9,7 +9,7 @@ const Status = Object.freeze({
 });
 
 const initialState = {
-  news: [],
+  articles: [],
   status: Status.idle,
   error: "",
 };
@@ -28,10 +28,10 @@ export const newsSlice = createSlice({
     },
     [getNewsAsync.fulfilled]: (state, { payload }) => {
       state.status = Status.success;
-      const removeBrArticles = payload.filter(
-        (item) => !item.url.includes("br.ign")
+      const removeBrChArticles = payload.filter(
+        (item) => !item.url.includes("br.ign") && !item.url.includes("chinese")
       );
-      state.news = removeBrArticles;
+      state.articles = removeBrChArticles;
     },
     [getNewsAsync.rejected]: (state, payload) => {
       state.status = Status.failed;

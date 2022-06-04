@@ -17,17 +17,17 @@ import ProductItem from "../../Components/List/ProductItem";
 
 import { styles } from "./styles";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const {
     status: statusProducts,
     error: errorProducts,
-    topRatedProducts,
-    products,
+    topRatedItems,
+    items,
   } = useSelector((state) => state.products);
   const {
     status: statusNews,
     error: errorNews,
-    news,
+    articles,
   } = useSelector((state) => state.news);
 
   const dispatch = useDispatch();
@@ -44,10 +44,10 @@ const HomeScreen = () => {
   }, []);
 
   useEffect(() => {
-    if (!isEmpty(products)) {
+    if (!isEmpty(items)) {
       dispatch(setTopRatedProducts());
     }
-  }, [products]);
+  }, [items]);
 
   return (
     <ScreenContainer>
@@ -58,9 +58,9 @@ const HomeScreen = () => {
       >
         <View style={styles.newsContainer}>
           <Title>News</Title>
-          {!isEmpty(news) ? (
+          {!isEmpty(articles) ? (
             <Carousel
-              data={news}
+              data={articles}
               renderItem={({ item }) => <NewsItem article={item} />}
             />
           ) : (
@@ -83,11 +83,13 @@ const HomeScreen = () => {
         </View>
         <View style={styles.gamesContainer}>
           <Title>Top Rated</Title>
-          {!isEmpty(topRatedProducts) ? (
+          {!isEmpty(topRatedItems) ? (
             <View style={styles.topProductsListContainer}>
               <Carousel
-                data={topRatedProducts}
-                renderItem={({ item }) => <ProductItem product={item} />}
+                data={topRatedItems}
+                renderItem={({ item }) => (
+                  <ProductItem product={item} navigation={navigation} />
+                )}
                 itemWidth={180}
               />
             </View>

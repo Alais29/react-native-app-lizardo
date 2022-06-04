@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   gamesContainer: {
     flex: 1,
     alignItems: "center",
-    marginBottom: 20,
+    marginBottom: 75,
   },
   newsContainer: {
     flex: 1,

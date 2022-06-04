@@ -1,18 +1,15 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import SettingsScreen from "../../../Screens/Settings";
 import { useTheme } from "react-native-paper";
-import HomeScreen from "../../../Screens/Home";
-import ProductDetailScreen from "../../../Screens/ProductDetail";
-import { useSelector } from "react-redux";
 
 const Stack = createNativeStackNavigator();
 
-const HomeStack = () => {
+const SettingsStack = () => {
   const { colors } = useTheme();
-  const { itemSelected } = useSelector((state) => state.products);
   return (
     <Stack.Navigator
-      initialRouteName="Home"
+      initialRouteName="Settings"
       screenOptions={{
         headerStyle: {
           backgroundColor: colors.background,
@@ -26,20 +23,9 @@ const HomeStack = () => {
         // headerRight: () => <LogOutBtn />,
       }}
     >
-      <Stack.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        name="Product"
-        component={ProductDetailScreen}
-        options={{ title: itemSelected.name }}
-      />
+      <Stack.Screen name="Settings" component={SettingsScreen} />
     </Stack.Navigator>
   );
 };
 
-export default HomeStack;
+export default SettingsStack;

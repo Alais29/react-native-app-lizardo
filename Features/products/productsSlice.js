@@ -9,10 +9,10 @@ const Status = Object.freeze({
 });
 
 const initialState = {
-  products: [],
-  topRatedProducts: [],
-  productsByCategory: [],
-  productSelected: {},
+  items: [],
+  topRatedItems: [],
+  itemsByCategory: [],
+  itemSelected: {},
   status: Status.idle,
   error: "",
 };
@@ -30,10 +30,13 @@ export const productsSlice = createSlice({
   initialState,
   reducers: {
     setTopRatedProducts: (state) => {
-      const topRatedGames = [...state.products]
+      const topRatedGames = [...state.items]
         .sort((a, b) => b.rating - a.rating)
         .slice(0, 6);
-      state.topRatedProducts = topRatedGames;
+      state.topRatedItems = topRatedGames;
+    },
+    setProductSelected: (state, { payload }) => {
+      state.itemSelected = payload;
     },
   },
   extraReducers: {
@@ -42,7 +45,7 @@ export const productsSlice = createSlice({
     },
     [getProductsAsync.fulfilled]: (state, { payload }) => {
       state.status = Status.success;
-      state.products = payload;
+      state.items = payload;
     },
     [getProductsAsync.rejected]: (state, payload) => {
       state.status = Status.failed;
@@ -51,6 +54,7 @@ export const productsSlice = createSlice({
   },
 });
 
-export const { setTopRatedProducts } = productsSlice.actions;
+export const { setTopRatedProducts, setProductSelected } =
+  productsSlice.actions;
 
 export default productsSlice.reducer;

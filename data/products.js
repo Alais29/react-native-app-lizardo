@@ -21,7 +21,8 @@ export const PRODUCTS = [
 		"id": 3498,
 		"esrb_rating": "Mature",
 		"category": 1,
-		"price": 28
+		"price": 28,
+		"description": "You get the complicated and realistic world-building from Liberty City of GTA4 in the setting of lively and diverse Los Santos, from an old fan favorite GTA San Andreas."
 	},
 	{
 		"slug": "the-witcher-3-wild-hunt",
@@ -49,7 +50,8 @@ export const PRODUCTS = [
 		"id": 3328,
 		"esrb_rating": "Mature",
 		"category": 3,
-		"price": 54
+		"price": 54,
+		"description": "The third game in a series, it holds nothing back from the player. Open world adventures of the renowned monster slayer Geralt of Rivia are now even on a larger scale. Following the source material more accurately, this time Geralt is trying to find the child of the prophecy, Ciri while making a quick coin from various contracts on the side."
 	},
 	{
 		"slug": "tomb-raider",
@@ -73,7 +75,8 @@ export const PRODUCTS = [
 		"id": 5286,
 		"esrb_rating": "Mature",
 		"category": 2,
-		"price": 40
+		"price": 40,
+		"description": "A cinematic revival of the series in its action third person form, Tomb Rider follows Lara in her least experience period of life – her youth. Heavily influenced by Naughty Dog’s “Uncharted”, the game is a mix of everything, from stealth and survival to combat and QTE action scenes."
 	},
 	{
 		"slug": "the-elder-scrolls-v-skyrim",
@@ -93,7 +96,8 @@ export const PRODUCTS = [
 		"id": 5679,
 		"esrb_rating": "Mature",
 		"category": 3,
-		"price": 68
+		"price": 68,
+		"description": "The fifth game in the series, Skyrim takes us on a journey through the coldest region of Cyrodiil. Once again player can traverse the open world RPG armed with various medieval weapons and magic, to become a hero of Nordic legends –Dovahkiin, the Dragonborn."
 	},
 	{
 		"slug": "bioshock-infinite",
@@ -117,7 +121,8 @@ export const PRODUCTS = [
 		"id": 4062,
 		"esrb_rating": "Mature",
 		"category": 1,
-		"price": 28
+		"price": 28,
+		"description": "The third game in the series, Bioshock takes the story of the underwater confinement within the lost city of Rapture and takes it in the sky-city of Columbia. Players will follow Booker DeWitt, a private eye with a military past; as he will attempt to wipe his debts with the only skill he’s good at – finding people."
 	},
 	{
 		"slug": "borderlands-2",
@@ -141,7 +146,8 @@ export const PRODUCTS = [
 		"id": 802,
 		"esrb_rating": "Mature",
 		"category": 1,
-		"price": 25
+		"price": 25,
+		"description": "Sequel to the 4-player cooperative FPS RPG Borderlands, where the new team of Vault Hunters arrives on the infamous planet Pandora in order to get the riches, hidden inside the Vault, and help to free the planet from the Handsome Jack, President of Hyperion."
 	},
 	{
 		"slug": "red-dead-redemption-2",
@@ -165,7 +171,8 @@ export const PRODUCTS = [
 		"id": 28,
 		"esrb_rating": "Mature",
 		"category": 1,
-		"price": 26
+		"price": 26,
+		"description": "America, 1899. The end of the wild west era has begun as lawmen hunt down the last remaining outlaw gangs. Those who will not surrender or succumb are killed."
 	},
 	{
 		"slug": "doom",
@@ -193,7 +200,8 @@ export const PRODUCTS = [
 		"id": 2454,
 		"esrb_rating": "Mature",
 		"category": 5,
-		"price": 31
+		"price": 31,
+		"description": "Return of the classic FPS, Doom (2016) acts as a reboot of the series and brings back the Doomslayer, protagonist of the original Doom games. In order to solve the energy crisis, humanity learned to harvest the energy from Hell, and when something went wrong and a demon invasion has started, it’s up to the player to control the Doomslayer and destroy the evil. "
 	},
 	{
 		"slug": "fallout-4",
@@ -217,7 +225,8 @@ export const PRODUCTS = [
 		"id": 3070,
 		"esrb_rating": "Mature",
 		"category": 3,
-		"price": 67
+		"price": 67,
+		"description": "The fourth game in the post-apocalyptic action RPG series from Bethesda studious brings players back to the retro-future. After customizing the facial features of the character, players will be admitted to the Vault 111 with their family, and tricked into entering the cryogenic capsule. After the rude awakening after the unknown amount of time has passed, the child is separated from the parents and the loving partner is killed in front of them – the main quest is settled."
 	},
 	{
 		"slug": "destiny-2",
@@ -241,7 +250,8 @@ export const PRODUCTS = [
 		"id": 32,
 		"esrb_rating": "Teen",
 		"category": 5,
-		"price": 48
+		"price": 48,
+		"description": "Destiny 2 is an online multiplayer first-person shooter. You take on the role of a Guardian that needs to protect the last city on Earth from alien invaders. The game follows its predecessor, Destiny. The goal of the game is to return the Light that was stolen from the Guardians by the aliens."
 	},
 	{
 		"slug": "god-of-war-2",
@@ -265,7 +275,8 @@ export const PRODUCTS = [
 		"id": 58175,
 		"esrb_rating": "Mature",
 		"category": 3,
-		"price": 24
+		"price": 24,
+		"description": "It is a new beginning for Kratos. Living as a man outside the shadow of the gods, he ventures into the brutal Norse wilds with his son Atreus, fighting to fulfill a deeply personal quest. His vengeance against the Gods of Olympus years behind him, Kratos now lives as a man in the realm of Norse Gods and monsters."
 	},
 	{
 		"slug": "horizon-zero-dawn",
@@ -285,7 +296,8 @@ export const PRODUCTS = [
 		"id": 278,
 		"esrb_rating": "Teen",
 		"category": 2,
-		"price": 24
+		"price": 24,
+		"description": "Horizon Zero Dawn is an experiment. A very impressive experiment that actually succeeded. Having a very curious mix of cyberpunk and prehistorical styles and esthetic, the game provides us with quite a unique experience."
 	},
 	{
 		"slug": "metro-2033",
@@ -301,7 +313,8 @@ export const PRODUCTS = [
 		"id": 29028,
 		"esrb_rating": "Mature",
 		"category": 1,
-		"price": 41
+		"price": 41,
+		"description": "Not all post-apocalyptic stories begin in the burned wastelands, this time nuclear and chemical locked up survivors in the Moscow Subway, and player will take the place of Artyom, one of the survivors from the VDNKh, adoptive son of the station commander, and taking upon himself the task to deliver information about the Dark Ones to the Polis, the capital of subway."
 	},
     {
 		"slug": "portal",
@@ -316,7 +329,9 @@ export const PRODUCTS = [
 		"rating": 4.51,
 		"id": 13536,
 		"esrb_rating": "Teen",
-		"category": 2
+		"category": 2,
+		"price": 50,
+		"description": "Every single time you click your mouse while holding a gun, you expect bullets to fly and enemies to fall. But here you will try out the FPS game filled with environmental puzzles and engaging story."
 	},
 	{
 		"slug": "life-is-strange-episode-1-2",
@@ -339,7 +354,9 @@ export const PRODUCTS = [
 		"rating": 4.11,
 		"id": 3439,
 		"esrb_rating": "Mature",
-		"category": 2
+		"category": 2,
+		"price": 62,
+		"description": "Interactive storytelling and plot-heavy games gained popularity, and “Life is Strange” arrived as teen mystery adventure. The plot will go through the life of Maxine, a teenager in possession of curious power, allowing her to stop and rewind time, in order to manipulate her surroundings."
 	},
 	{
 		"slug": "the-walking-dead",
@@ -366,7 +383,9 @@ export const PRODUCTS = [
 		"rating": 4.31,
 		"id": 23027,
 		"esrb_rating": "Mature",
-		"category": 2
+		"category": 2,
+		"price": 48,
+		"description": "The Walking Dead is a five-part game series set in the same universe as Robert Kirkman’s award-winning comic book series. Play as Lee Everett, a convicted criminal, who has been given a second chance at life in a world devastated by the undead."
 	},
     {
 		"slug": "the-witcher-2-assassins-of-kings-enhanced-edition",
@@ -382,7 +401,8 @@ export const PRODUCTS = [
 		"id": 16944,
 		"esrb_rating": "Mature",
 		"category": 3,
-		"price": 79
+		"price": 79,
+		"description": "The player is Geralt of Rivia, infamous monster slayer. In the second game of the series, titular witcher is involved in the inner conflicts of Temeria, where he stopped the rebellion and was hired as a bodyguard of Temerian King Foltest."
 	},
 	{
 		"slug": "cyberpunk-2077",
@@ -406,7 +426,8 @@ export const PRODUCTS = [
 		"id": 41494,
 		"esrb_rating": "Mature",
 		"category": 3,
-		"price": 28
+		"price": 28,
+		"description": "Cyberpunk 2077 is a science fiction game loosely based on the role-playing game Cyberpunk 2020. Setting The game is set in the year 2077 in a fictional futuristic metropolis Night City in California."
 	},
 	{
 		"slug": "shadow-of-mordor",
@@ -430,7 +451,8 @@ export const PRODUCTS = [
 		"id": 11973,
 		"esrb_rating": "Mature",
 		"category": 3,
-		"price": 33
+		"price": 33,
+		"description": "Lord of the rings franchise brought a new title to the collection, an open world action-adventure game, that follows Talion, Gondor captain, that survived the sacrifice that was meant to bring the Elf Lord Celebrimbor as a wraith."
 	},
 	{
 		"slug": "the-witcher-enhanced-edition-directors-cut",
@@ -446,7 +468,8 @@ export const PRODUCTS = [
 		"id": 17822,
 		"esrb_rating": "Mature",
 		"category": 3,
-		"price": 38
+		"price": 38,
+		"description": "The Witcher is the very first instalment of the series that follows the story of Geralt from Rivia. Being found unconscious on the battlefield he must retrieve his memory and help the emperor's daughter, Adda to stop her from turning in to a feral monster."
 	},
 	{
 		"slug": "deus-ex-mankind-divided",
@@ -470,7 +493,8 @@ export const PRODUCTS = [
 		"id": 1447,
 		"esrb_rating": "Mature",
 		"category": 3,
-		"price": 52
+		"price": 52,
+		"description": "Deus Ex: Mankind Divided is currently the last entry in the Deus Ex franchise. It was two years after the accident in Human Revolution, where augmented people started to act uncontrollable and aggressive."
 	},
 	{
 		"slug": "mass-effect-2",
@@ -490,7 +514,8 @@ export const PRODUCTS = [
 		"id": 4806,
 		"esrb_rating": "Mature",
 		"category": 3,
-		"price": 73
+		"price": 73,
+		"description": "Mass Effect II is a sequel to Mass Effect one, following the story of Captain Shepard in his or her journey in saving the Galaxy from Reapers. Just after the fight against Saren, Shepard dies and drifts in open space."
 	},
     {
 		"slug": "payday-2",
@@ -510,7 +535,8 @@ export const PRODUCTS = [
 		"id": 3939,
 		"esrb_rating": "Adults Only",
 		"category": 1,
-		"price": 60
+		"price": 60,
+		"description": "The gang is back, and they have bigger and better plans. Objective based cooperative FPS became more complicated. The classic group of Hoxton, Dallas."
 	},
 	{
 		"slug": "la-noire",
@@ -538,7 +564,8 @@ export const PRODUCTS = [
 		"id": 4514,
 		"esrb_rating": "Mature",
 		"category": 1,
-		"price": 68
+		"price": 68,
+		"description": "After the end of World War 2 long needed peace has been reached and should be protected, so Cole Phelps, a decorated war veteran, returns to Los Angeles, California to his wife and joining the LAPD. Neo-noir action-adventure, L.A. Noire allows players to solve crime cases through collecting clues, collecting witness statements and interrogation."
 	},
 	{
 		"slug": "the-last-of-us-remastered",
@@ -554,7 +581,8 @@ export const PRODUCTS = [
 		"id": 3636,
 		"esrb_rating": "Mature",
 		"category": 1,
-		"price": 60
+		"price": 60,
+		"description": "The Last of Us is a post-apocalypse 3rd person adventure with a distinct focus on naturalness and photorealistic graphics. It is the first title in the IP, followed by the second part, coming out in 2019 by Naughty Dog, mostly known for 'Crash Bandicoot' and 'Uncharted' series."
 	},
     {
 		"slug": "uncharted-4-a-thiefs-end",
@@ -574,7 +602,8 @@ export const PRODUCTS = [
 		"id": 2462,
 		"esrb_rating": "Teen",
 		"category": 2,
-		"price": 45
+		"price": 45,
+		"description": "Uncharted 4 is the final installment in the Uncharted series. The story follows Nathan Drake for the last time as he now searches for Captain Henry Avery's treasure. Introducing new characters such as Samuel Drake, with Sam and Sully Nathan agrees to find the treasure of the Gunsway heist in 1695."
 	},
 	{
 		"slug": "saints-row-the-third",
@@ -594,7 +623,8 @@ export const PRODUCTS = [
 		"id": 4386,
 		"esrb_rating": "Mature",
 		"category": 2,
-		"price": 24
+		"price": 24,
+		"description": "Welcome to Steelport, a city that’s been torn by the three violent gangs. And seemingly, only another violent gang can stop them. After merging with Ultor Corporation after the events of the second game, Boss and his lieutenants became a corporation of their own."
 	},
 	{
 		"slug": "marvels-spider-man",
@@ -614,7 +644,8 @@ export const PRODUCTS = [
 		"id": 58134,
 		"esrb_rating": "Teen",
 		"category": 2,
-		"price": 53
+		"price": 53,
+		"description": "Marvel's Spider-Man offers the player to take on the role of the most famous Marvel superhero. Plot The game introduces Spider-Man as an already experienced superhero. By the time the game begins, Peter has captured the infamous Kingpin as well as several other supervillains"
 	},
 	{
 		"slug": "detroit-become-human",
@@ -634,7 +665,8 @@ export const PRODUCTS = [
 		"id": 29177,
 		"esrb_rating": "Mature",
 		"category": 2,
-		"price": 65
+		"price": 65,
+		"description": "In the future world, androids do almost everything that people do - they even start to think and feel. Although no one taught them this. The plot of 'Become Human' is built around three characters, each with a separate storyline, but they eventually merge into a single picture."
 	},
     {
 		"slug": "portal-2",
@@ -654,7 +686,8 @@ export const PRODUCTS = [
 		"id": 4200,
 		"esrb_rating": "Everyone 10+",
 		"category": 5,
-		"price": 51
+		"price": 51,
+		"description": "Portal 2 is a first-person puzzle game developed by Valve Corporation and released on April 19, 2011 on Steam, PS3 and Xbox 360. It was published by Valve Corporation in digital form and by Electronic Arts in physical form."
 	},
 	{
 		"slug": "left-4-dead-2",
@@ -670,7 +703,8 @@ export const PRODUCTS = [
 		"id": 12020,
 		"esrb_rating": "Mature",
 		"category": 5,
-		"price": 36
+		"price": 36,
+		"description": "Cooperative survival continues with a different set of characters. New survivors are making their way through 5 campaigns with an added ability to play through the story of the first game as well, using not only expanded arsenal of 20 ranged and 10 melee weapons but improved AI Director."
 	},
 	{
 		"slug": "dead-space",
@@ -690,7 +724,8 @@ export const PRODUCTS = [
 		"id": 4570,
 		"esrb_rating": "Mature",
 		"category": 5,
-		"price": 48
+		"price": 48,
+		"description": "Dead Space is a third-person shooter with horror elements. Playing as Isaac Clarke, the systems engineer, players will be isolated on the spaceship USG Ishimura after the crew was slaughtered by mindless Necromorphs after the failed investigation of the distress signal."
 	},
 	{
 		"slug": "prey",
@@ -714,7 +749,8 @@ export const PRODUCTS = [
 		"id": 39,
 		"esrb_rating": "Mature",
 		"category": 5,
-		"price": 52
+		"price": 52,
+		"description": "The game is set in the near future of an alternate reality. You find yourself stranded on the Talos I space station, invaded by hostile aliens referred to as the Typhon. To survive, you must explore Talos I in search of weapons and resources to fight off the invaders. Along the way, you'll use neural modification devices to learn skills and psychic abilites."
 	},
 	{
 		"slug": "just-cause-3",
@@ -738,7 +774,8 @@ export const PRODUCTS = [
 		"id": 3017,
 		"esrb_rating": "Mature",
 		"category": 5,
-		"price": 57
+		"price": 57,
+		"description": "Just Cause 3 is an open-world action adventure with the large locus on freedom of exploring. It is the thirds title in the Just Cause series produced by Avalanche Studios, preceded by the first two numerical parts and having the 4th part not yet released as its successor."
 	},
     {
 		"slug": "civilization-v",
@@ -754,7 +791,8 @@ export const PRODUCTS = [
 		"id": 13633,
 		"esrb_rating": "Everyone 10+",
 		"category": 4,
-		"price": 45
+		"price": 45,
+		"description": "Real-time strategy genre has always been about domination over your opponent, and Civilization in general expanded on the concept. Civilization 5 allows players to pick one of the 43 civilizations available in, including DLCs and the expansions."
 	},
 	{
 		"slug": "company-of-heroes-2",
@@ -770,7 +808,8 @@ export const PRODUCTS = [
 		"id": 10243,
 		"esrb_rating": "Unknown",
 		"category": 4,
-		"price": 62
+		"price": 62,
+		"description": "Company of Heroes 2 is the second installment in the series of real-time strategy games, following its predecessor’s legacy as one of the most complex and realistic WWII simulators."
 	},
 	{
 		"slug": "xcom-enemy-unknown",
@@ -786,7 +825,8 @@ export const PRODUCTS = [
 		"id": 13910,
 		"esrb_rating": "Unknown",
 		"category": 4,
-		"price": 64
+		"price": 64,
+		"description": "Any alien invasion meets resistance in some form, so in this reboot of the series, players will take the mantle of the XCOM commander, and control the elite scientists and soldiers, in order to stop the threat."
 	},
 	{
 		"slug": "brutal-legend",
@@ -806,7 +846,8 @@ export const PRODUCTS = [
 		"id": 5525,
 		"esrb_rating": "Unknown",
 		"category": 4,
-		"price": 50
+		"price": 50,
+		"description": "Heavy Metal is a way of life and a world in itself, but Eddie Riggs found the real one, after the accident during a concert left him crushed by the scenery and making the involuntary blood sacrifice to the Ormagöden."
 	},
 	{
 		"slug": "cities-skylines",
@@ -834,7 +875,8 @@ export const PRODUCTS = [
 		"id": 10065,
 		"esrb_rating": "Everyone",
 		"category": 4,
-		"price": 34
+		"price": 34,
+		"description": "Cities: Skylines is a traditional city-building game, which allows players to experience urban planning in all aspects including zoning, road placement, transportation, taxation, and improvement of welfare."
 	},
 	{
 		"slug": "xcom-2",
@@ -858,7 +900,8 @@ export const PRODUCTS = [
 		"id": 1256,
 		"esrb_rating": "Unknown",
 		"category": 4,
-		"price": 60
+		"price": 60,
+		"description": "The game continues the previous game line: XCOM Enemy Unknown. In XCOM 2 we see the Earth under the rule of aliens. The order established by them is based on total control but is proclaimed as the realm of prosperity and security."
 	},
 	{
 		"slug": "civilization-vi",
@@ -886,7 +929,8 @@ export const PRODUCTS = [
 		"id": 10297,
 		"esrb_rating": "Everyone 10+",
 		"category": 4,
-		"price": 77
+		"price": 77,
+		"description": "The sixth installment in Sid Meier’s Civilization series. Like in all previous Civilization games, the player controls one of eighteen unique historical civilizations, builds its cities, explores the hexagonal map of the world, researches technologies, develops his country's culture, establishes relationships with other civilizations and wages wars."
 	},
 	{
 		"slug": "divinity-original-sin-2",
@@ -914,7 +958,8 @@ export const PRODUCTS = [
 		"id": 10073,
 		"esrb_rating": "Unknown",
 		"category": 4,
-		"price": 26
+		"price": 26,
+		"description": "The Divine is dead. The Void approaches. And the powers latent within you are soon to awaken. The battle for Divinity has begun. Choose wisely and trust sparingly; darkness lurks within every heart."
 	},
     {
 		"slug": "hollow-knight",
@@ -942,7 +987,8 @@ export const PRODUCTS = [
 		"id": 9767,
 		"esrb_rating": "Everyone 10+",
 		"category": 6,
-		"price": 49
+		"price": 49,
+		"description": "Hollow Knight is a Metroidvania-type game developed by an indie studio named Team Cherry. Most of the game's story is told through the in-world items, tablets, and thoughts of other characters."
 	},
 	{
 		"slug": "psychonauts",
@@ -966,7 +1012,8 @@ export const PRODUCTS = [
 		"id": 2361,
 		"esrb_rating": "Teen",
 		"category": 6,
-		"price": 72
+		"price": 72,
+		"description": "Double Fine Productions and Tim Shafer are known for making very curious games out of amazing ideas. Psychonauts is exactly about some idea. You have to get inside people's mind and help them fight with their fears or memories from the past."
 	},
 	{
 		"slug": "batman-aa-goty",
@@ -982,7 +1029,8 @@ export const PRODUCTS = [
 		"id": 17572,
 		"esrb_rating": "Unknown",
 		"category": 6,
-		"price": 32
+		"price": 32,
+		"description": "Batman: Arkham Asylum is the first game in Warner Brothers’ action-adventure franchise Batman: Arkham. The game takes places in fictional Asylum on Arkham Island near Gotham City where dangerous and mentally unstable criminals are kept."
 	},
 	{
 		"slug": "trine-2-complete-story",
@@ -1006,7 +1054,8 @@ export const PRODUCTS = [
 		"id": 3853,
 		"esrb_rating": "Unknown",
 		"category": 6,
-		"price": 69
+		"price": 69,
+		"description": "Trine II takes a few years after the first game. Successfully saving the kingdom, Amadeus seeks the fireball spells. Yet he is summoned to save the homeland with his friends - Zoya and Pontious. Goblins have taken over the land as they are trying to find the mysterious 'Witch' deep in the forest."
 	},
 	{
 		"slug": "cuphead",
@@ -1034,7 +1083,8 @@ export const PRODUCTS = [
 		"id": 28154,
 		"esrb_rating": "Unknown",
 		"category": 6,
-		"price": 29
+		"price": 29,
+		"description": "Hand-drawn 2D platformer in the style of 30s cartoons. 2D Dark Souls as the fans refer to the difficulty of this one. It took developers 6 years to create and polish their magnum opus. Cuphead is a classic run and gun adventure that heavily emphasizes on boss battles."
 	},
 	{
 		"slug": "ori-and-the-blind-forest-definitive-edition",
@@ -1058,7 +1108,8 @@ export const PRODUCTS = [
 		"id": 17959,
 		"esrb_rating": "Everyone",
 		"category": 6,
-		"price": 40
+		"price": 40,
+		"description": "The forest of Nibel is dying. After a powerful storm sets a series of devastating events in motion, Ori must journey to find courage and confront a dark nemesis to save the forest of Nibel."
 	},
 	{
 		"slug": "mark-of-the-ninja",
@@ -1078,7 +1129,8 @@ export const PRODUCTS = [
 		"id": 11974,
 		"esrb_rating": "Mature",
 		"category": 6,
-		"price": 48
+		"price": 48,
+		"description": "Mark of the ninja is a side-scrolling stealth-action. The game follows an unnamed ninja who is tasked to revenge a private military company that attacked ninja’s clan dojo. The gameplay can be described as a mix of 2D platformer and stealth-action."
 	},
 	{
 		"slug": "ori-and-the-will-of-the-wisps",
@@ -1102,7 +1154,8 @@ export const PRODUCTS = [
 		"id": 28199,
 		"esrb_rating": "Everyone",
 		"category": 6,
-		"price": 52
+		"price": 52,
+		"description": "A New Journey Begins Embark on an adventure with all new combat and customization options while exploring a vast, exotic world encountering larger than life enemies and challenging puzzles. Seek help from discoverable allies on your path to unravel Ori’s true destiny."
 	},
 	{
 		"slug": "crash-bandicoot-n-sane-trilogy",
@@ -1130,7 +1183,8 @@ export const PRODUCTS = [
 		"id": 34,
 		"esrb_rating": "Everyone 10+",
 		"category": 6,
-		"price": 62
+		"price": 62,
+		"description": "Your favorite marsupial, Crash Bandicoot™, is back! He’s enhanced, entranced and ready-to-dance with the N. Sane Trilogy game collection. Now you can experience Crash Bandicoot like never before."
 	},
     {
 		"slug": "rocket-league",
@@ -1158,7 +1212,8 @@ export const PRODUCTS = [
 		"id": 3272,
 		"esrb_rating": "Everyone",
 		"category": 7,
-		"price": 55
+		"price": 55,
+		"description": "Highly competitive soccer game with rocket-cars is the most comprehensive way to describe this game. Technically a sequel to Psyonix’ previous game - Supersonic Acrobatic Rocket-Powered Battle-Cars; Rocket League successfully became a standalone sensation, that can be enjoyed by anyone."
 	},
 	{
 		"slug": "forza-horizon-4",
@@ -1182,7 +1237,8 @@ export const PRODUCTS = [
 		"id": 58753,
 		"esrb_rating": "Everyone",
 		"category": 7,
-		"price": 62
+		"price": 62,
+		"description": "Forza Horizon 4 is the eleventh game in the Forza franchise of racing games and the fourth in the Horizon subseries. Premise Forza Horizon 4 takes place in a shared open world that is loosely based on the United Kingdom."
 	},
 	{
 		"slug": "grid-2",
@@ -1198,7 +1254,8 @@ export const PRODUCTS = [
 		"id": 4003,
 		"esrb_rating": "Everyone 10+",
 		"category": 7,
-		"price": 52
+		"price": 52,
+		"description": "GRID 2 is a racing game, the sequel to Race Driver: GRID. In the centre of the 'story' GRID 2 is a racing championship, which we gradually promote around the world. Money is not needed, the main thing is to conquer the audience."
 	},
 	{
 		"slug": "forza-horizon-5",
@@ -1222,7 +1279,8 @@ export const PRODUCTS = [
 		"id": 622492,
 		"esrb_rating": "Everyone",
 		"category": 7,
-		"price": 23
+		"price": 23,
+		"description": "Your Ultimate Horizon Adventure awaits! Explore the vibrant and ever-evolving open world landscapes of Mexico with limitless, fun driving action in hundreds of the world’s greatest cars. Explore a world of striking contrast and beauty."
 	},
 	{
 		"slug": "need-for-speed-payback",
@@ -1246,7 +1304,8 @@ export const PRODUCTS = [
 		"id": 23702,
 		"esrb_rating": "Unknown",
 		"category": 7,
-		"price": 74
+		"price": 74,
+		"description": "Need for Speed Payback is an action-driving racing game and the twenty-third part of the NFS franchise. Gameplay Despite the trend made by NFS' before Payback features an offline mode. The game is set in a fictional city named Fortune Valley."
 	},
 	{
 		"slug": "dirt-rally-20",
@@ -1270,7 +1329,8 @@ export const PRODUCTS = [
 		"id": 244716,
 		"esrb_rating": "Unknown",
 		"category": 7,
-		"price": 66
+		"price": 66,
+		"description": "DiRT Rally 2.0 dares you to carve your way through a selection of iconic rally locations from across the globe, in the most powerful off-road vehicles ever made, knowing that the smallest mistake could end your stage."
 	},
 	{
 		"slug": "f1-2018",
@@ -1294,7 +1354,8 @@ export const PRODUCTS = [
 		"id": 59197,
 		"esrb_rating": "Unknown",
 		"category": 7,
-		"price": 68
+		"price": 68,
+		"description": "F1® 2018 is the official videogame of the 2018 FIA FORMULA ONE WORLD CHAMPIONSHIP™. Become immersed in the world of Formula 1® more than ever before. Build your reputation both on and off the track, with time-pressured media interviews that influence your F1 career path."
 	},
 	{
 		"slug": "rage-2",
@@ -1318,7 +1379,8 @@ export const PRODUCTS = [
 		"id": 58385,
 		"esrb_rating": "Mature",
 		"category": 7,
-		"price": 53
+		"price": 53,
+		"description": "The game is set in 2165, thirty years after the events of the original Rage. More than a century before that, the Apophis asteroid fell on Earth, causing mass destruction and driving humanity to near-extinction."
 	},
 	{
 		"slug": "gran-turismo-sport",
@@ -1334,7 +1396,8 @@ export const PRODUCTS = [
 		"id": 24,
 		"esrb_rating": "Everyone",
 		"category": 7,
-		"price": 36
+		"price": 36,
+		"description": "Gran Turismo Sport is a racing game developed by Polyphony Digital. It is the 13th game in the franchise. Gameplay Like the previous games of the series, no story mode is present in Gran Turismo Sport. Three modes are available to the players: Sports, Arcade, and Campaign."
 	},
 	{
 		"slug": "the-crew",
@@ -1358,7 +1421,8 @@ export const PRODUCTS = [
 		"id": 3489,
 		"esrb_rating": "Teen",
 		"category": 7,
-		"price": 42
+		"price": 42,
+		"description": "The Crew is an online driving simulator developed by Ivory Tower. Alex Taylor, the brother of a 5-10 motor club founder Dayton, helps his brother run some errands. But it does not go according to plan as Dayton gets killed. Alex is framed for his murder and sent to prison."
 	},
     {
 		"slug": "injustice-gods-among-us-ultimate-edition",
@@ -1378,7 +1442,8 @@ export const PRODUCTS = [
 		"id": 17540,
 		"esrb_rating": "Mature",
 		"category": 8,
-		"price": 37
+		"price": 37,
+		"description": "Injustice: Gods Among Us Ultimate Edition is an extended version of fighting game Injustice: Gods Among Us based on the imaginary universe of DC Comics. The gameplay is made in a traditional fighting 2.5D manner: battles occur in a 2D perspective but all the characters and objects are 3D."
 	},
 	{
 		"slug": "mortal-kombat-11",
@@ -1406,7 +1471,8 @@ export const PRODUCTS = [
 		"id": 274480,
 		"esrb_rating": "Mature",
 		"category": 8,
-		"price": 43
+		"price": 43,
+		"description": "Mortal Kombat is back and better than ever in the next evolution of the iconic franchise. The all new Custom Character Variations give you unprecedented control to customize the fighters and make them your own."
 	},
 	{
 		"slug": "street-fighter-v",
@@ -1426,7 +1492,8 @@ export const PRODUCTS = [
 		"id": 2805,
 		"esrb_rating": "Teen",
 		"category": 8,
-		"price": 43
+		"price": 43,
+		"description": "Street Fighter V is a fighting game, the fifth main installment in Capcom’s Street Fighter series. Story The game takes place between the events of Street Fighter IV and Street Fighter III. The game features two story-oriented modes: Character Story and A Shadow Falls."
 	},
 	{
 		"slug": "dragon-ball-fighterz",
@@ -1454,7 +1521,8 @@ export const PRODUCTS = [
 		"id": 49225,
 		"esrb_rating": "Unknown",
 		"category": 8,
-		"price": 45
+		"price": 45,
+		"description": "Partnering with Arc System Works, DRAGON BALL FighterZ maximizes high end Anime graphics and brings easy to learn but difficult to master fighting gameplay. High-end Anime Graphics Using the power of the Unreal engine and the talented team at Arc System Works, DRAGON BALL FighterZ is a visual tour-de-force."
 	},
 	{
 		"slug": "super-smash-bros-ultimate",
@@ -1470,7 +1538,8 @@ export const PRODUCTS = [
 		"id": 58829,
 		"esrb_rating": "Unknown",
 		"category": 8,
-		"price": 44
+		"price": 44,
+		"description": "Super Smash Bros. Ultimate is the fifth game in its franchise. It is also the first game in its series to be released for Nintendo Switch. Premise The series is a crossover of characters from various video game franchises, such as The Legend of Zelda, Pokemon, Sonic the Hedgehog, Super Mario, Metroid, and Mega Man, among many others."
 	},
 	{
 		"slug": "soulcalibur-vi",
@@ -1494,7 +1563,8 @@ export const PRODUCTS = [
 		"id": 50736,
 		"esrb_rating": "Teen",
 		"category": 8,
-		"price": 39
+		"price": 39,
+		"description": "Soulcalibur VI is the seventh major installment in its series of 3D sword fighting games. This installment serves as a reboot of the Soulcalibur series. Plot The plot retells the events that happened before and during the original Soulcalibur and alters them, thus creating a new timeline for the franchise."
 	},
 	{
 		"slug": "the-king-of-fighters-xiii",
@@ -1510,7 +1580,8 @@ export const PRODUCTS = [
 		"id": 4304,
 		"esrb_rating": "Teen",
 		"category": 8,
-		"price": 56
+		"price": 56,
+		"description": "With the triumphant return of fan favorite characters like Mai, K', and Vice, extensive refinement of the core fighting engine based on community feedback, and vastly improved network functionality, The King of Fighters XIII™ represents the HD entry in the series that fans have been waiting for."
 	},
 	{
 		"slug": "jump-force",
@@ -1538,7 +1609,8 @@ export const PRODUCTS = [
 		"id": 58757,
 		"esrb_rating": "Unknown",
 		"category": 8,
-		"price": 57
+		"price": 57,
+		"description": "The game is powered by Unreal Engine 4. Plot A cataclysmic event caused the Shonen Jump world to collide with our real world. Both heroes and villains from various manga series appear on our Earth and fight in a chaotic battle for the survival of humanity."
 	},
 	{
 		"slug": "marvel-vs-capcom-infinite",
@@ -1562,7 +1634,8 @@ export const PRODUCTS = [
 		"id": 11831,
 		"esrb_rating": "Teen",
 		"category": 8,
-		"price": 66
+		"price": 66,
+		"description": "Imagined and created through a shared vision between the two companies, Marvel vs. Capcom: Infinite will feature a variety of exciting and accessible single player modes and rich multi-player content for new players and longtime fans alike."
 	}
 ]
 
