@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Surface, Switch, Text } from "react-native-paper";
 import { changeTheme } from "../../Features/theme/themeSlice";
+import { Theme } from "../../Features/interfaces";
 import ScreenContainer from "../../Components/ScreenContainer";
 
 import { styles } from "./styles";
@@ -15,7 +16,7 @@ const SettingsScreen = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setIsSwitchOn(theme === "dark");
+    setIsSwitchOn(theme === Theme.dark);
   }, [theme]);
 
   const onToggleSwitch = () => {

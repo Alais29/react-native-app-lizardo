@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Image, ScrollView } from "react-native";
 import { useTheme, Chip, Text } from "react-native-paper";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { AntDesign } from "@expo/vector-icons";
 import SelectDropdown from "react-native-select-dropdown";
-import { CATEGORIES } from "../../data/categories";
 import { isEmpty } from "../../utils/isEmpty";
+import { Status } from "../../Features/interfaces";
+import { getCategoriesAsync } from "../../Features/categories/categoriesSlice";
 import ScreenContainer from "../../Components/ScreenContainer";
 import Button from "../../Components/Button";
 
@@ -14,11 +15,30 @@ import { colors } from "../../Styles/colors";
 
 const ProductDetailScreen = () => {
   const [platformSelected, setPlatformSelected] = useState({});
+  const [category, setCategory] = useState({});
 
-  const { itemSelected } = useSelector((state) => state.products);
+  const { status, items: categories } = useSelector(
+    (state) => state.categories
+  );
+  const { productSelected } = useSelector((state) => state.products);
   const { colors: themeColors } = useTheme();
 
-  const category = CATEGORIES.find((item) => item.id === itemSelected.category);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (status === Status.idle) {
+      dispatch(getCategoriesAsync());
+    }
+  }, []);
+
+  useEffect(() => {
+    if (status === Status.success) {
+      const productCategory = categories.find(
+        (item) => item.id === productSelected.category
+      );
+      setCategory(productCategory);
+    }
+  }, [categories]);
 
   return (
     <ScreenContainer>
@@ -38,7 +58,7 @@ const ProductDetailScreen = () => {
             <Image
               style={{ borderColor: themeColors.surface, ...styles.image }}
               source={{
-                uri: itemSelected.background_image,
+                uri: productSelected.background_image,
               }}
             />
           </View>
@@ -49,13 +69,15 @@ const ProductDetailScreen = () => {
             }}
           >
             <View style={styles.chipContainer}>
-              <Chip style={{ backgroundColor: themeColors.accent }}>
-                {category.name}
-              </Chip>
+              {!isEmpty(category) ? (
+                <Chip style={{ backgroundColor: themeColors.accent }}>
+                  {category.name}
+                </Chip>
+              ) : null}
               <View style={styles.rating}>
                 <AntDesign name="star" size={18} color={colors.tertiaryLight} />
                 <Text style={{ ...styles.rating, color: themeColors.header }}>
-                  {itemSelected.rating}
+                  {productSelected.rating}
                 </Text>
               </View>
             </View>
@@ -63,7 +85,7 @@ const ProductDetailScreen = () => {
               <Text
                 style={{ ...styles.description, color: themeColors.header }}
               >
-                {itemSelected.description}
+                {productSelected.description}
               </Text>
             </View>
             <View
@@ -75,7 +97,7 @@ const ProductDetailScreen = () => {
                 Select a platform to add to cart
               </Text>
               <SelectDropdown
-                data={itemSelected.platforms}
+                data={productSelected.platforms}
                 onSelect={(selectedItem, index) => {
                   setPlatformSelected(selectedItem);
                 }}
@@ -107,7 +129,7 @@ const ProductDetailScreen = () => {
             <View style={styles.priceContainer}>
               <View style={styles.sectionContainer}>
                 <Text style={{ ...styles.price, color: themeColors.header }}>
-                  ${itemSelected.price}
+                  ${productSelected.price}
                 </Text>
               </View>
               <Button disabled={isEmpty(platformSelected) ? true : false}>

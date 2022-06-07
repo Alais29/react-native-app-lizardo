@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 
 const HomeStack = () => {
   const { colors } = useTheme();
-  const { itemSelected } = useSelector((state) => state.products);
+  const { productSelected } = useSelector((state) => state.products);
   return (
     <Stack.Navigator
       initialRouteName="Home"
@@ -36,7 +36,7 @@ const HomeStack = () => {
       <Stack.Screen
         name="Product"
         component={ProductDetailScreen}
-        options={{ title: itemSelected.name }}
+        options={{ title: productSelected.name }}
       />
     </Stack.Navigator>
   );

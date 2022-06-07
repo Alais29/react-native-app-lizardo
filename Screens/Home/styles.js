@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
   gamesContainer: {
     flex: 1,
     alignItems: "center",
-    marginBottom: 75,
+    marginBottom: 15,
   },
   newsContainer: {
     flex: 1,
@@ -24,12 +24,5 @@ export const styles = StyleSheet.create({
   topProductsContainer: {
     alignItems: "center",
     flex: 1,
-  },
-  errorTextContainer: {
-    borderRadius: 10,
-    padding: 10,
-  },
-  errorText: {
-    textAlign: "center",
   },
 });

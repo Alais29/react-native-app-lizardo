@@ -1,18 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getProducts } from "../../Services/products";
-
-const Status = Object.freeze({
-  idle: "idle",
-  loading: "loading",
-  success: "success",
-  failed: "failed",
-});
+import { Status } from "../interfaces";
 
 const initialState = {
   items: [],
-  topRatedItems: [],
-  itemsByCategory: [],
-  itemSelected: {},
+  topRatedProducts: [],
+  productsByCategory: [],
+  productSelected: {},
   status: Status.idle,
   error: "",
 };
@@ -33,10 +27,16 @@ export const productsSlice = createSlice({
       const topRatedGames = [...state.items]
         .sort((a, b) => b.rating - a.rating)
         .slice(0, 6);
-      state.topRatedItems = topRatedGames;
+      state.topRatedProducts = topRatedGames;
     },
     setProductSelected: (state, { payload }) => {
-      state.itemSelected = payload;
+      state.productSelected = payload;
+    },
+    setProductsByCategory: (state, { payload }) => {
+      const productsFiltered = items.filter(
+        (item) => item.category === payload
+      );
+      state.productsByCategory = productsFiltered;
     },
   },
   extraReducers: {
@@ -54,7 +54,10 @@ export const productsSlice = createSlice({
   },
 });
 
-export const { setTopRatedProducts, setProductSelected } =
-  productsSlice.actions;
+export const {
+  setTopRatedProducts,
+  setProductSelected,
+  setProductsByCategory,
+} = productsSlice.actions;
 
 export default productsSlice.reducer;

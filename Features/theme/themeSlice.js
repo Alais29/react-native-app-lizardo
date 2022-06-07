@@ -1,10 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { Appearance } from "react-native";
-
-const Theme = Object.freeze({
-  dark: "dark",
-  light: "light",
-});
+import { Theme } from "../interfaces";
 
 const initialState = {
   theme: Appearance.getColorScheme(),

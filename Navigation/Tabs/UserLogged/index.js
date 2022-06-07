@@ -1,11 +1,12 @@
 import React from "react";
 import { View } from "react-native";
-import { useTheme, Text } from "react-native-paper";
+import { useTheme } from "react-native-paper";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { StackActions } from "@react-navigation/native";
 import { Feather } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 import HomeStack from "../../Stacks/Home";
 import SettingsStack from "../../Stacks/Settings";
+import ShopStack from "../../Stacks/Shop";
 
 import { styles } from "./styles";
 
@@ -31,7 +32,12 @@ const UserLogged = () => {
         options={{
           tabBarIcon: ({ focused }) => {
             return (
-              <View style={styles.item}>
+              <View
+                style={{
+                  ...styles.item,
+                  borderTopColor: focused ? colors.primary : colors.surface,
+                }}
+              >
                 <Feather name="home" size={24} color={colors.text} />
               </View>
             );
@@ -45,12 +51,35 @@ const UserLogged = () => {
         })}
       />
       <BottomTabs.Screen
+        name="ShopTab"
+        component={ShopStack}
+        options={{
+          tabBarIcon: ({ focused }) => {
+            return (
+              <View
+                style={{
+                  ...styles.item,
+                  borderTopColor: focused ? colors.primary : colors.surface,
+                }}
+              >
+                <Entypo name="shop" size={24} color={colors.text} />
+              </View>
+            );
+          },
+        }}
+      />
+      <BottomTabs.Screen
         name="SettingsTab"
         component={SettingsStack}
         options={{
           tabBarIcon: ({ focused }) => {
             return (
-              <View style={styles.item}>
+              <View
+                style={{
+                  ...styles.item,
+                  borderTopColor: focused ? colors.primary : colors.surface,
+                }}
+              >
                 <Feather name="settings" size={24} color={colors.text} />
               </View>
             );

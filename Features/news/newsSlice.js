@@ -1,12 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { getNews } from "../../Services/news";
-
-const Status = Object.freeze({
-  idle: "idle",
-  loading: "loading",
-  success: "success",
-  failed: "failed",
-});
+import { Status } from "../interfaces";
 
 const initialState = {
   articles: [],
@@ -28,10 +22,13 @@ export const newsSlice = createSlice({
     },
     [getNewsAsync.fulfilled]: (state, { payload }) => {
       state.status = Status.success;
-      const removeBrChArticles = payload.filter(
-        (item) => !item.url.includes("br.ign") && !item.url.includes("chinese")
+      const removeBrChEsArticles = payload.filter(
+        (item) =>
+          !item.url.includes("br.ign") &&
+          !item.url.includes("chinese") &&
+          !item.url.includes("es.ign")
       );
-      state.articles = removeBrChArticles;
+      state.articles = removeBrChEsArticles;
     },
     [getNewsAsync.rejected]: (state, payload) => {
       state.status = Status.failed;

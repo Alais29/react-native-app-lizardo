@@ -1,15 +1,16 @@
 import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { View, Text } from "react-native";
 import { useTheme } from "react-native-paper";
-import SettingsScreen from "../../../Screens/Settings";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import CategoriesScreen from "../../../Screens/Categories";
 
 const Stack = createNativeStackNavigator();
 
-const SettingsStack = () => {
+const ShopStack = () => {
   const { colors } = useTheme();
   return (
     <Stack.Navigator
-      initialRouteName="Settings"
+      initialRouteName="Shop"
       screenOptions={{
         headerStyle: {
           backgroundColor: colors.background,
@@ -23,9 +24,9 @@ const SettingsStack = () => {
         // headerRight: () => <LogOutBtn />,
       }}
     >
-      <Stack.Screen name="Settings" component={SettingsScreen} />
+      <Stack.Screen name="Categories" component={CategoriesScreen} />
     </Stack.Navigator>
   );
 };
 
-export default SettingsStack;
+export default ShopStack;

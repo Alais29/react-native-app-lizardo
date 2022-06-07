@@ -1,28 +1,40 @@
 import { StyleSheet } from "react-native";
-import { colors } from "../../../Styles/colors";
 
 export const styles = StyleSheet.create({
-  container: {
-    // width: 150,
-    // height: 150,
-    backgroundColor: colors.primaryDark,
-    marginBottom: 15,
-    borderRadius: 10,
-    paddingVertical: 30,
+  imgBackgroundContainer: {
+    marginVertical: 9,
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 8,
+    borderBottomRightRadius: 25,
+    borderBottomLeftRadius: 8,
+  },
+  imgBackground: {
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 8,
+    borderBottomRightRadius: 25,
+    borderBottomLeftRadius: 8,
+  },
+  titleContainer: {
+    position: "relative",
+    height: 80,
+    justifyContent: "center",
+    borderWidth: 2,
     paddingHorizontal: 30,
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 8,
+    borderBottomRightRadius: 25,
+    borderBottomLeftRadius: 8,
   },
-  text: {
-    fontSize: 18,
-    backgroundColor: colors.secondary,
-    width: "100%",
-    marginBottom: 15,
-    paddingRight: 15,
-    textAlign: "right",
-  },
-  image: {
+  gradient: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: 76,
     flex: 1,
-    justifyContent: "flex-end",
-    alignItems: "flex-end",
-    // padding: 15,
+    borderTopLeftRadius: 23,
+    borderTopRightRadius: 8,
+    borderBottomRightRadius: 25,
+    borderBottomLeftRadius: 6,
   },
 });

@@ -1,10 +1,15 @@
-import { FlatList } from "react-native";
+import { FlatList, Text } from "react-native";
 import React from "react";
 import PropTypes from "prop-types";
 import CategoryItem from "./CategoryItem";
 import ProductItem from "./ProductItem";
+import { useTheme, ActivityIndicator } from "react-native-paper";
 
-const List = ({ data, itemType, numColumns = 1, horizontal = false }) => {
+import { styles } from "./styles";
+
+const List = ({ data, itemType, numColumns = 1 }) => {
+  const { colors } = useTheme();
+
   const renderItem = ({ item }) => {
     switch (itemType) {
       case "category":
@@ -22,7 +27,10 @@ const List = ({ data, itemType, numColumns = 1, horizontal = false }) => {
       renderItem={renderItem}
       keyExtractor={(item) => item.id}
       numColumns={numColumns}
-      horizontal={horizontal}
+      ListEmptyComponent={
+        <ActivityIndicator animating={true} color={colors.surface} />
+      }
+      contentContainerStyle={styles.container}
     />
   );
 };

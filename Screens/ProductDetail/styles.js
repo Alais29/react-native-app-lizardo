@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 20,
     padding: 15,
-    marginBottom: 75,
+    marginBottom: 15,
     marginTop: 15,
   },
   chipContainer: {
@@ -31,6 +31,7 @@ export const styles = StyleSheet.create({
   rating: {
     flexDirection: "row",
     alignItems: "center",
+    marginLeft: 8,
   },
   sectionContainer: {
     marginVertical: 10,
