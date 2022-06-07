@@ -1,3 +1,4 @@
+import React from "react";
 import {
   ImageBackground,
   Text,
@@ -6,8 +7,9 @@ import {
   View,
 } from "react-native";
 import { useTheme } from "react-native-paper";
+import { useDispatch } from "react-redux";
 import { LinearGradient } from "expo-linear-gradient";
-import React from "react";
+import { setCategorySelected } from "../../../Features/categories/categoriesSlice";
 
 import { styles } from "./styles";
 
@@ -15,10 +17,12 @@ const CategoryItem = ({ category }) => {
   const { width } = useWindowDimensions();
   const { colors } = useTheme();
 
+  const dispatch = useDispatch();
+
   const handlePress = () => {
     console.log("select category");
-    // dispatch(setProductSelected(product));
-    // navigation.navigate("Product");
+    dispatch(setCategorySelected(category));
+    // navigation.navigate("Products");
   };
 
   return (

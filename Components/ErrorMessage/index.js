@@ -4,7 +4,10 @@ import { useTheme, Text } from "react-native-paper";
 
 import { styles } from "./styles";
 
-const ErrorMessage = ({ errorMessage = "An error occured" }) => {
+const ErrorMessage = ({
+  errorMessage = "An error occured",
+  search = false,
+}) => {
   const { colors } = useTheme();
   return (
     <View
@@ -14,7 +17,9 @@ const ErrorMessage = ({ errorMessage = "An error occured" }) => {
       }}
     >
       <Text style={styles.errorText}>{errorMessage}</Text>
-      <Text style={styles.errorText}>Please try again later</Text>
+      {!search ? (
+        <Text style={styles.errorText}>Please try again later</Text>
+      ) : null}
     </View>
   );
 };

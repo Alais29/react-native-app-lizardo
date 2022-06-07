@@ -22,7 +22,7 @@ export const categoriesSlice = createSlice({
   initialState,
   reducers: {
     setCategorySelected: (state, { payload }) => {
-      state.itemSelected = payload;
+      state.categorySelected = payload;
     },
   },
   extraReducers: {

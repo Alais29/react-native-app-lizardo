@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import ErrorMessage from "../../Components/ErrorMessage";
@@ -25,7 +25,9 @@ const CategoriesScreen = () => {
     <ScreenContainer>
       <View style={styles.container}>
         {isEmpty(error) ? (
-          <List data={items} itemType="category" />
+          <>
+            <List data={items} itemType="category" />
+          </>
         ) : (
           <ErrorMessage errorMessage={error} />
         )}
