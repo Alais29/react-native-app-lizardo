@@ -11,7 +11,7 @@ import { setProductSelected } from "../../../Features/products/productsSlice";
 import { styles } from "./styles";
 import { colors } from "../../../Styles/colors";
 
-const ProductItem = ({ product, navigation }) => {
+const ProductItem = ({ navigate, product, height = 220, width = 180 }) => {
   const { colors: colorsTheme } = useTheme();
 
   const dispatch = useDispatch();
@@ -67,11 +67,14 @@ const ProductItem = ({ product, navigation }) => {
 
   const handlePress = () => {
     dispatch(setProductSelected(product));
-    navigation.navigate("Product");
+    navigate();
   };
 
   return (
-    <TouchableOpacity onPress={handlePress} style={styles.container}>
+    <TouchableOpacity
+      onPress={handlePress}
+      style={{ height, width, ...styles.container }}
+    >
       <ImageBackground
         source={{ uri: product.background_image }}
         resizeMode="cover"
@@ -84,7 +87,7 @@ const ProductItem = ({ product, navigation }) => {
         <View style={styles.gameInfoContainer}>
           <LinearGradient
             colors={["rgba(0,0,0,0)", "rgba(0,0,0,0.9)"]}
-            style={styles.gradient}
+            style={{ ...styles.gradient, height }}
           />
           <View style={styles.platforms}>
             {platformsUnique.map((item, index) =>

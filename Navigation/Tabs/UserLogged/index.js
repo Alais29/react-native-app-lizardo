@@ -24,6 +24,7 @@ const UserLogged = () => {
           backgroundColor: colors.surface,
           borderTopColor: "transparent",
         },
+        unmountOnBlur: true,
       }}
     >
       <BottomTabs.Screen
@@ -43,12 +44,6 @@ const UserLogged = () => {
             );
           },
         }}
-        listeners={({ navigation, route }) => ({
-          tabPress: (e) => {
-            // Reset Home stack
-            navigation.navigate("Home");
-          },
-        })}
       />
       <BottomTabs.Screen
         name="ShopTab"

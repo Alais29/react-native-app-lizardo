@@ -2,8 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    width: 180,
-    height: 220,
+    marginVertical: 9,
   },
   backgroundImageSize: {
     flex: 1,
@@ -26,7 +25,6 @@ export const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    height: 220,
     flex: 1,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 8,

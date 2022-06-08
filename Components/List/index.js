@@ -1,30 +1,24 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { FlatList, Text } from "react-native";
+import { FlatList, useWindowDimensions } from "react-native";
 import { useTheme, ActivityIndicator, Searchbar } from "react-native-paper";
 import { isEmpty } from "../../utils/isEmpty";
-import CategoryItem from "./CategoryItem";
-import ProductItem from "./ProductItem";
 import ErrorMessage from "../ErrorMessage";
 
 import { styles } from "./styles";
 
-const List = ({ data, itemType, numColumns = 1, showSearch = true }) => {
+const List = ({
+  renderItem,
+  data,
+  numColumns = 1,
+  showSearch = true,
+  searchPlaceholder = "Search",
+}) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredData, setfilteredData] = useState([]);
 
   const { colors } = useTheme();
-
-  const renderItem = ({ item }) => {
-    switch (itemType) {
-      case "category":
-        return <CategoryItem category={item} />;
-      case "product":
-        return <ProductItem product={item} />;
-      default:
-        <Text>No itemType provided</Text>;
-    }
-  };
+  const { width } = useWindowDimensions();
 
   useEffect(() => {
     setfilteredData(data);
@@ -43,7 +37,7 @@ const List = ({ data, itemType, numColumns = 1, showSearch = true }) => {
     <>
       {showSearch ? (
         <Searchbar
-          placeholder="Search categories"
+          placeholder={searchPlaceholder}
           onChangeText={onChangeSearch}
           value={searchQuery}
           placeholderTextColor={colors.text}
@@ -54,17 +48,20 @@ const List = ({ data, itemType, numColumns = 1, showSearch = true }) => {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         numColumns={numColumns}
+        contentContainerStyle={{ ...styles.container, width: width * 0.9 }}
+        columnWrapperStyle={
+          numColumns > 1 ? { justifyContent: "space-between" } : null
+        }
         ListEmptyComponent={
           isEmpty(searchQuery) ? (
             <ActivityIndicator animating={true} color={colors.surface} />
           ) : (
             <ErrorMessage
-              errorMessage="No categories match your search."
+              errorMessage="No items match your search."
               search={true}
             />
           )
         }
-        contentContainerStyle={styles.container}
       />
     </>
   );
@@ -73,7 +70,8 @@ const List = ({ data, itemType, numColumns = 1, showSearch = true }) => {
 export default List;
 
 List.propTypes = {
+  renderItem: PropTypes.func.isRequired,
   data: PropTypes.array.isRequired,
-  itemType: PropTypes.oneOf(["category", "product"]).isRequired,
   numColumns: PropTypes.number,
+  showSearch: PropTypes.bool,
 };

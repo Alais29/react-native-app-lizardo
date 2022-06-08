@@ -23,6 +23,10 @@ export const styles = StyleSheet.create({
     marginBottom: 15,
     marginTop: 15,
   },
+  title: {
+    fontSize: 20,
+    textAlign: "center",
+  },
   chipContainer: {
     flexDirection: "row",
     alignItems: "center",

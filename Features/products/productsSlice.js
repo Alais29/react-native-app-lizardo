@@ -33,7 +33,7 @@ export const productsSlice = createSlice({
       state.productSelected = payload;
     },
     setProductsByCategory: (state, { payload }) => {
-      const productsFiltered = items.filter(
+      const productsFiltered = state.items.filter(
         (item) => item.category === payload
       );
       state.productsByCategory = productsFiltered;

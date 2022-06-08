@@ -1,9 +1,10 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Dimensions } from "react-native";
 import { useTheme } from "react-native-paper";
+import { useSelector } from "react-redux";
 import HomeScreen from "../../../Screens/Home";
 import ProductDetailScreen from "../../../Screens/ProductDetail";
-import { useSelector } from "react-redux";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,7 @@ const HomeStack = () => {
         // },
         headerTitleAlign: "center",
         // headerRight: () => <LogOutBtn />,
+        headerTitleStyle: { width: Dimensions.get("window").width },
       }}
     >
       <Stack.Screen
@@ -34,7 +36,7 @@ const HomeStack = () => {
         }}
       />
       <Stack.Screen
-        name="Product"
+        name="ProductHome"
         component={ProductDetailScreen}
         options={{ title: productSelected.name }}
       />

@@ -43,7 +43,7 @@ const HomeScreen = ({ navigation }) => {
   }, []);
 
   useEffect(() => {
-    if (!isEmpty(items)) {
+    if (!isEmpty(items) && isEmpty(topRatedProducts)) {
       dispatch(setTopRatedProducts());
     }
   }, [items]);
@@ -72,7 +72,10 @@ const HomeScreen = ({ navigation }) => {
             <Carousel
               data={topRatedProducts}
               renderItem={({ item }) => (
-                <ProductItem product={item} navigation={navigation} />
+                <ProductItem
+                  product={item}
+                  navigate={() => navigation.navigate("ProductHome")}
+                />
               )}
               itemWidth={180}
             />

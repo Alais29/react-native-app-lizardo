@@ -68,6 +68,11 @@ const ProductDetailScreen = () => {
               backgroundColor: themeColors.primary,
             }}
           >
+            <View style={styles.sectionContainer}>
+              <Text style={{ ...styles.title, color: themeColors.header }}>
+                {productSelected.name}
+              </Text>
+            </View>
             <View style={styles.chipContainer}>
               {!isEmpty(category) ? (
                 <Chip style={{ backgroundColor: themeColors.accent }}>

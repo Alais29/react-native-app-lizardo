@@ -10,26 +10,24 @@ import { useTheme } from "react-native-paper";
 import { useDispatch } from "react-redux";
 import { LinearGradient } from "expo-linear-gradient";
 import { setCategorySelected } from "../../../Features/categories/categoriesSlice";
+import { setProductsByCategory } from "../../../Features/products/productsSlice";
 
 import { styles } from "./styles";
 
-const CategoryItem = ({ category }) => {
+const CategoryItem = ({ category, navigation }) => {
   const { width } = useWindowDimensions();
   const { colors } = useTheme();
 
   const dispatch = useDispatch();
 
   const handlePress = () => {
-    console.log("select category");
     dispatch(setCategorySelected(category));
-    // navigation.navigate("Products");
+    dispatch(setProductsByCategory(category.id));
+    navigation.navigate("Products");
   };
 
   return (
-    <TouchableOpacity
-      onPress={handlePress}
-      style={{ ...styles.container, width: width * 0.9 }}
-    >
+    <TouchableOpacity onPress={handlePress} style={{ width: width * 0.9 }}>
       <ImageBackground
         source={{ uri: category.image }}
         resizeMode="cover"
