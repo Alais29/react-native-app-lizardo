@@ -15,6 +15,10 @@ const ShopStack = () => {
   const { productSelected } = useSelector((state) => state.products);
   const { colors } = useTheme();
 
+  const productTitle = productSelected.name
+    ? truncate(productSelected.name, 22)
+    : "";
+
   return (
     <Stack.Navigator
       initialRouteName="Categories"
@@ -41,7 +45,7 @@ const ShopStack = () => {
       <Stack.Screen
         name={"ProductShop"}
         component={ProductDetailScreen}
-        options={{ title: truncate(productSelected.name, 22) }}
+        options={{ title: productTitle }}
       />
     </Stack.Navigator>
   );

@@ -4,11 +4,17 @@ import React from "react";
 
 import { styles } from "./styles";
 
-const ScreenContainer = ({ children }) => {
+const ScreenContainer = ({ children, paddingBottom = true }) => {
   const { colors } = useTheme();
   return (
     <View
-      style={[styles.mainContainer, { backgroundColor: colors.background }]}
+      style={[
+        styles.mainContainer,
+        {
+          backgroundColor: colors.background,
+          paddingBottom: paddingBottom ? 60 : 0,
+        },
+      ]}
     >
       {children}
     </View>

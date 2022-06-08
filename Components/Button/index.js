@@ -1,23 +1,39 @@
+import React from "react";
+import PropTypes from "prop-types";
 import { View, TouchableOpacity } from "react-native";
 import { useTheme, Text } from "react-native-paper";
-import React from "react";
 
 import { styles } from "./styles";
 
-const Button = ({ children, onPress = () => {}, disabled = false }) => {
+const Button = ({
+  children,
+  customBtnStyles,
+  onPress = () => {},
+  disabled = false,
+  color = "background",
+}) => {
   const { colors } = useTheme();
-  const btnStyles = [{ backgroundColor: colors.accent }, styles.btn];
+  const btnStyles = [
+    { backgroundColor: colors[color] },
+    styles.btn,
+    customBtnStyles,
+  ];
 
   if (disabled) {
     btnStyles.push({ backgroundColor: colors.disabled });
   }
   return (
     <TouchableOpacity style={btnStyles} onPress={onPress} disabled={disabled}>
-      <Text style={{ color: disabled ? colors.header : colors.text }}>
-        {children}
-      </Text>
+      {children}
     </TouchableOpacity>
   );
 };
 
 export default Button;
+
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
+  onPress: PropTypes.func,
+  disabled: PropTypes.bool,
+  color: PropTypes.oneOf(["background", "surface"]),
+};

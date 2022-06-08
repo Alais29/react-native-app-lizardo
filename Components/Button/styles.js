@@ -2,9 +2,9 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   btn: {
-    borderRadius: 50,
-    paddingHorizontal: 15,
-    paddingVertical: 10,
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
     alignItems: "center",
   },
 });

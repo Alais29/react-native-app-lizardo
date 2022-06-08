@@ -138,7 +138,7 @@ const ProductDetailScreen = () => {
                 </Text>
               </View>
               <Button disabled={isEmpty(platformSelected) ? true : false}>
-                Add to Cart
+                <Text style={{ color: themeColors.header }}>Add to Cart</Text>
               </Button>
             </View>
           </View>
