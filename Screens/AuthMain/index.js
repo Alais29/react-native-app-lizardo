@@ -35,7 +35,7 @@ const AuthMainScreen = ({ navigation }) => {
           <Button
             color="surface"
             customBtnStyles={styles.customBtn}
-            onPress={() => navigation.navigate("SignUp")}
+            onPress={() => navigation.navigate("SignUpLogin", { to: "signup" })}
           >
             <Text>Sign Up</Text>
             <AntDesign
@@ -50,6 +50,7 @@ const AuthMainScreen = ({ navigation }) => {
           text="Already have an account? Log In"
           textColor={colors.header}
           customStyle={{ alignItems: "flex-end" }}
+          onPress={() => navigation.navigate("SignUpLogin", { to: "signin" })}
         />
       </View>
     </ScreenContainer>

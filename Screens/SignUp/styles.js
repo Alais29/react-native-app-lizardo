@@ -14,7 +14,4 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 15,
   },
-  input: {
-    marginBottom: 8,
-  },
 });

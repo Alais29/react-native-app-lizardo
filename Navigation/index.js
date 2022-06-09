@@ -9,12 +9,12 @@ import AuthStack from "./Stacks/Auth";
 
 const MainNavigation = () => {
   const { theme } = useSelector((state) => state.theme);
+  const { user } = useSelector((state) => state.auth);
   const appTheme = theme === Theme.dark ? darkTheme : lightTheme;
-  const loggedin = false;
   return (
     <PaperProvider theme={appTheme}>
       <NavigationContainer>
-        {loggedin ? <UserLogged /> : <AuthStack />}
+        {user.userID ? <UserLogged /> : <AuthStack />}
       </NavigationContainer>
     </PaperProvider>
   );
