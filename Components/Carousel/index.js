@@ -1,7 +1,7 @@
-import { useWindowDimensions, ActivityIndicator, View } from "react-native";
+import { useWindowDimensions, View } from "react-native";
 import { Carousel as SnapCarousel } from "react-native-snap-carousel";
 import React, { useRef } from "react";
-import { useTheme } from "react-native-paper";
+import { useTheme, ActivityIndicator } from "react-native-paper";
 
 import { styles } from "./styles";
 

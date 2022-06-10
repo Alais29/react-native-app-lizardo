@@ -5,6 +5,7 @@ import { useTheme } from "react-native-paper";
 import { useSelector } from "react-redux";
 import HomeScreen from "../../../Screens/Home";
 import ProductDetailScreen from "../../../Screens/ProductDetail";
+import UpdateProfile from "../../../Screens/UpdateProfile";
 
 const Stack = createNativeStackNavigator();
 

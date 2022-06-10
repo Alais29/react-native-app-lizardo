@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { TextInput, Text, useTheme, HelperText } from "react-native-paper";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Formik } from "formik";
 import {
   signinValidationSchema,
@@ -15,16 +15,29 @@ import { signInAsync, signUpAsync } from "../../Features/auth/authSlice";
 import { styles } from "./styles";
 
 const SignUpLogin = ({ navigation, route }) => {
+  const { user } = useSelector((state) => state.auth);
   const { colors } = useTheme();
 
   const dispatch = useDispatch();
   const { to } = route.params;
 
-  const handleSignUp = (values) => {
+  const handleSignUp = async (values) => {
     if (to === "signup") {
-      dispatch(signUpAsync(values));
+      try {
+        await dispatch(signUpAsync(values)).unwrap();
+        navigation.navigate("UpdateProfile");
+      } catch (error) {
+        console.log(error);
+      }
     } else {
-      dispatch(signInAsync(values));
+      try {
+        await dispatch(signInAsync(values)).unwrap();
+        if (!user.displayName) {
+          navigation.navigate("UpdateProfile");
+        }
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 

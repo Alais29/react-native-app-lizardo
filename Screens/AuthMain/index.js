@@ -5,10 +5,10 @@ import { useTheme, Text } from "react-native-paper";
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 import ScreenContainer from "../../Components/ScreenContainer";
-
-import { styles } from "./styles";
 import Button from "../../Components/Button";
 import Link from "../../Components/Link";
+
+import { styles } from "./styles";
 
 const AuthMainScreen = ({ navigation }) => {
   const { theme } = useSelector((state) => state.theme);

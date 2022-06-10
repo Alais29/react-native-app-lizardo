@@ -1,11 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { signIn, signUp } from "../../Services/auth";
+import { signIn, signUp, updateProfile } from "../../Services/auth";
 
 const initialState = {
   user: {
     userID: "",
     email: "",
     token: "",
+    displayName: "",
+    photoUrl: "",
   },
   loading: false,
   error: "",
@@ -21,6 +23,14 @@ export const signInAsync = createAsyncThunk("auth/signIn", async (userInfo) => {
   return response;
 });
 
+export const updateProfileAsync = createAsyncThunk(
+  "auth/updateProfile",
+  async (userInfo) => {
+    const response = await updateProfile(userInfo);
+    return response;
+  }
+);
+
 export const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -35,7 +45,6 @@ export const authSlice = createSlice({
     },
     [signUpAsync.fulfilled]: (state, { payload }) => {
       state.loading = false;
-      debugger;
       if (payload.error) {
         state.error = payload.error.message;
       } else {
@@ -61,9 +70,28 @@ export const authSlice = createSlice({
         state.user.userID = payload.localId;
         state.user.email = payload.email;
         state.user.token = payload.idToken;
+        state.user.displayName = payload.displayName;
+        state.user.photoUrl = payload.profilePicture;
       }
     },
     [signInAsync.rejected]: (state, { payload }) => {
+      state.loading = false;
+      state.error = payload.error.message;
+    },
+    [updateProfileAsync.pending]: (state) => {
+      state.loading = true;
+    },
+    [updateProfileAsync.fulfilled]: (state, { payload }) => {
+      state.loading = false;
+      if (payload.error) {
+        state.error = payload.error.message;
+      } else {
+        state.error = "";
+        state.user.displayName = payload.displayName;
+        state.user.photoUrl = payload.profilePicture;
+      }
+    },
+    [updateProfileAsync.rejected]: (state, { payload }) => {
       state.loading = false;
       state.error = payload.error.message;
     },

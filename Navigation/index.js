@@ -14,7 +14,7 @@ const MainNavigation = () => {
   return (
     <PaperProvider theme={appTheme}>
       <NavigationContainer>
-        {user.userID ? <UserLogged /> : <AuthStack />}
+        {user.displayName ? <UserLogged /> : <AuthStack />}
       </NavigationContainer>
     </PaperProvider>
   );
