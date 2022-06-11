@@ -1,9 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
-import productsReducer from "../Features/products/productsSlice";
-import categoriesReducer from "../Features/categories/categoriesSlice";
-import newsReducer from "../Features/news/newsSlice";
-import themeReducer from "../Features/theme/themeSlice";
-import authReducer from "../Features/auth/authSlice";
+import { configureStore } from '@reduxjs/toolkit';
+
+import authReducer from '../Features/auth/authSlice';
+import categoriesReducer from '../Features/categories/categoriesSlice';
+import newsReducer from '../Features/news/newsSlice';
+import productsReducer from '../Features/products/productsSlice';
+import themeReducer from '../Features/theme/themeSlice';
 
 export const store = configureStore({
   reducer: {

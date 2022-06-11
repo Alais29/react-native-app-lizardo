@@ -1,9 +1,10 @@
-import React from "react";
-import { Provider } from "react-redux";
-import { store } from "./Store/store";
-import MainNavigation from "./Navigation";
-import { initializeApp } from "firebase/app";
-import { firebaseConfig } from "./Database/firebase";
+import { initializeApp } from 'firebase/app';
+import React from 'react';
+import { Provider } from 'react-redux';
+
+import { firebaseConfig } from './Database/firebase';
+import MainNavigation from './Navigation';
+import { store } from './Store/store';
 
 initializeApp(firebaseConfig);
 

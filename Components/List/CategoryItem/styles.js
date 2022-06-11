@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   imgBackgroundContainer: {
@@ -15,9 +15,9 @@ export const styles = StyleSheet.create({
     borderBottomLeftRadius: 8,
   },
   titleContainer: {
-    position: "relative",
+    position: 'relative',
     height: 80,
-    justifyContent: "center",
+    justifyContent: 'center',
     borderWidth: 2,
     paddingHorizontal: 30,
     borderTopLeftRadius: 25,
@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
     borderBottomLeftRadius: 8,
   },
   gradient: {
-    position: "absolute",
+    position: 'absolute',
     left: 0,
     right: 0,
     bottom: 0,

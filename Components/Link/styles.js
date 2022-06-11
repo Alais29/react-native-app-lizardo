@@ -1,11 +1,11 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet, Dimensions } from 'react-native';
 
 export const styles = StyleSheet.create({
   linkContainer: {
-    width: Dimensions.get("screen").width * 0.9,
+    width: Dimensions.get('screen').width * 0.9,
   },
   link: {
-    textDecorationLine: "underline",
-    textDecorationStyle: "solid",
+    textDecorationLine: 'underline',
+    textDecorationStyle: 'solid',
   },
 });

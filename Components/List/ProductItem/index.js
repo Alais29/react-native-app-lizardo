@@ -1,15 +1,17 @@
-import React from "react";
-import { Text, View, ImageBackground, TouchableOpacity } from "react-native";
-import { useDispatch } from "react-redux";
-import { useTheme } from "react-native-paper";
-import { AntDesign } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { FontAwesome5 } from "@expo/vector-icons";
-import { LinearGradient } from "expo-linear-gradient";
-import { setProductSelected } from "../../../Features/products/productsSlice";
+import {
+  AntDesign,
+  MaterialCommunityIcons,
+  FontAwesome5,
+} from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
+import React from 'react';
+import { Text, View, ImageBackground, TouchableOpacity } from 'react-native';
+import { useTheme } from 'react-native-paper';
+import { useDispatch } from 'react-redux';
 
-import { styles } from "./styles";
-import { colors } from "../../../Styles/colors";
+import { setProductSelected } from '../../../Features/products/productsSlice';
+import { colors } from '../../../Styles/colors';
+import { styles } from './styles';
 
 const ProductItem = ({ navigate, product, height = 220, width = 180 }) => {
   const { colors: colorsTheme } = useTheme();
@@ -17,17 +19,17 @@ const ProductItem = ({ navigate, product, height = 220, width = 180 }) => {
   const dispatch = useDispatch();
 
   const platforms = product.platforms.reduce((platforms, item) => {
-    if (item.slug.includes("play")) platforms.push("playstation");
-    if (item.slug.includes("xbox")) platforms.push("xbox");
-    if (item.slug.includes("pc")) platforms.push("windows");
-    if (item.slug.includes("nintendo")) platforms.push("nintendo");
+    if (item.slug.includes('play')) platforms.push('playstation');
+    if (item.slug.includes('xbox')) platforms.push('xbox');
+    if (item.slug.includes('pc')) platforms.push('windows');
+    if (item.slug.includes('nintendo')) platforms.push('nintendo');
     return platforms;
   }, []);
 
   const platformsUnique = Array.from(new Set(platforms));
 
   const platformsMapping = {
-    nintendo: (key) => (
+    nintendo: key => (
       <MaterialCommunityIcons
         key={key}
         name="nintendo-switch"
@@ -36,7 +38,7 @@ const ProductItem = ({ navigate, product, height = 220, width = 180 }) => {
         style={styles.platform}
       />
     ),
-    windows: (key) => (
+    windows: key => (
       <AntDesign
         key={key}
         name="windows"
@@ -45,7 +47,7 @@ const ProductItem = ({ navigate, product, height = 220, width = 180 }) => {
         style={styles.platform}
       />
     ),
-    playstation: (key) => (
+    playstation: key => (
       <FontAwesome5
         key={key}
         name="playstation"
@@ -54,7 +56,7 @@ const ProductItem = ({ navigate, product, height = 220, width = 180 }) => {
         style={styles.platform}
       />
     ),
-    xbox: (key) => (
+    xbox: key => (
       <FontAwesome5
         key={key}
         name="xbox"
@@ -86,12 +88,12 @@ const ProductItem = ({ navigate, product, height = 220, width = 180 }) => {
       >
         <View style={styles.gameInfoContainer}>
           <LinearGradient
-            colors={["rgba(0,0,0,0)", "rgba(0,0,0,0.9)"]}
+            colors={['rgba(0,0,0,0)', 'rgba(0,0,0,0.9)']}
             style={{ ...styles.gradient, height }}
           />
           <View style={styles.platforms}>
             {platformsUnique.map((item, index) =>
-              platformsMapping[item](index)
+              platformsMapping[item](index),
             )}
           </View>
           <Text style={styles.title}>{product.name}</Text>

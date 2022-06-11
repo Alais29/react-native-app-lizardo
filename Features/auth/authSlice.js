@@ -1,42 +1,43 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { signIn, signUp, updateProfile } from "../../Services/auth";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
+import { signIn, signUp, updateProfile } from '../../Services/auth';
 
 const initialState = {
   user: {
-    userID: "",
-    email: "",
-    token: "",
-    displayName: "",
-    photoUrl: "",
-    photoDownloadUrl: "",
+    userID: '',
+    email: '',
+    token: '',
+    displayName: '',
+    photoUrl: '',
+    photoDownloadUrl: '',
   },
   loading: false,
-  error: "",
+  error: '',
 };
 
-export const signUpAsync = createAsyncThunk("auth/signUp", async (userInfo) => {
+export const signUpAsync = createAsyncThunk('auth/signUp', async userInfo => {
   const response = await signUp(userInfo);
   return response;
 });
 
-export const signInAsync = createAsyncThunk("auth/signIn", async (userInfo) => {
+export const signInAsync = createAsyncThunk('auth/signIn', async userInfo => {
   const response = await signIn(userInfo);
   return response;
 });
 
 export const updateProfileAsync = createAsyncThunk(
-  "auth/updateProfile",
-  async (userInfo) => {
+  'auth/updateProfile',
+  async userInfo => {
     const response = await updateProfile(userInfo);
     return response;
-  }
+  },
 );
 
 export const authSlice = createSlice({
-  name: "auth",
+  name: 'auth',
   initialState,
   reducers: {
-    logout: (state) => {
+    logout: state => {
       state.user = initialState.user;
     },
     setPhotoDownloadUrl: (state, { payload }) => {
@@ -44,7 +45,7 @@ export const authSlice = createSlice({
     },
   },
   extraReducers: {
-    [signUpAsync.pending]: (state) => {
+    [signUpAsync.pending]: state => {
       state.loading = true;
     },
     [signUpAsync.fulfilled]: (state, { payload }) => {
@@ -52,7 +53,7 @@ export const authSlice = createSlice({
       if (payload.data?.error) {
         state.error = payload.data?.error.message;
       } else {
-        state.error = "";
+        state.error = '';
         state.user.userID = payload.localId;
         state.user.email = payload.email;
         state.user.token = payload.idToken;
@@ -62,7 +63,7 @@ export const authSlice = createSlice({
       state.loading = false;
       state.error = payload.error.message;
     },
-    [signInAsync.pending]: (state) => {
+    [signInAsync.pending]: state => {
       state.loading = true;
     },
     [signInAsync.fulfilled]: (state, { payload }) => {
@@ -70,7 +71,7 @@ export const authSlice = createSlice({
       if (payload.data?.error) {
         state.error = payload.data?.error.message;
       } else {
-        state.error = "";
+        state.error = '';
         state.user.userID = payload.localId;
         state.user.email = payload.email;
         state.user.token = payload.idToken;
@@ -82,7 +83,7 @@ export const authSlice = createSlice({
       state.loading = false;
       state.error = payload.error.message;
     },
-    [updateProfileAsync.pending]: (state) => {
+    [updateProfileAsync.pending]: state => {
       state.loading = true;
     },
     [updateProfileAsync.fulfilled]: (state, { payload }) => {
@@ -90,7 +91,7 @@ export const authSlice = createSlice({
       if (payload.data?.error) {
         state.error = payload.data?.error.message;
       } else {
-        state.error = "";
+        state.error = '';
         state.user.displayName = payload.displayName;
         state.user.photoUrl = payload.photoUrl;
       }

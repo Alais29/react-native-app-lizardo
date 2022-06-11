@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { View } from "react-native";
-import { Text, useTheme, Avatar, IconButton } from "react-native-paper";
-import { useSelector, useDispatch } from "react-redux";
-import { getStorage, ref, getDownloadURL } from "firebase/storage";
-import { setPhotoDownloadUrl } from "../../Features/auth/authSlice";
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
+import React, { useState } from 'react';
+import { View } from 'react-native';
+import { Text, useTheme, Avatar, IconButton } from 'react-native-paper';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { styles } from "./styles";
+import { setPhotoDownloadUrl } from '../../Features/auth/authSlice';
+import { styles } from './styles';
 
 const Header = ({ onPressSearch = () => {}, showSearch = true }) => {
   const { colors } = useTheme();
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
 
@@ -55,7 +55,7 @@ const Header = ({ onPressSearch = () => {}, showSearch = true }) => {
           icon="shopping-outline"
           color={colors.header}
           size={24}
-          onPress={() => console.log("Pressed")}
+          onPress={() => console.log('Pressed')}
         />
       </View>
     </View>

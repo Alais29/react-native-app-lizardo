@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { FlatList, useWindowDimensions } from "react-native";
-import { useTheme, ActivityIndicator, Searchbar } from "react-native-paper";
-import { isEmpty } from "../../utils/isEmpty";
-import ErrorMessage from "../ErrorMessage";
+import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
+import { FlatList, useWindowDimensions } from 'react-native';
+import { useTheme, ActivityIndicator, Searchbar } from 'react-native-paper';
 
-import { styles } from "./styles";
+import { isEmpty } from '../../utils/isEmpty';
+import ErrorMessage from '../ErrorMessage';
+import { styles } from './styles';
 
 const List = ({
   renderItem,
   data,
   numColumns = 1,
   showSearch = true,
-  searchPlaceholder = "Search",
+  searchPlaceholder = 'Search',
 }) => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [filteredData, setfilteredData] = useState([]);
 
   const { colors } = useTheme();
@@ -25,13 +25,13 @@ const List = ({
   }, [data]);
 
   useEffect(() => {
-    const filteredItems = data.filter((item) =>
-      item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    const filteredItems = data.filter(item =>
+      item.name.toLowerCase().includes(searchQuery.toLowerCase()),
     );
     setfilteredData(filteredItems);
   }, [searchQuery]);
 
-  const onChangeSearch = (query) => setSearchQuery(query);
+  const onChangeSearch = query => setSearchQuery(query);
 
   return (
     <>
@@ -46,20 +46,17 @@ const List = ({
       <FlatList
         data={filteredData}
         renderItem={renderItem}
-        keyExtractor={(item) => item.id}
+        keyExtractor={item => item.id}
         numColumns={numColumns}
         contentContainerStyle={{ ...styles.container, width: width * 0.9 }}
         columnWrapperStyle={
-          numColumns > 1 ? { justifyContent: "space-between" } : null
+          numColumns > 1 ? { justifyContent: 'space-between' } : null
         }
         ListEmptyComponent={
           isEmpty(searchQuery) ? (
-            <ActivityIndicator animating={true} color={colors.surface} />
+            <ActivityIndicator animating color={colors.surface} />
           ) : (
-            <ErrorMessage
-              errorMessage="No items match your search."
-              search={true}
-            />
+            <ErrorMessage errorMessage="No items match your search." search />
           )
         }
       />

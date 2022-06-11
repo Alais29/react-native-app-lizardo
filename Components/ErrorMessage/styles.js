@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   errorTextContainer: {
@@ -6,6 +6,6 @@ export const styles = StyleSheet.create({
     padding: 10,
   },
   errorText: {
-    textAlign: "center",
+    textAlign: 'center',
   },
 });

@@ -1,14 +1,13 @@
-import React from "react";
-import { View } from "react-native";
-import { useTheme } from "react-native-paper";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Feather } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
-import HomeStack from "../../Stacks/Home";
-import SettingsStack from "../../Stacks/Settings";
-import ShopStack from "../../Stacks/Shop";
+import { Feather, Entypo } from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React from 'react';
+import { View } from 'react-native';
+import { useTheme } from 'react-native-paper';
 
-import { styles } from "./styles";
+import HomeStack from '../../Stacks/Home';
+import SettingsStack from '../../Stacks/Settings';
+import ShopStack from '../../Stacks/Shop';
+import { styles } from './styles';
 
 const BottomTabs = createBottomTabNavigator();
 
@@ -22,7 +21,7 @@ const UserLogged = () => {
         tabBarStyle: {
           ...styles.tabBar,
           backgroundColor: colors.surface,
-          borderTopColor: "transparent",
+          borderTopColor: 'transparent',
         },
         unmountOnBlur: true,
       }}

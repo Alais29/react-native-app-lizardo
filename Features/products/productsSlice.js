@@ -1,6 +1,7 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getProducts } from "../../Services/products";
-import { Status } from "../interfaces";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+import { getProducts } from '../../Services/products';
+import { Status } from '../interfaces';
 
 const initialState = {
   items: [],
@@ -8,22 +9,22 @@ const initialState = {
   productsByCategory: [],
   productSelected: {},
   status: Status.idle,
-  error: "",
+  error: '',
 };
 
 export const getProductsAsync = createAsyncThunk(
-  "products/getProducts",
+  'products/getProducts',
   async () => {
     const response = await getProducts();
     return response;
-  }
+  },
 );
 
 export const productsSlice = createSlice({
-  name: "products",
+  name: 'products',
   initialState,
   reducers: {
-    setTopRatedProducts: (state) => {
+    setTopRatedProducts: state => {
       const topRatedGames = [...state.items]
         .sort((a, b) => b.rating - a.rating)
         .slice(0, 6);
@@ -34,13 +35,13 @@ export const productsSlice = createSlice({
     },
     setProductsByCategory: (state, { payload }) => {
       const productsFiltered = state.items.filter(
-        (item) => item.category === payload
+        item => item.category === payload,
       );
       state.productsByCategory = productsFiltered;
     },
   },
   extraReducers: {
-    [getProductsAsync.pending]: (state) => {
+    [getProductsAsync.pending]: state => {
       state.status = Status.loading;
     },
     [getProductsAsync.fulfilled]: (state, { payload }) => {

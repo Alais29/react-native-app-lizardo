@@ -1,16 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { Appearance } from "react-native";
-import { Theme } from "../interfaces";
+import { createSlice } from '@reduxjs/toolkit';
+import { Appearance } from 'react-native';
+
+import { Theme } from '../interfaces';
 
 const initialState = {
   theme: Appearance.getColorScheme(),
 };
 
 export const themeSlice = createSlice({
-  name: "theme",
+  name: 'theme',
   initialState,
   reducers: {
-    changeTheme: (state) => {
+    changeTheme: state => {
       if (state.theme === Theme.dark) {
         state.theme = Theme.light;
       } else {

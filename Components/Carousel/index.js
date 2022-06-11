@@ -1,9 +1,9 @@
-import { useWindowDimensions, View } from "react-native";
-import { Carousel as SnapCarousel } from "react-native-snap-carousel";
-import React, { useRef } from "react";
-import { useTheme, ActivityIndicator } from "react-native-paper";
+import React, { useRef } from 'react';
+import { useWindowDimensions, View } from 'react-native';
+import { useTheme, ActivityIndicator } from 'react-native-paper';
+import { Carousel as SnapCarousel } from 'react-native-snap-carousel';
 
-import { styles } from "./styles";
+import { styles } from './styles';
 
 const Carousel = ({ data, renderItem, itemWidth }) => {
   const { width } = useWindowDimensions();
@@ -20,7 +20,7 @@ const Carousel = ({ data, renderItem, itemWidth }) => {
       firstItem={1}
       ListEmptyComponent={
         <View style={styles.emptyContainer}>
-          <ActivityIndicator animating={true} color={colors.surface} />
+          <ActivityIndicator animating color={colors.surface} />
         </View>
       }
       contentContainerCustomStyle={styles.container}

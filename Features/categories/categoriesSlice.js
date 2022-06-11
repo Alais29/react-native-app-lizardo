@@ -1,24 +1,25 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getCategories } from "../../Services/categories";
-import { Status } from "../interfaces";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+import { getCategories } from '../../Services/categories';
+import { Status } from '../interfaces';
 
 const initialState = {
   items: [],
   categorySelected: {},
   status: Status.idle,
-  error: "",
+  error: '',
 };
 
 export const getCategoriesAsync = createAsyncThunk(
-  "categories/getCategories",
+  'categories/getCategories',
   async () => {
     const response = await getCategories();
     return response;
-  }
+  },
 );
 
 export const categoriesSlice = createSlice({
-  name: "categories",
+  name: 'categories',
   initialState,
   reducers: {
     setCategorySelected: (state, { payload }) => {
@@ -26,7 +27,7 @@ export const categoriesSlice = createSlice({
     },
   },
   extraReducers: {
-    [getCategoriesAsync.pending]: (state) => {
+    [getCategoriesAsync.pending]: state => {
       state.status = Status.loading;
     },
     [getCategoriesAsync.fulfilled]: (state, { payload }) => {

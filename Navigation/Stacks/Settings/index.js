@@ -1,7 +1,8 @@
-import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useTheme } from "react-native-paper";
-import SettingsScreen from "../../../Screens/Settings";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+import { useTheme } from 'react-native-paper';
+
+import SettingsScreen from '../../../Screens/Settings';
 
 const Stack = createNativeStackNavigator();
 
@@ -19,7 +20,7 @@ const SettingsStack = () => {
         //   fontFamily: "Nunito",
         //   fontSize: 25,
         // },
-        headerTitleAlign: "center",
+        headerTitleAlign: 'center',
         // headerRight: () => <LogOutBtn />,
       }}
     >

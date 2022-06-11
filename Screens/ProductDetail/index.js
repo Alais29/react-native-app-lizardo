@@ -1,26 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { View, Image, ScrollView } from "react-native";
-import { useTheme, Chip, Text } from "react-native-paper";
-import { useSelector, useDispatch } from "react-redux";
-import { AntDesign } from "@expo/vector-icons";
-import SelectDropdown from "react-native-select-dropdown";
-import { isEmpty } from "../../utils/isEmpty";
-import { Status } from "../../Features/interfaces";
-import { getCategoriesAsync } from "../../Features/categories/categoriesSlice";
-import ScreenContainer from "../../Components/ScreenContainer";
-import Button from "../../Components/Button";
+import { AntDesign } from '@expo/vector-icons';
+import React, { useEffect, useState } from 'react';
+import { View, Image, ScrollView } from 'react-native';
+import { useTheme, Chip, Text } from 'react-native-paper';
+import SelectDropdown from 'react-native-select-dropdown';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { styles } from "./styles";
-import { colors } from "../../Styles/colors";
+import Button from '../../Components/Button';
+import ScreenContainer from '../../Components/ScreenContainer';
+import { getCategoriesAsync } from '../../Features/categories/categoriesSlice';
+import { Status } from '../../Features/interfaces';
+import { colors } from '../../Styles/colors';
+import { isEmpty } from '../../utils/isEmpty';
+import { styles } from './styles';
 
 const ProductDetailScreen = () => {
   const [platformSelected, setPlatformSelected] = useState({});
   const [category, setCategory] = useState({});
 
-  const { status, items: categories } = useSelector(
-    (state) => state.categories
-  );
-  const { productSelected } = useSelector((state) => state.products);
+  const { status, items: categories } = useSelector(state => state.categories);
+  const { productSelected } = useSelector(state => state.products);
   const { colors: themeColors } = useTheme();
 
   const dispatch = useDispatch();
@@ -34,7 +32,7 @@ const ProductDetailScreen = () => {
   useEffect(() => {
     if (status === Status.success) {
       const productCategory = categories.find(
-        (item) => item.id === productSelected.category
+        item => item.id === productSelected.category,
       );
       setCategory(productCategory);
     }
@@ -49,8 +47,8 @@ const ProductDetailScreen = () => {
       >
         <View
           style={{
-            height: "100%",
-            justifyContent: "space-between",
+            height: '100%',
+            justifyContent: 'space-between',
             flex: 1,
           }}
         >
@@ -137,7 +135,7 @@ const ProductDetailScreen = () => {
                   ${productSelected.price}
                 </Text>
               </View>
-              <Button disabled={isEmpty(platformSelected) ? true : false}>
+              <Button disabled={!!isEmpty(platformSelected)}>
                 <Text style={{ color: themeColors.header }}>Add to Cart</Text>
               </Button>
             </View>

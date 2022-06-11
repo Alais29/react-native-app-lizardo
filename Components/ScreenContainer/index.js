@@ -1,8 +1,8 @@
-import { View } from "react-native";
-import { useTheme } from "react-native-paper";
-import React from "react";
+import React from 'react';
+import { View } from 'react-native';
+import { useTheme } from 'react-native-paper';
 
-import { styles } from "./styles";
+import { styles } from './styles';
 
 const ScreenContainer = ({ children, paddingBottom = true }) => {
   const { colors } = useTheme();

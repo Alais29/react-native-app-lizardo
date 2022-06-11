@@ -5,17 +5,17 @@
  */
 
 export function isEmpty(item) {
-  if (!!item) {
+  if (item) {
     switch (typeof item) {
-      case "string":
-        if (item !== "" && item !== "null" && item !== "undefined") {
+      case 'string':
+        if (item !== '' && item !== 'null' && item !== 'undefined') {
           return false;
         }
         return true;
-      case "number":
+      case 'number':
         return false;
-      case "object":
-        if (JSON.stringify(item) === "{}" || JSON.stringify(item) === "[]") {
+      case 'object':
+        if (JSON.stringify(item) === '{}' || JSON.stringify(item) === '[]') {
           return true;
         }
         return false;

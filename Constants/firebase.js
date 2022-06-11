@@ -1,4 +1,4 @@
-import { FB_DB_URL, FB_API_KEY } from "@env";
+import { FB_DB_URL, FB_API_KEY } from '@env';
 
 export const DB_URL = FB_DB_URL;
 

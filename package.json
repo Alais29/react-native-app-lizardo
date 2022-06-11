@@ -7,7 +7,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "lint": "eslint --ext .js --fix"
   },
   "dependencies": {
     "@react-navigation/bottom-tabs": "^6.3.1",
@@ -38,7 +39,18 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "eslint": "^8.17.0",
+    "eslint-config-universe": "^11.0.0",
+    "prettier": "^2.6.2"
+  },
+  "eslintConfig": {
+    "extends": "universe/native",
+    "settings": {
+      "import/ignore": [
+        "react-native"
+      ]
+    }    
   },
   "private": true
 }

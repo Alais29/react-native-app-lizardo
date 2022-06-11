@@ -1,11 +1,11 @@
-import { View } from "react-native";
-import React from "react";
-import { useTheme, Text } from "react-native-paper";
+import React from 'react';
+import { View } from 'react-native';
+import { useTheme, Text } from 'react-native-paper';
 
-import { styles } from "./styles";
+import { styles } from './styles';
 
 const ErrorMessage = ({
-  errorMessage = "An error occured",
+  errorMessage = 'An error occured',
   search = false,
 }) => {
   const { colors } = useTheme();

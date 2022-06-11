@@ -1,18 +1,18 @@
-import { View, TouchableOpacity } from "react-native";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Surface, Switch, Text } from "react-native-paper";
-import { changeTheme } from "../../Features/theme/themeSlice";
-import { Theme } from "../../Features/interfaces";
-import ScreenContainer from "../../Components/ScreenContainer";
+import React, { useEffect, useState } from 'react';
+import { View, TouchableOpacity } from 'react-native';
+import { Surface, Switch, Text } from 'react-native-paper';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { styles } from "./styles";
-import { logout } from "../../Features/auth/authSlice";
+import ScreenContainer from '../../Components/ScreenContainer';
+import { logout } from '../../Features/auth/authSlice';
+import { Theme } from '../../Features/interfaces';
+import { changeTheme } from '../../Features/theme/themeSlice';
+import { styles } from './styles';
 
 const SettingsScreen = () => {
   const [isSwitchOn, setIsSwitchOn] = useState(false);
 
-  const { theme } = useSelector((state) => state.theme);
+  const { theme } = useSelector(state => state.theme);
 
   const dispatch = useDispatch();
 

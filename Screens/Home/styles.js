@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -6,23 +6,23 @@ export const styles = StyleSheet.create({
   },
   emptyContainerNews: {
     height: 295,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   emptyContainerGames: {
     height: 230,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   gamesContainer: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: 15,
   },
   newsContainer: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
   },
   topProductsContainer: {
-    alignItems: "center",
+    alignItems: 'center',
     flex: 1,
   },
 });

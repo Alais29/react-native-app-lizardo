@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
@@ -16,12 +16,12 @@ export const styles = StyleSheet.create({
   },
   gameInfoContainer: {
     flex: 1,
-    justifyContent: "flex-end",
+    justifyContent: 'flex-end',
     padding: 15,
-    position: "relative",
+    position: 'relative',
   },
   gradient: {
-    position: "absolute",
+    position: 'absolute',
     left: 0,
     right: 0,
     bottom: 0,
@@ -32,19 +32,19 @@ export const styles = StyleSheet.create({
     borderBottomLeftRadius: 8,
   },
   platforms: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   platform: {
     marginRight: 7,
   },
   title: {
-    color: "white",
+    color: 'white',
   },
   ratingContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   rating: {
-    color: "white",
+    color: 'white',
   },
 });

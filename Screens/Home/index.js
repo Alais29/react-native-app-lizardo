@@ -1,22 +1,22 @@
-import { ScrollView, View } from "react-native";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { isEmpty } from "../../utils/isEmpty";
+import React, { useEffect } from 'react';
+import { ScrollView, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+
+import Carousel from '../../Components/Carousel';
+import ErrorMessage from '../../Components/ErrorMessage';
+import Header from '../../Components/Header';
+import NewsItem from '../../Components/List/NewsItem';
+import ProductItem from '../../Components/List/ProductItem';
+import ScreenContainer from '../../Components/ScreenContainer';
+import Title from '../../Components/Title';
+import { Status } from '../../Features/interfaces';
+import { getNewsAsync } from '../../Features/news/newsSlice';
 import {
   getProductsAsync,
   setTopRatedProducts,
-} from "../../Features/products/productsSlice";
-import { getNewsAsync } from "../../Features/news/newsSlice";
-import { Status } from "../../Features/interfaces";
-import ScreenContainer from "../../Components/ScreenContainer";
-import Header from "../../Components/Header";
-import Title from "../../Components/Title";
-import Carousel from "../../Components/Carousel";
-import NewsItem from "../../Components/List/NewsItem";
-import ProductItem from "../../Components/List/ProductItem";
-import ErrorMessage from "../../Components/ErrorMessage";
-
-import { styles } from "./styles";
+} from '../../Features/products/productsSlice';
+import { isEmpty } from '../../utils/isEmpty';
+import { styles } from './styles';
 
 const HomeScreen = ({ navigation }) => {
   const {
@@ -24,12 +24,12 @@ const HomeScreen = ({ navigation }) => {
     error: errorProducts,
     topRatedProducts,
     items,
-  } = useSelector((state) => state.products);
+  } = useSelector(state => state.products);
   const {
     status: statusNews,
     error: errorNews,
     articles,
-  } = useSelector((state) => state.news);
+  } = useSelector(state => state.news);
 
   const dispatch = useDispatch();
 
@@ -53,7 +53,7 @@ const HomeScreen = ({ navigation }) => {
       <Header showSearch={false} />
       <ScrollView
         style={styles.container}
-        contentContainerStyle={{ alignItems: "center" }}
+        contentContainerStyle={{ alignItems: 'center' }}
       >
         <View style={styles.newsContainer}>
           <Title>News</Title>
@@ -74,7 +74,7 @@ const HomeScreen = ({ navigation }) => {
               renderItem={({ item }) => (
                 <ProductItem
                   product={item}
-                  navigate={() => navigation.navigate("ProductHome")}
+                  navigate={() => navigation.navigate('ProductHome')}
                 />
               )}
               itemWidth={180}

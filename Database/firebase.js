@@ -1,4 +1,3 @@
-import { LogBox } from "react-native";
 import {
   FB_API_KEY,
   FB_AUTH_DOMAIN,
@@ -7,7 +6,8 @@ import {
   FB_PROJECT_ID,
   FB_MSG_SENDER_ID,
   FB_APP_ID,
-} from "@env";
+} from '@env';
+import { LogBox } from 'react-native';
 
 export const firebaseConfig = {
   apiKey: FB_API_KEY,

@@ -1,8 +1,9 @@
-import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import AuthMainScreen from "../../../Screens/AuthMain";
-import SignUpLogin from "../../../Screens/SignUp";
-import UpdateProfile from "../../../Screens/UpdateProfile";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from 'react';
+
+import AuthMainScreen from '../../../Screens/AuthMain';
+import SignUpLogin from '../../../Screens/SignUp';
+import UpdateProfile from '../../../Screens/UpdateProfile';
 
 const Stack = createNativeStackNavigator();
 

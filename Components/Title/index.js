@@ -1,8 +1,8 @@
-import { View, Text } from "react-native";
-import { useTheme } from "react-native-paper";
-import React from "react";
+import React from 'react';
+import { View, Text } from 'react-native';
+import { useTheme } from 'react-native-paper';
 
-import { styles } from "./styles";
+import { styles } from './styles';
 
 const Title = ({ children }) => {
   const { colors: colorsTheme } = useTheme();
@@ -23,7 +23,7 @@ const Title = ({ children }) => {
             ...styles.topTriangle,
             backgroundColor: colorsTheme.background,
           }}
-        ></View>
+        />
       </View>
     </View>
   );

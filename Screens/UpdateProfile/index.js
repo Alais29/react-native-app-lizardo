@@ -1,28 +1,28 @@
-import React, { useState } from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
-import { TextInput, useTheme, Text, Modal, Avatar } from "react-native-paper";
-import { useSelector, useDispatch } from "react-redux";
-import { ref, getStorage, uploadBytes } from "firebase/storage";
-import * as ImagePicker from "expo-image-picker";
-import { updateProfileAsync } from "../../Features/auth/authSlice";
-import ScreenContainer from "../../Components/ScreenContainer";
-import Button from "../../Components/Button";
+import * as ImagePicker from 'expo-image-picker';
+import { ref, getStorage, uploadBytes } from 'firebase/storage';
+import React, { useState } from 'react';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { TextInput, useTheme, Text, Modal, Avatar } from 'react-native-paper';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { styles } from "./styles";
+import Button from '../../Components/Button';
+import ScreenContainer from '../../Components/ScreenContainer';
+import { updateProfileAsync } from '../../Features/auth/authSlice';
+import { styles } from './styles';
 
 const UpdateProfile = () => {
   const [visible, setVisible] = useState(false);
-  const [displayName, setDisplayName] = useState("");
-  const [photoUrl, setPhotoUrl] = useState("");
+  const [displayName, setDisplayName] = useState('');
+  const [photoUrl, setPhotoUrl] = useState('');
   const [uploading, setUploading] = useState(false);
 
-  const { user } = useSelector((state) => state.auth);
+  const { user } = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
   const { colors } = useTheme();
 
   const handlePickLibrary = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
+    const result = await ImagePicker.launchImageLibraryAsync({
       allowsEditing: true,
       aspect: [4, 4],
       quality: 0.5,
@@ -37,7 +37,7 @@ const UpdateProfile = () => {
   const getPermission = async () => {
     const { status } = await ImagePicker.getCameraPermissionsAsync();
 
-    if (status !== "granted") {
+    if (status !== 'granted') {
       return false;
     }
     return true;
@@ -58,7 +58,7 @@ const UpdateProfile = () => {
     toggleModal();
   };
 
-  const uploadImageAsync = async (uri) => {
+  const uploadImageAsync = async uri => {
     // Why are we using XMLHttpRequest? See:
     // https://github.com/expo/expo/issues/2402#issuecomment-443726662
     setUploading(true);
@@ -69,17 +69,18 @@ const UpdateProfile = () => {
       };
       xhr.onerror = function (e) {
         console.log(e);
-        reject(new TypeError("Network request failed"));
+        reject(new TypeError('Network request failed'));
       };
-      xhr.responseType = "blob";
-      xhr.open("GET", uri, true);
+      xhr.responseType = 'blob';
+      xhr.open('GET', uri, true);
       xhr.send(null);
     });
 
     const imgUrl = `usersImages/${user.email}`;
 
     const fileRef = ref(getStorage(), imgUrl);
-    const result = await uploadBytes(fileRef, blob);
+    // const result = await uploadBytes(fileRef, blob);
+    await uploadBytes(fileRef, blob);
 
     blob.close();
 
@@ -94,7 +95,7 @@ const UpdateProfile = () => {
         idToken: user.token,
         displayName,
         photoUrl: uploadUrl,
-      })
+      }),
     );
   };
 
@@ -123,7 +124,7 @@ const UpdateProfile = () => {
                 <TouchableOpacity onPress={toggleModal}>
                   <Avatar.Image
                     size={50}
-                    source={require("../../assets/plus.png")}
+                    source={require('../../assets/plus.png')}
                     style={{ backgroundColor: colors.background }}
                   />
                 </TouchableOpacity>
@@ -134,7 +135,7 @@ const UpdateProfile = () => {
                 label="Name"
                 onChangeText={setDisplayName}
                 value={displayName}
-                dense={true}
+                dense
                 theme={{ colors: { text: colors.header } }}
               />
             </View>
