@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
   inputContainer: {
     flexGrow: 1,
     paddingLeft: 10,
+    marginBottom: 10,
   },
   modalContainerStyle: {
     backgroundColor: "white",

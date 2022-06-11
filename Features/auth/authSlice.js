@@ -45,8 +45,8 @@ export const authSlice = createSlice({
     },
     [signUpAsync.fulfilled]: (state, { payload }) => {
       state.loading = false;
-      if (payload.error) {
-        state.error = payload.error.message;
+      if (payload.data?.error) {
+        state.error = payload.data?.error.message;
       } else {
         state.error = "";
         state.user.userID = payload.localId;
@@ -63,8 +63,8 @@ export const authSlice = createSlice({
     },
     [signInAsync.fulfilled]: (state, { payload }) => {
       state.loading = false;
-      if (payload.error) {
-        state.error = payload.error.message;
+      if (payload.data?.error) {
+        state.error = payload.data?.error.message;
       } else {
         state.error = "";
         state.user.userID = payload.localId;
@@ -83,8 +83,8 @@ export const authSlice = createSlice({
     },
     [updateProfileAsync.fulfilled]: (state, { payload }) => {
       state.loading = false;
-      if (payload.error) {
-        state.error = payload.error.message;
+      if (payload.data?.error) {
+        state.error = payload.data?.error.message;
       } else {
         state.error = "";
         state.user.displayName = payload.displayName;

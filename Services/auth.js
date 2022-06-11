@@ -48,6 +48,7 @@ export const updateProfile = async (userInfo) => {
     });
     return response.data;
   } catch (e) {
+    console.log(e);
     throw new Error(
       "There was a problem updating your profile. Please try again later."
     );
