@@ -8,6 +8,7 @@ const initialState = {
     token: "",
     displayName: "",
     photoUrl: "",
+    photoDownloadUrl: "",
   },
   loading: false,
   error: "",
@@ -37,6 +38,9 @@ export const authSlice = createSlice({
   reducers: {
     logout: (state) => {
       state.user = initialState.user;
+    },
+    setPhotoDownloadUrl: (state, { payload }) => {
+      state.user.photoDownloadUrl = payload;
     },
   },
   extraReducers: {
@@ -88,7 +92,7 @@ export const authSlice = createSlice({
       } else {
         state.error = "";
         state.user.displayName = payload.displayName;
-        state.user.photoUrl = payload.profilePicture;
+        state.user.photoUrl = payload.photoUrl;
       }
     },
     [updateProfileAsync.rejected]: (state, { payload }) => {
@@ -98,6 +102,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { logout } = authSlice.actions;
+export const { logout, setPhotoDownloadUrl } = authSlice.actions;
 
 export default authSlice.reducer;

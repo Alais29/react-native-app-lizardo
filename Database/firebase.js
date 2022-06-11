@@ -1,32 +1,22 @@
-import { getApps, initializeApp } from "firebase/app";
-import { getStorage } from "firebase/storage";
-// import Config from "react-native-config";
+import { LogBox } from "react-native";
+import {
+  FB_API_KEY,
+  FB_AUTH_DOMAIN,
+  FB_DB_URL,
+  FB_STORAGE_BUCKET,
+  FB_PROJECT_ID,
+  FB_MSG_SENDER_ID,
+  FB_APP_ID,
+} from "@env";
 
-console.log("FB_STORAGE_BUCKET", {
-  apiKey: process.env.FB_API_KEY,
-  authDomain: process.env.FB_AUTH_DOMAIN,
-  databaseURL: process.env.FB_DB_URL,
-  storageBucket: process.env.FB_STORAGE_BUCKET,
-  projectId: process.env.FB_PROJECT_ID,
-  messagingSenderId: process.env.FB_MSG_SENDER_ID,
-  appId: process.env.FB_APP_ID,
-});
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: process.env.FB_API_KEY,
-  authDomain: process.env.FB_AUTH_DOMAIN,
-  databaseURL: process.env.FB_DB_URL,
-  storageBucket: process.env.FB_STORAGE_BUCKET,
-  projectId: process.env.FB_PROJECT_ID,
-  messagingSenderId: process.env.FB_MSG_SENDER_ID,
-  appId: process.env.FB_APP_ID,
+export const firebaseConfig = {
+  apiKey: FB_API_KEY,
+  authDomain: FB_AUTH_DOMAIN,
+  databaseURL: FB_DB_URL,
+  storageBucket: FB_STORAGE_BUCKET,
+  projectId: FB_PROJECT_ID,
+  messagingSenderId: FB_MSG_SENDER_ID,
+  appId: FB_APP_ID,
 };
 
-if (!getApps().length) {
-  initializeApp(firebaseConfig);
-}
-
-// Initialize Firebase
-// const firebaseApp = initializeApp(firebaseConfig);
-// export const fbStorage = getStorage(firebaseApp);
+LogBox.ignoreLogs([`Setting a timer for a long period`]);

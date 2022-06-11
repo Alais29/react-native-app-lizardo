@@ -1,22 +1,38 @@
+import React, { useState } from "react";
 import { View } from "react-native";
 import { Text, useTheme, Avatar, IconButton } from "react-native-paper";
-
-import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getStorage, ref, getDownloadURL } from "firebase/storage";
+import { setPhotoDownloadUrl } from "../../Features/auth/authSlice";
 
 import { styles } from "./styles";
-import { useSelector } from "react-redux";
 
 const Header = ({ onPressSearch = () => {}, showSearch = true }) => {
   const { colors } = useTheme();
   const { user } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+
+  useState(() => {
+    if (!user.downloadUrl) {
+      (async () => {
+        const imgPathReference = ref(getStorage(), user.photoUrl);
+        const downloadUrl = await getDownloadURL(imgPathReference);
+        dispatch(setPhotoDownloadUrl(downloadUrl));
+      })();
+    }
+  }, [user.downloadUrl]);
+
   return (
     <View style={styles.container}>
       <View style={styles.user}>
-        <Avatar.Image
-          size={50}
-          source={{ uri: user.photoUrl }}
-          style={{ backgroundColor: colors.background }}
-        />
+        {user.photoDownloadUrl ? (
+          <Avatar.Image
+            size={50}
+            source={{ uri: user.photoDownloadUrl }}
+            style={{ backgroundColor: colors.background }}
+          />
+        ) : null}
         <View style={styles.userInfo}>
           <Text style={{ ...styles.title, color: colors.header }}>
             Hi, {user.displayName}

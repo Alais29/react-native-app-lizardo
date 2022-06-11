@@ -2,15 +2,8 @@ import React, { useState } from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { TextInput, useTheme, Text, Modal, Avatar } from "react-native-paper";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  ref,
-  uploadBytesResumable,
-  getDownloadURL,
-  getStorage,
-} from "firebase/storage";
+import { ref, getStorage, uploadBytes } from "firebase/storage";
 import * as ImagePicker from "expo-image-picker";
-import renamePathAndMove from "../../utils/renamePathAndMove";
-import { fbStorage } from "../../Database/firebase";
 import { updateProfileAsync } from "../../Features/auth/authSlice";
 import ScreenContainer from "../../Components/ScreenContainer";
 import Button from "../../Components/Button";
@@ -20,9 +13,8 @@ import { styles } from "./styles";
 const UpdateProfile = () => {
   const [visible, setVisible] = useState(false);
   const [displayName, setDisplayName] = useState("");
-  const [photo, setPhoto] = useState(null);
   const [photoUrl, setPhotoUrl] = useState("");
-  const [fbPhotoUrl, setFbPhotoUrl] = useState("");
+  const [uploading, setUploading] = useState(false);
 
   const { user } = useSelector((state) => state.auth);
 
@@ -31,15 +23,13 @@ const UpdateProfile = () => {
 
   const handlePickLibrary = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       aspect: [4, 4],
-      quality: 1,
+      quality: 0.5,
     });
 
     if (!result.cancelled) {
       setPhotoUrl(result.uri);
-      setPhoto(result);
       toggleModal();
     }
   };
@@ -62,16 +52,16 @@ const UpdateProfile = () => {
     const image = await ImagePicker.launchCameraAsync({
       allowsEditing: true,
       aspect: [4, 4],
-      quality: 0.8,
+      quality: 0.5,
     });
     setPhotoUrl(image.uri);
-    setPhoto(image);
     toggleModal();
   };
 
   const uploadImageAsync = async (uri) => {
     // Why are we using XMLHttpRequest? See:
     // https://github.com/expo/expo/issues/2402#issuecomment-443726662
+    setUploading(true);
     const blob = await new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.onload = function () {
@@ -86,41 +76,26 @@ const UpdateProfile = () => {
       xhr.send(null);
     });
 
-    const fileRef = ref(getStorage(), user.email);
+    const imgUrl = `usersImages/${user.email}`;
+
+    const fileRef = ref(getStorage(), imgUrl);
     const result = await uploadBytes(fileRef, blob);
 
-    // We're done with the blob, close and release it
     blob.close();
 
-    return await getDownloadURL(fileRef);
+    return imgUrl;
   };
 
   const handleUpdate = async () => {
-    // const path = await renamePathAndMove(photoUrl);
-
     const uploadUrl = await uploadImageAsync(photoUrl);
-    setFbPhotoUrl(uploadUrl);
-
-    console.log("uploadUrl", uploadUrl);
-
-    // const storageRef = ref(fbStorage, `images/users/${user.email}.jpg`);
-    // const uploadTask = uploadBytesResumable(storageRef, photo);
-    // uploadTask.on(
-    //   "state_changed",
-    //   () => {},
-    //   (error) => console.log(error),
-    //   () => {
-    //     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-    //       console.log("File available at", downloadURL);
-    //       setFbPhotoUrl(downloadURL);
-    //     });
-    //   }
-    // );
-
-    // console.log({ idToken: user.token, displayName, photoUrl: fbPhotoUrl });
-    // dispatch(
-    //   updateProfileAsync({ idToken: user.token, displayName, photoUrl })
-    // );
+    setUploading(false);
+    dispatch(
+      updateProfileAsync({
+        idToken: user.token,
+        displayName,
+        photoUrl: uploadUrl,
+      })
+    );
   };
 
   const toggleModal = () => {
@@ -167,7 +142,7 @@ const UpdateProfile = () => {
           <Button
             onPress={handleUpdate}
             color="surface"
-            disabled={!displayName || !photoUrl}
+            disabled={!displayName || !photoUrl || uploading}
           >
             <Text>Confirm</Text>
           </Button>
