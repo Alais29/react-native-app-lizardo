@@ -2,6 +2,7 @@ import { Formik } from 'formik';
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { TextInput, Text, useTheme, HelperText } from 'react-native-paper';
+import Toast from 'react-native-toast-message';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '../../Components/Button';
@@ -21,13 +22,20 @@ const SignUpLogin = ({ navigation, route }) => {
   const dispatch = useDispatch();
   const { to } = route.params;
 
-  const handleSignUp = async values => {
+  const handleSignInUp = async values => {
     if (to === 'signup') {
       try {
         await dispatch(signUpAsync(values)).unwrap();
         navigation.navigate('UpdateProfile');
-      } catch (error) {
-        console.log(error);
+      } catch (e) {
+        Toast.show({
+          type: 'error',
+          text1: 'Error',
+          text2:
+            e.error.message === 'EMAIL_EXISTS'
+              ? "There's already an account using that email."
+              : 'There was an issue signing you up. Please try later.',
+        });
       }
     } else {
       try {
@@ -35,8 +43,26 @@ const SignUpLogin = ({ navigation, route }) => {
         if (!user.displayName) {
           navigation.navigate('UpdateProfile');
         }
-      } catch (error) {
-        console.log(error);
+      } catch (e) {
+        let text = '';
+        switch (e.error.message) {
+          case 'EMAIL_NOT_FOUND':
+          case 'INVALID_PASSWORD':
+            text =
+              'Email or password are incorrect, please verify and try again.';
+            break;
+          case 'USER_DISABLED':
+            text = 'This user has been disabled';
+            break;
+          default:
+            text = 'There was an issue signing you in. Please try again later.';
+            break;
+        }
+        Toast.show({
+          type: 'error',
+          text1: 'Error',
+          text2: text,
+        });
       }
     }
   };
@@ -54,7 +80,7 @@ const SignUpLogin = ({ navigation, route }) => {
             {to === 'signup' ? 'Sign Up' : 'Log In'}
           </Text>
           <Formik
-            onSubmit={handleSignUp}
+            onSubmit={handleSignInUp}
             initialValues={initialValues}
             validationSchema={
               to === 'signup' ? signupValidationSchema : signinValidationSchema

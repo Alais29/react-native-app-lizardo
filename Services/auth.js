@@ -7,53 +7,32 @@ import {
 } from '../Constants/firebase';
 
 export const signUp = async userInfo => {
-  try {
-    const { email, password } = userInfo;
-    const response = await axios.post(AUTH_SIGNUP, {
-      email,
-      password,
-      returnSecureToken: true,
-    });
-    return response.data;
-  } catch (e) {
-    console.log(e);
-    throw new Error(
-      'There was a problem signing you up. Please try again later.',
-    );
-  }
+  const { email, password } = userInfo;
+  const response = await axios.post(AUTH_SIGNUP, {
+    email,
+    password,
+    returnSecureToken: true,
+  });
+  return response.data;
 };
 
 export const signIn = async userInfo => {
-  try {
-    const { email, password } = userInfo;
-    const response = await axios.post(AUTH_SIGNIN, {
-      email,
-      password,
-      returnSecureToken: true,
-    });
-    return response.data;
-  } catch (e) {
-    console.log(e);
-    throw new Error(
-      'There was a problem signing you in. Please try again later.',
-    );
-  }
+  const { email, password } = userInfo;
+  const response = await axios.post(AUTH_SIGNIN, {
+    email,
+    password,
+    returnSecureToken: true,
+  });
+  return response.data;
 };
 
 export const updateProfile = async userInfo => {
-  try {
-    const { idToken, displayName, photoUrl } = userInfo;
-    const response = await axios.post(UPDATE_PROFILE, {
-      idToken,
-      displayName,
-      photoUrl,
-      returnSecureToken: true,
-    });
-    return response.data;
-  } catch (e) {
-    console.log(e);
-    throw new Error(
-      'There was a problem updating your profile. Please try again later.',
-    );
-  }
+  const { idToken, displayName, photoUrl } = userInfo;
+  const response = await axios.post(UPDATE_PROFILE, {
+    idToken,
+    displayName,
+    photoUrl,
+    returnSecureToken: true,
+  });
+  return response.data;
 };

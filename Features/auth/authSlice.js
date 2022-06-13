@@ -15,21 +15,40 @@ const initialState = {
   error: '',
 };
 
-export const signUpAsync = createAsyncThunk('auth/signUp', async userInfo => {
-  const response = await signUp(userInfo);
-  return response;
-});
+export const signUpAsync = createAsyncThunk(
+  'auth/signUp',
+  async (userInfo, { rejectWithValue }) => {
+    try {
+      const response = await signUp(userInfo);
+      return response;
+    } catch (error) {
+      console.log(error);
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
 
-export const signInAsync = createAsyncThunk('auth/signIn', async userInfo => {
-  const response = await signIn(userInfo);
-  return response;
-});
+export const signInAsync = createAsyncThunk(
+  'auth/signIn',
+  async (userInfo, { rejectWithValue }) => {
+    try {
+      const response = await signIn(userInfo);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  },
+);
 
 export const updateProfileAsync = createAsyncThunk(
   'auth/updateProfile',
-  async userInfo => {
-    const response = await updateProfile(userInfo);
-    return response;
+  async (userInfo, { rejectWithValue }) => {
+    try {
+      const response = await updateProfile(userInfo);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   },
 );
 
