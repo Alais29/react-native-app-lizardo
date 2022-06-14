@@ -6,7 +6,7 @@ import { styles } from './styles';
 
 const ErrorMessage = ({
   errorMessage = 'An error occured',
-  search = false,
+  showTryLaterMsg = false,
 }) => {
   const { colors } = useTheme();
   return (
@@ -17,7 +17,7 @@ const ErrorMessage = ({
       }}
     >
       <Text style={styles.errorText}>{errorMessage}</Text>
-      {!search ? (
+      {showTryLaterMsg ? (
         <Text style={styles.errorText}>Please try again later</Text>
       ) : null}
     </View>

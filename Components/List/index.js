@@ -48,7 +48,11 @@ const List = ({
         renderItem={renderItem}
         keyExtractor={item => item.id}
         numColumns={numColumns}
-        contentContainerStyle={{ ...styles.container, width: width * 0.9 }}
+        contentContainerStyle={{
+          ...styles.container,
+          width: width * 0.9,
+          justifyContent: filteredData.length !== 0 ? 'flex-start' : 'center',
+        }}
         columnWrapperStyle={
           numColumns > 1 ? { justifyContent: 'space-between' } : null
         }
@@ -56,7 +60,7 @@ const List = ({
           isEmpty(searchQuery) ? (
             <ActivityIndicator animating color={colors.surface} />
           ) : (
-            <ErrorMessage errorMessage="No items match your search." search />
+            <ErrorMessage errorMessage="No items match your search." />
           )
         }
       />

@@ -63,7 +63,7 @@ const HomeScreen = ({ navigation }) => {
               renderItem={({ item }) => <NewsItem article={item} />}
             />
           ) : (
-            <ErrorMessage errorMessage={errorNews} />
+            <ErrorMessage errorMessage={errorNews} showTryLaterMsg />
           )}
         </View>
         <View style={styles.gamesContainer}>
@@ -80,7 +80,7 @@ const HomeScreen = ({ navigation }) => {
               itemWidth={180}
             />
           ) : (
-            <ErrorMessage errorMessage={errorProducts} />
+            <ErrorMessage errorMessage={errorProducts} showTryLaterMsg />
           )}
         </View>
       </ScrollView>

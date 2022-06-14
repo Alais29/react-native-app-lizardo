@@ -4,6 +4,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { useTheme } from 'react-native-paper';
 
+import CartStack from '../../Stacks/Cart';
 import HomeStack from '../../Stacks/Home';
 import SettingsStack from '../../Stacks/Settings';
 import ShopStack from '../../Stacks/Shop';
@@ -57,6 +58,24 @@ const UserLogged = () => {
                 }}
               >
                 <Entypo name="shop" size={24} color={colors.text} />
+              </View>
+            );
+          },
+        }}
+      />
+      <BottomTabs.Screen
+        name="CartTab"
+        component={CartStack}
+        options={{
+          tabBarIcon: ({ focused }) => {
+            return (
+              <View
+                style={{
+                  ...styles.item,
+                  borderTopColor: focused ? colors.primary : colors.surface,
+                }}
+              >
+                <Feather name="shopping-bag" size={24} color={colors.text} />
               </View>
             );
           },

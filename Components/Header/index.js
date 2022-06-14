@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 import React, { useState } from 'react';
 import { View } from 'react-native';
@@ -7,10 +8,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setPhotoDownloadUrl } from '../../Features/auth/authSlice';
 import { styles } from './styles';
 
-const Header = ({ onPressSearch = () => {}, showSearch = true }) => {
+const Header = () => {
   const { colors } = useTheme();
   const { user } = useSelector(state => state.auth);
-
+  const navigation = useNavigation();
   const dispatch = useDispatch();
 
   useState(() => {
@@ -43,19 +44,11 @@ const Header = ({ onPressSearch = () => {}, showSearch = true }) => {
         </View>
       </View>
       <View style={styles.icons}>
-        {showSearch && (
-          <IconButton
-            icon="magnify"
-            color={colors.header}
-            size={24}
-            onPress={onPressSearch}
-          />
-        )}
         <IconButton
           icon="shopping-outline"
           color={colors.header}
           size={24}
-          onPress={() => console.log('Pressed')}
+          onPress={() => navigation.navigate('CartTab')}
         />
       </View>
     </View>

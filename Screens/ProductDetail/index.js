@@ -3,10 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { View, Image, ScrollView } from 'react-native';
 import { useTheme, Chip, Text } from 'react-native-paper';
 import SelectDropdown from 'react-native-select-dropdown';
+import Toast from 'react-native-toast-message';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Button from '../../Components/Button';
 import ScreenContainer from '../../Components/ScreenContainer';
+import { addItem } from '../../Features/cart/cartSlice';
 import { getCategoriesAsync } from '../../Features/categories/categoriesSlice';
 import { Status } from '../../Features/interfaces';
 import { colors } from '../../Styles/colors';
@@ -37,6 +39,16 @@ const ProductDetailScreen = () => {
       setCategory(productCategory);
     }
   }, [categories]);
+
+  const handleAddToCart = () => {
+    dispatch(
+      addItem({ ...productSelected, platformSelected: platformSelected.name }),
+    );
+    Toast.show({
+      type: 'success',
+      text1: 'Product added to cart',
+    });
+  };
 
   return (
     <ScreenContainer>
@@ -135,7 +147,10 @@ const ProductDetailScreen = () => {
                   ${productSelected.price}
                 </Text>
               </View>
-              <Button disabled={!!isEmpty(platformSelected)}>
+              <Button
+                disabled={!!isEmpty(platformSelected)}
+                onPress={handleAddToCart}
+              >
                 <Text style={{ color: themeColors.header }}>Add to Cart</Text>
               </Button>
             </View>

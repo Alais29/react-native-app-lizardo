@@ -51,6 +51,14 @@
       "import/ignore": [
         "react-native"
       ]
+    },
+    "rules": {
+        "prettier/prettier": [
+            "warn",
+            {
+                "endOfLine": "auto"
+            }
+        ]
     }
   },
   "private": true

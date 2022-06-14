@@ -34,7 +34,7 @@ const ProductsScreen = ({ navigation }) => {
             />
           </>
         ) : (
-          <ErrorMessage errorMessage={error} />
+          <ErrorMessage errorMessage={error} showTryLaterMsg />
         )}
       </View>
     </ScreenContainer>
