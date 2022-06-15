@@ -11,7 +11,7 @@ import ScreenContainer from '../../Components/ScreenContainer';
 import { isEmpty } from '../../utils/isEmpty';
 import { styles } from './styles';
 
-const CartScreen = () => {
+const CartScreen = ({ navigation }) => {
   const { products } = useSelector(state => state.cart);
 
   const { colors } = useTheme();
@@ -46,8 +46,11 @@ const CartScreen = () => {
               <Text style={{ ...styles.totalPrice, color: colors.header }}>
                 Total: ${total}
               </Text>
-              <Button color="surface">
-                <Text>Finish Order</Text>
+              <Button
+                color="surface"
+                onPress={() => navigation.navigate('Addresses')}
+              >
+                <Text>Proceed to purchase</Text>
               </Button>
             </View>
           </>
