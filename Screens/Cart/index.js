@@ -28,14 +28,14 @@ const CartScreen = ({ navigation }) => {
         ) : (
           <>
             <List
+              data={products}
+              showSearch={false}
               renderItem={({ item, index }) => (
                 <CartItem
                   item={item}
                   isLastItem={index === products.length - 1}
                 />
               )}
-              data={products}
-              showSearch={false}
             />
             <View
               style={{

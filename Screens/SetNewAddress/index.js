@@ -14,7 +14,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../Components/Button';
 import ErrorMessage from '../../Components/ErrorMessage';
 import ScreenContainer from '../../Components/ScreenContainer';
-import { addAddress } from '../../Features/addresses/addressesSlice';
+import {
+  addAddress,
+  addAddressAsync,
+} from '../../Features/addresses/addressesSlice';
 import { getInitialRegion } from '../../utils/getMapInitialLocation';
 import { isEmpty } from '../../utils/isEmpty';
 import { styles } from './styles';
@@ -77,14 +80,14 @@ const SetNewAddressScreen = ({ navigation }) => {
   };
 
   const handleSaveAddress = () => {
-    dispatch(
-      addAddress({
-        id: Date.now(),
-        user: user.userID,
-        name,
-        address,
-      }),
-    );
+    const newAddress = {
+      id: Date.now(),
+      userid: user.userID,
+      name,
+      address,
+    };
+    dispatch(addAddressAsync(newAddress));
+    dispatch(addAddress(newAddress));
     navigation.navigate('Addresses');
   };
 

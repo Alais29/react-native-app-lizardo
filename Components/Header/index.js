@@ -15,7 +15,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   useState(() => {
-    if (!user.downloadUrl) {
+    if (!user.photoDownloadUrl) {
       (async () => {
         const imgPathReference = ref(getStorage(), user.photoUrl);
         const downloadUrl = await getDownloadURL(imgPathReference);

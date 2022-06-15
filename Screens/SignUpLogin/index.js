@@ -104,7 +104,10 @@ const SignUpLogin = ({ navigation, route }) => {
                   value={values.email}
                   error={errors.email}
                   dense
-                  theme={{ colors: { text: colors.header } }}
+                  theme={{
+                    colors: { text: colors.header, placeholder: colors.header },
+                  }}
+                  underlineColor={colors.surface}
                 />
                 <HelperText type="error" visible={errors.email}>
                   {errors.email}
@@ -117,7 +120,10 @@ const SignUpLogin = ({ navigation, route }) => {
                   error={errors.password}
                   secureTextEntry
                   dense
-                  theme={{ colors: { text: colors.header } }}
+                  theme={{
+                    colors: { text: colors.header, placeholder: colors.header },
+                  }}
+                  underlineColor={colors.surface}
                 />
                 <HelperText type="error" visible={errors.password}>
                   {errors.password}
@@ -132,7 +138,13 @@ const SignUpLogin = ({ navigation, route }) => {
                       error={errors.confirmPassword}
                       secureTextEntry
                       dense
-                      theme={{ colors: { text: colors.header } }}
+                      theme={{
+                        colors: {
+                          text: colors.header,
+                          placeholder: colors.header,
+                        },
+                      }}
+                      underlineColor={colors.surface}
                     />
                     <HelperText type="error" visible={errors.confirmPassword}>
                       {errors.confirmPassword}

@@ -28,11 +28,11 @@ const CategoriesScreen = ({ navigation }) => {
         {isEmpty(error) ? (
           <>
             <List
+              data={items}
+              searchPlaceholder="Search Categories"
               renderItem={({ item }) => (
                 <CategoryItem category={item} navigation={navigation} />
               )}
-              data={items}
-              searchPlaceholder="Search Categories"
             />
           </>
         ) : (

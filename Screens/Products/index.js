@@ -20,6 +20,9 @@ const ProductsScreen = ({ navigation }) => {
         {isEmpty(error) ? (
           <>
             <List
+              data={productsByCategory}
+              numColumns={2}
+              searchPlaceholder="Search Games"
               renderItem={({ item }) => (
                 <ProductItem
                   product={item}
@@ -28,9 +31,6 @@ const ProductsScreen = ({ navigation }) => {
                   height={width * 0.42 * 1.3}
                 />
               )}
-              data={productsByCategory}
-              numColumns={2}
-              searchPlaceholder="Search Games"
             />
           </>
         ) : (

@@ -4,7 +4,9 @@ import { Surface, Switch, Text } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';
 
 import ScreenContainer from '../../Components/ScreenContainer';
+import { resetAddresses } from '../../Features/addresses/addressesSlice';
 import { logout } from '../../Features/auth/authSlice';
+import { emptyCart } from '../../Features/cart/cartSlice';
 import { Theme } from '../../Features/interfaces';
 import { changeTheme } from '../../Features/theme/themeSlice';
 import { styles } from './styles';
@@ -27,6 +29,8 @@ const SettingsScreen = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    dispatch(emptyCart());
+    dispatch(resetAddresses());
   };
 
   return (
