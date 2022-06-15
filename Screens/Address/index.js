@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { List as ListPaper, useTheme, Text } from 'react-native-paper';
 import { useDispatch, useSelector } from 'react-redux';

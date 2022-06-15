@@ -1,10 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  addresses: [
-    { id: 1, name: 'Home', address: 'Herrera 773' },
-    { id: 2, name: 'Work', address: 'Test address 123' },
-  ],
+  addresses: [],
   selectedAddress: {},
   loading: false,
   error: '',
@@ -14,6 +11,9 @@ export const addressesSlice = createSlice({
   name: 'address',
   initialState,
   reducers: {
+    addAddress: (state, { payload }) => {
+      state.addresses.push(payload);
+    },
     selectAddress: (state, { payload }) => {
       state.selectedAddress = payload;
     },
@@ -21,6 +21,6 @@ export const addressesSlice = createSlice({
   extraReducers: {},
 });
 
-export const { selectAddress } = addressesSlice.actions;
+export const { selectAddress, addAddress } = addressesSlice.actions;
 
 export default addressesSlice.reducer;

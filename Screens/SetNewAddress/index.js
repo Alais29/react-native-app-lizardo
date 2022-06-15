@@ -1,22 +1,35 @@
 import { GOOGLE_API_KEY } from '@env';
 import * as Location from 'expo-location';
 import React, { useEffect, useState } from 'react';
-import { View, Text, Dimensions } from 'react-native';
+import { View, Dimensions } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
-import { ActivityIndicator, useTheme } from 'react-native-paper';
+import {
+  ActivityIndicator,
+  useTheme,
+  Text,
+  TextInput,
+} from 'react-native-paper';
+import { useDispatch, useSelector } from 'react-redux';
 
+import Button from '../../Components/Button';
+import ErrorMessage from '../../Components/ErrorMessage';
 import ScreenContainer from '../../Components/ScreenContainer';
+import { addAddress } from '../../Features/addresses/addressesSlice';
 import { getInitialRegion } from '../../utils/getMapInitialLocation';
 import { isEmpty } from '../../utils/isEmpty';
 import { styles } from './styles';
 
-const SetNewAddressScreen = () => {
+const SetNewAddressScreen = ({ navigation }) => {
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
   const [initialRegion, setInitialRegion] = useState({});
   const [location, setLocation] = useState({ lat: '', lng: '' });
   const [errorMsg, setErrorMsg] = useState(null);
-  const [address, setAddress] = useState({});
+
+  const { user } = useSelector(state => state.auth);
 
   const { colors } = useTheme();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
@@ -26,7 +39,6 @@ const SetNewAddressScreen = () => {
         return;
       }
       const location = await Location.getCurrentPositionAsync({});
-      console.log('map location', location);
 
       const mapInitialRegion = getInitialRegion(
         location.coords.latitude,
@@ -61,37 +73,80 @@ const SetNewAddressScreen = () => {
     );
     const reverseGeocode = await response.json();
     const formattedAddress = reverseGeocode.results[0].formatted_address;
-    setAddress({ ...address, address: formattedAddress });
+    setAddress(formattedAddress);
+  };
+
+  const handleSaveAddress = () => {
+    dispatch(
+      addAddress({
+        id: Date.now(),
+        user: user.userID,
+        name,
+        address,
+      }),
+    );
+    navigation.navigate('Addresses');
   };
 
   return (
     <ScreenContainer>
-      {!isEmpty(initialRegion) ? (
-        <>
-          <MapView
-            initialRegion={initialRegion}
-            style={{
-              width: Dimensions.get('screen').width,
-              height: Dimensions.get('screen').height * 0.5,
-            }}
-            onPress={handleLocation}
-          >
-            {location.lat ? (
-              <Marker
-                title="Ubicación seleccionada"
-                coordinate={{
-                  latitude: location.lat,
-                  longitude: location.lng,
-                }}
+      <View
+        style={{
+          ...styles.container,
+          justifyContent: isEmpty(initialRegion) ? 'center' : 'flex-start',
+        }}
+      >
+        {errorMsg ? (
+          <ErrorMessage errorMessage={errorMsg} />
+        ) : !isEmpty(initialRegion) ? (
+          <View>
+            <View>
+              <TextInput
+                label="Set a name for the address"
+                onChangeText={setName}
+                value={name}
+                dense
+                theme={{ colors: { text: colors.header } }}
               />
-            ) : null}
-          </MapView>
-          <Text>{address?.address}</Text>
-        </>
-      ) : (
-        <ActivityIndicator animating color={colors.surface} />
-      )}
-      {/* <Button title="Confirmar ubicación" onPress={handleConfirm} /> */}
+            </View>
+            <MapView
+              initialRegion={initialRegion}
+              style={{
+                width: Dimensions.get('screen').width,
+                height: Dimensions.get('screen').height * 0.45,
+              }}
+              onPress={handleLocation}
+            >
+              {location.lat ? (
+                <Marker
+                  title="Ubicación seleccionada"
+                  coordinate={{
+                    latitude: location.lat,
+                    longitude: location.lng,
+                  }}
+                />
+              ) : null}
+            </MapView>
+            <Text style={{ ...styles.address, color: colors.header }}>
+              {address}
+            </Text>
+          </View>
+        ) : (
+          <ActivityIndicator animating color={colors.surface} />
+        )}
+        <View
+          style={{ ...styles.saveAddress, backgroundColor: colors.background }}
+        >
+          <Button
+            color="surface"
+            onPress={handleSaveAddress}
+            customBtnStyles={styles.btn}
+            disabled={!name}
+          >
+            <Text>Save address</Text>
+          </Button>
+        </View>
+      </View>
     </ScreenContainer>
   );
 };
