@@ -15,26 +15,6 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
-  product: {
-    marginVertical: 5,
-    borderRadius: 8,
-    padding: 8,
-  },
-  productTitleContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  productTitle: {
-    fontSize: 16,
-    flexBasis: '80%',
-  },
-  quantities: {
-    marginLeft: 20,
-  },
-  platform: {
-    fontSize: 13,
-    fontStyle: 'italic',
-  },
   total: {
     fontWeight: 'bold',
     fontSize: 20,

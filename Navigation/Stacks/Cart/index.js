@@ -1,10 +1,12 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
+import { View } from 'react-native';
 import { useTheme } from 'react-native-paper';
 
 import AddressScreen from '../../../Screens/Address';
 import CartScreen from '../../../Screens/Cart';
 import CartSummary from '../../../Screens/CartSummary';
+import OrderSuccessful from '../../../Screens/OrderSuccessful';
 import SetNewAddressScreen from '../../../Screens/SetNewAddress';
 
 const Stack = createNativeStackNavigator();
@@ -42,6 +44,11 @@ const CartStack = () => {
         name="CartSummary"
         component={CartSummary}
         options={{ title: 'Summary' }}
+      />
+      <Stack.Screen
+        name="OrderSuccessful"
+        component={OrderSuccessful}
+        options={{ title: 'Order Created', headerLeft: () => <View /> }}
       />
     </Stack.Navigator>
   );
