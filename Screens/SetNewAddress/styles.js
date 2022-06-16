@@ -3,12 +3,12 @@ import { Dimensions, StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: 'center',
   },
   address: {
     textAlign: 'center',
     fontSize: 18,
     marginVertical: 10,
+    paddingHorizontal: 10,
   },
   saveAddress: {
     paddingVertical: 8,

@@ -1,7 +1,13 @@
 import { Formik } from 'formik';
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { TextInput, Text, useTheme, HelperText } from 'react-native-paper';
+import {
+  TextInput,
+  Text,
+  useTheme,
+  HelperText,
+  ActivityIndicator,
+} from 'react-native-paper';
 import Toast from 'react-native-toast-message';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -156,7 +162,11 @@ const SignUpLogin = ({ navigation, route }) => {
                   onPress={handleSubmit}
                   disabled={isSubmitting}
                 >
-                  <Text>{to === 'signup' ? 'Sign Up' : 'Log In'}</Text>
+                  {isSubmitting ? (
+                    <ActivityIndicator animating color={colors.surface} />
+                  ) : (
+                    <Text>{to === 'signup' ? 'Sign Up' : 'Log In'}</Text>
+                  )}
                 </Button>
                 <Link
                   text={
