@@ -10,11 +10,9 @@ export const init = () => {
         'CREATE TABLE IF NOT EXISTS addresses(id INTEGER PRIMARY KEY NOT NULL, userid TEXT NOT NULL, name TEXT NOT NULL, address TEXT NOT NULL)',
         [],
         () => {
-          console.log('resuelve');
           res();
         },
         (_, error) => {
-          console.log('No resuelve');
           console.log(error.message);
           rej(error);
         },

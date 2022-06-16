@@ -39,7 +39,7 @@ const CartScreen = ({ navigation }) => {
             />
             <View
               style={{
-                ...styles.finishOrder,
+                ...styles.continueOrder,
                 backgroundColor: colors.background,
               }}
             >

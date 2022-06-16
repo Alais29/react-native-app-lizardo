@@ -4,6 +4,7 @@ import { useTheme } from 'react-native-paper';
 
 import AddressScreen from '../../../Screens/Address';
 import CartScreen from '../../../Screens/Cart';
+import CartSummary from '../../../Screens/CartSummary';
 import SetNewAddressScreen from '../../../Screens/SetNewAddress';
 
 const Stack = createNativeStackNavigator();
@@ -36,6 +37,11 @@ const CartStack = () => {
         name="SetNewAddress"
         component={SetNewAddressScreen}
         options={{ title: 'Set an Address' }}
+      />
+      <Stack.Screen
+        name="CartSummary"
+        component={CartSummary}
+        options={{ title: 'Summary' }}
       />
     </Stack.Navigator>
   );

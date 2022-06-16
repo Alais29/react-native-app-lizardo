@@ -14,14 +14,12 @@ export const addAddressAsync = createAsyncThunk(
   'address/addAddressAsync',
   async (address, { rejectWithValue }) => {
     try {
-      const result = await insertAddress(
+      await insertAddress(
         address.id,
         address.userid,
         address.name,
         address.address,
       );
-      console.log('Add location db result:');
-      console.log(result);
       return 'Record added succesfully';
     } catch (error) {
       console.log(error.message);
@@ -34,9 +32,7 @@ export const removeAddressAsync = createAsyncThunk(
   'address/removeAddressAsync',
   async (addressId, asyncThunk) => {
     try {
-      const result = await deleteAddress(addressId);
-      console.log('Delete address result');
-      console.log(result);
+      await deleteAddress(addressId);
       return `Item with id: ${addressId}, removed`;
     } catch (error) {
       console.log(error.message);
@@ -50,12 +46,9 @@ export const getAddressesAsync = createAsyncThunk(
   async (userid, { rejectWithValue }) => {
     try {
       const result = await fetchAddress(userid);
-      console.log('Resultado al traer los datos de la DB en el thunk');
-      console.log(result);
       const data = result.rows._array;
       return data;
     } catch (error) {
-      console.log('error when fetching data from database');
       console.log(error);
       return rejectWithValue('Error at fetching addresses on db');
     }

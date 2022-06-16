@@ -17,6 +17,7 @@ import ScreenContainer from '../../Components/ScreenContainer';
 import {
   addAddress,
   addAddressAsync,
+  selectAddress,
 } from '../../Features/addresses/addressesSlice';
 import { getInitialRegion } from '../../utils/getMapInitialLocation';
 import { isEmpty } from '../../utils/isEmpty';
@@ -88,6 +89,7 @@ const SetNewAddressScreen = ({ navigation }) => {
     };
     dispatch(addAddressAsync(newAddress));
     dispatch(addAddress(newAddress));
+    dispatch(selectAddress(newAddress));
     navigation.navigate('Addresses');
   };
 

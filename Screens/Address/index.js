@@ -50,7 +50,7 @@ const AddressScreen = ({ navigation }) => {
     <ScreenContainer>
       <View style={styles.container}>
         <Text style={{ ...styles.title, color: colors.header }}>
-          Select an address or set a new one
+          Select an address or create a new one
         </Text>
         {status === Status.success && isEmpty(addresses) ? (
           <View
@@ -122,7 +122,7 @@ const AddressScreen = ({ navigation }) => {
           <Button
             color="surface"
             disabled={Object.values(selectedAddress).length === 0}
-            // onPress={navigation.navigate('SetAddress')}
+            onPress={() => navigation.navigate('CartSummary')}
           >
             <Text>Continue</Text>
           </Button>

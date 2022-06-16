@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  finishOrder: {
+  continueOrder: {
     position: 'absolute',
     bottom: 0,
     left: 0,
