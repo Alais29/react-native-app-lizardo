@@ -14,9 +14,8 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 7,
+    fontFamily: 'Acme',
   },
   orderInfo: {
     marginVertical: 5,
@@ -27,6 +26,6 @@ export const styles = StyleSheet.create({
   },
   infoTextTitle: {
     textAlign: 'center',
-    fontWeight: 'bold',
+    fontFamily: 'Acme',
   },
 });

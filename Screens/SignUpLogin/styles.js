@@ -13,5 +13,6 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     marginBottom: 15,
+    fontFamily: 'Acme',
   },
 });

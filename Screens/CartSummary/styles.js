@@ -13,12 +13,13 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily: 'Acme',
   },
   total: {
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     fontSize: 20,
     alignSelf: 'flex-end',
+    fontFamily: 'Inconsolata-Bold',
   },
   finishOrder: {
     position: 'absolute',

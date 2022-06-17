@@ -5,8 +5,8 @@ import {
 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
-import { Text, View, ImageBackground, TouchableOpacity } from 'react-native';
-import { useTheme } from 'react-native-paper';
+import { View, ImageBackground, TouchableOpacity } from 'react-native';
+import { useTheme, Text } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
 
 import { setProductSelected } from '../../../Features/products/productsSlice';

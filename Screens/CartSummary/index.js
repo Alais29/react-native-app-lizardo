@@ -85,7 +85,7 @@ const CartSummary = ({ navigation }) => {
           {status === Status.loading ? (
             <ActivityIndicator animating color={colors.text} />
           ) : (
-            <Text>Finish Order</Text>
+            <Text style={{ fontFamily: 'Acme' }}>Finish Order</Text>
           )}
         </Button>
       </View>

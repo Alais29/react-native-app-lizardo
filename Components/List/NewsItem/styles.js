@@ -13,5 +13,6 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     lineHeight: 24,
+    fontFamily: 'Acme',
   },
 });

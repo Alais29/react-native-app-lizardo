@@ -43,10 +43,7 @@ const Orders = () => {
               <List.Accordion
                 key={order.id}
                 title={`Order ID: ${order.id}`}
-                description={dateFormat(
-                  order.date,
-                  'mmmm dd, yyyy, h:MM tt, Z',
-                )}
+                description={dateFormat(order.date, 'mmmm dd, yyyy, h:MM tt')}
                 id={order.id}
                 style={{
                   ...styles.accordion,
@@ -62,7 +59,12 @@ const Orders = () => {
                   />
                 ))}
                 <View style={styles.orderInfo}>
-                  <Text style={{ fontWeight: 'bold', color: colors.header }}>
+                  <Text
+                    style={{
+                      fontFamily: 'Inconsolata-Bold',
+                      color: colors.header,
+                    }}
+                  >
                     Delivery address:
                   </Text>
                   <Text style={{ color: colors.header }}>
@@ -70,7 +72,12 @@ const Orders = () => {
                   </Text>
                 </View>
                 <View style={{ ...styles.orderInfo, flexDirection: 'row' }}>
-                  <Text style={{ fontWeight: 'bold', color: colors.header }}>
+                  <Text
+                    style={{
+                      fontFamily: 'Inconsolata-Bold',
+                      color: colors.header,
+                    }}
+                  >
                     Total:
                   </Text>
                   <Text style={{ color: colors.header }}> ${order.total}</Text>

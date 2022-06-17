@@ -4,7 +4,7 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 
 import { Theme } from '../Features/interfaces';
-import { darkTheme, lightTheme } from '../Styles/colors';
+import { darkTheme, lightTheme } from '../Styles/themes';
 import AuthStack from './Stacks/Auth';
 import UserLogged from './Tabs/UserLogged';
 

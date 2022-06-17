@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily: 'Acme',
   },
   subtitle: {
     fontSize: 14,

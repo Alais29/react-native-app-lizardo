@@ -6,12 +6,18 @@ import { useSelector } from 'react-redux';
 
 import HomeScreen from '../../../Screens/Home';
 import ProductDetailScreen from '../../../Screens/ProductDetail';
+import { truncate } from '../../../utils/truncate';
 
 const Stack = createNativeStackNavigator();
 
 const HomeStack = () => {
   const { colors } = useTheme();
   const { productSelected } = useSelector(state => state.products);
+
+  const productTitle = productSelected.name
+    ? truncate(productSelected.name, 22)
+    : '';
+
   return (
     <Stack.Navigator
       initialRouteName="Home"
@@ -20,13 +26,12 @@ const HomeStack = () => {
           backgroundColor: colors.background,
         },
         headerTintColor: colors.header,
-        // headerTitleStyle: {
-        //   fontFamily: "Nunito",
-        //   fontSize: 25,
-        // },
         headerTitleAlign: 'center',
-        // headerRight: () => <LogOutBtn />,
-        headerTitleStyle: { width: Dimensions.get('window').width },
+        headerTitleStyle: {
+          width: Dimensions.get('screen').width,
+          fontFamily: 'Acme',
+          fontSize: 25,
+        },
       }}
     >
       <Stack.Screen
@@ -39,7 +44,7 @@ const HomeStack = () => {
       <Stack.Screen
         name="ProductHome"
         component={ProductDetailScreen}
-        options={{ title: productSelected.name }}
+        options={{ title: productTitle }}
       />
     </Stack.Navigator>
   );

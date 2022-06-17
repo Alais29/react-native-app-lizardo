@@ -1,3 +1,4 @@
+import { useFonts } from 'expo-font';
 import { initializeApp } from 'firebase/app';
 import React from 'react';
 import Toast from 'react-native-toast-message';
@@ -20,6 +21,16 @@ init()
   });
 
 const App = () => {
+  const [loaded] = useFonts({
+    Acme: require('./assets/fonts/Acme/Acme-Regular.ttf'),
+    Inconsolata: require('./assets/fonts/Inconsolata/Inconsolata-Regular.ttf'),
+    'Inconsolata-Bold': require('./assets/fonts/Inconsolata/Inconsolata-Bold.ttf'),
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <Provider store={store}>
       <MainNavigation />

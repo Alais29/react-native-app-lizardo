@@ -163,9 +163,11 @@ const SignUpLogin = ({ navigation, route }) => {
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
-                    <ActivityIndicator animating color={colors.surface} />
+                    <ActivityIndicator animating color={colors.text} />
                   ) : (
-                    <Text>{to === 'signup' ? 'Sign Up' : 'Log In'}</Text>
+                    <Text style={{ fontFamily: 'Acme' }}>
+                      {to === 'signup' ? 'Sign Up' : 'Log In'}
+                    </Text>
                   )}
                 </Button>
                 <Link

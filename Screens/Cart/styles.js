@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 5,
   },
   totalPrice: {
-    fontWeight: 'bold',
     fontSize: 18,
+    fontFamily: 'Inconsolata-Bold',
   },
 });

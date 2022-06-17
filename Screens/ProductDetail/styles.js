@@ -26,11 +26,15 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     textAlign: 'center',
+    fontFamily: 'Acme',
   },
   chipContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+  },
+  chip: {
+    fontFamily: 'Acme',
   },
   rating: {
     flexDirection: 'row',
@@ -40,8 +44,11 @@ export const styles = StyleSheet.create({
   sectionContainer: {
     marginVertical: 10,
   },
-  platFFormSelect: {
+  platformSelect: {
     alignItems: 'center',
+  },
+  platformSelectText: {
+    fontFamily: 'Acme',
   },
   description: {
     fontSize: 16,
@@ -64,5 +71,9 @@ export const styles = StyleSheet.create({
   },
   dropdownTextStyle: {
     fontSize: 16,
+    fontFamily: 'Inconsolata',
+  },
+  rowTextStyle: {
+    fontFamily: 'Inconsolata',
   },
 });

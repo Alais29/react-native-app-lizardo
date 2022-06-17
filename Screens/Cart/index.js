@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Text, useTheme } from 'react-native-paper';
+import { useTheme, Text } from 'react-native-paper';
 import { useSelector } from 'react-redux';
 
 import Button from '../../Components/Button';
@@ -46,7 +46,7 @@ const CartScreen = ({ navigation }) => {
                 color="surface"
                 onPress={() => navigation.navigate('Addresses')}
               >
-                <Text>Proceed to purchase</Text>
+                <Text style={{ fontFamily: 'Acme' }}>Proceed to purchase</Text>
               </Button>
             </View>
           </>

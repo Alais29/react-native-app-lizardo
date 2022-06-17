@@ -6,7 +6,6 @@ import {
   Text,
   IconButton,
 } from 'react-native-paper';
-import { TouchableOpacity } from 'react-native-web';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Button from '../../Components/Button';
@@ -90,7 +89,7 @@ const AddressScreen = ({ navigation }) => {
                     style={{ marginTop: 10 }}
                   />
                 )}
-                titleStyle={{ color: colors.header }}
+                titleStyle={{ color: colors.header, fontFamily: 'Acme' }}
                 descriptionStyle={{ color: colors.header }}
                 onPress={() => handleSelect(item)}
                 style={{
@@ -117,14 +116,14 @@ const AddressScreen = ({ navigation }) => {
             color="surface"
             onPress={() => navigation.navigate('SetNewAddress')}
           >
-            <Text>Create Address</Text>
+            <Text style={{ fontFamily: 'Acme' }}>Create Address</Text>
           </Button>
           <Button
             color="surface"
             disabled={Object.values(selectedAddress).length === 0}
             onPress={() => navigation.navigate('CartSummary')}
           >
-            <Text>Continue</Text>
+            <Text style={{ fontFamily: 'Acme' }}>Continue</Text>
           </Button>
         </View>
       </View>

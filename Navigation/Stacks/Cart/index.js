@@ -21,12 +21,11 @@ const CartStack = () => {
           backgroundColor: colors.background,
         },
         headerTintColor: colors.header,
-        // headerTitleStyle: {
-        //   fontFamily: "Nunito",
-        //   fontSize: 25,
-        // },
+        headerTitleStyle: {
+          fontFamily: 'Acme',
+          fontSize: 25,
+        },
         headerTitleAlign: 'center',
-        // headerRight: () => <LogOutBtn />,
       }}
     >
       <Stack.Screen name="Cart" component={CartScreen} />

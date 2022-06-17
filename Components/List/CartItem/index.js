@@ -40,7 +40,7 @@ const CartItem = ({ item, isLastItem }) => {
         }}
       />
       <View style={styles.info}>
-        <Text>{item.name}</Text>
+        <Text style={{ fontFamily: 'Acme' }}>{item.name}</Text>
         {platforms.map(platform => (
           <View key={`${item.id}-${platform}`} style={styles.platformContainer}>
             <Text style={styles.platform}>{platform[0]}</Text>

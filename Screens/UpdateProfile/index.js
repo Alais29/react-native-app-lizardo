@@ -2,7 +2,14 @@ import * as ImagePicker from 'expo-image-picker';
 import { ref, getStorage, uploadBytes } from 'firebase/storage';
 import React, { useState } from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
-import { TextInput, useTheme, Text, Modal, Avatar } from 'react-native-paper';
+import {
+  TextInput,
+  useTheme,
+  Text,
+  Modal,
+  Avatar,
+  ActivityIndicator,
+} from 'react-native-paper';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Button from '../../Components/Button';
@@ -16,7 +23,7 @@ const UpdateProfile = () => {
   const [photoUrl, setPhotoUrl] = useState('');
   const [uploading, setUploading] = useState(false);
 
-  const { user } = useSelector(state => state.auth);
+  const { user, loading } = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
   const { colors } = useTheme();
@@ -79,7 +86,6 @@ const UpdateProfile = () => {
     const imgUrl = `usersImages/${user.email}`;
 
     const fileRef = ref(getStorage(), imgUrl);
-    // const result = await uploadBytes(fileRef, blob);
     await uploadBytes(fileRef, blob);
 
     blob.close();
@@ -143,9 +149,13 @@ const UpdateProfile = () => {
           <Button
             onPress={handleUpdate}
             color="surface"
-            disabled={!displayName || !photoUrl || uploading}
+            disabled={!displayName || !photoUrl || uploading || loading}
           >
-            <Text>Confirm</Text>
+            {uploading || loading ? (
+              <ActivityIndicator animating color={colors.text} />
+            ) : (
+              <Text style={{ fontFamily: 'Acme' }}>Confirm</Text>
+            )}
           </Button>
         </View>
         <Modal
@@ -161,10 +171,14 @@ const UpdateProfile = () => {
           </Text>
           <View style={styles.modalBtnsContainer}>
             <Button onPress={handleTakePicture}>
-              <Text style={{ color: colors.header }}>Take picture</Text>
+              <Text style={{ color: colors.header, fontFamily: 'Acme' }}>
+                Take picture
+              </Text>
             </Button>
             <Button onPress={handlePickLibrary}>
-              <Text style={{ color: colors.header }}>Open gallery</Text>
+              <Text style={{ color: colors.header, fontFamily: 'Acme' }}>
+                Open gallery
+              </Text>
             </Button>
           </View>
         </Modal>

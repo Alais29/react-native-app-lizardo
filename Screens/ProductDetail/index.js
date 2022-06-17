@@ -85,7 +85,10 @@ const ProductDetailScreen = () => {
             </View>
             <View style={styles.chipContainer}>
               {!isEmpty(category) ? (
-                <Chip style={{ backgroundColor: themeColors.accent }}>
+                <Chip
+                  style={{ backgroundColor: themeColors.accent }}
+                  textStyle={styles.chip}
+                >
                   {category.name}
                 </Chip>
               ) : null}
@@ -104,25 +107,30 @@ const ProductDetailScreen = () => {
               </Text>
             </View>
             <View
-              style={{ ...styles.sectionContainer, ...styles.platFFormSelect }}
+              style={{ ...styles.sectionContainer, ...styles.platformSelect }}
             >
               <Text
-                style={{ ...styles.description, color: themeColors.header }}
+                style={{
+                  ...styles.platformSelectText,
+                  color: themeColors.header,
+                }}
               >
                 Select a platform to add to cart
               </Text>
               <SelectDropdown
                 data={productSelected.platforms}
-                onSelect={(selectedItem, index) => {
+                onSelect={selectedItem => {
                   setPlatformSelected(selectedItem);
                 }}
-                buttonTextAfterSelection={(selectedItem, index) =>
-                  selectedItem.name
-                }
-                rowTextForSelection={(item, index) => item.name}
+                buttonTextAfterSelection={selectedItem => selectedItem.name}
+                rowTextForSelection={item => item.name}
                 defaultButtonText="Select a platform"
                 renderDropdownIcon={() => (
-                  <AntDesign name="caretdown" size={10} color="white" />
+                  <AntDesign
+                    name="caretdown"
+                    size={10}
+                    color={themeColors.header}
+                  />
                 )}
                 buttonStyle={{
                   backgroundColor: themeColors.background,
@@ -137,6 +145,7 @@ const ProductDetailScreen = () => {
                   backgroundColor: themeColors.background,
                 }}
                 rowTextStyle={{
+                  ...styles.rowTextStyle,
                   color: themeColors.header,
                 }}
               />
@@ -151,7 +160,14 @@ const ProductDetailScreen = () => {
                 disabled={!!isEmpty(platformSelected)}
                 onPress={handleAddToCart}
               >
-                <Text style={{ color: themeColors.header }}>Add to Cart</Text>
+                <Text
+                  style={{
+                    color: themeColors.header,
+                    fontFamily: 'Acme',
+                  }}
+                >
+                  Add to Cart
+                </Text>
               </Button>
             </View>
           </View>

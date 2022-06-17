@@ -2,12 +2,11 @@ import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import {
   ImageBackground,
-  Text,
   useWindowDimensions,
   TouchableOpacity,
   View,
 } from 'react-native';
-import { useTheme } from 'react-native-paper';
+import { useTheme, Text } from 'react-native-paper';
 import { useDispatch } from 'react-redux';
 
 import { setCategorySelected } from '../../../Features/categories/categoriesSlice';

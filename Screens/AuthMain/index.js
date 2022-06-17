@@ -37,7 +37,7 @@ const AuthMainScreen = ({ navigation }) => {
             customBtnStyles={styles.customBtn}
             onPress={() => navigation.navigate('SignUpLogin', { to: 'signup' })}
           >
-            <Text>Sign Up</Text>
+            <Text style={{ fontFamily: 'Acme' }}>Sign Up</Text>
             <AntDesign
               name="right"
               size={14}

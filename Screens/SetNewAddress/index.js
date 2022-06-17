@@ -148,7 +148,7 @@ const SetNewAddressScreen = ({ navigation }) => {
             customBtnStyles={styles.btn}
             disabled={!name}
           >
-            <Text>Save address</Text>
+            <Text style={{ fontFamily: 'Acme' }}>Save address</Text>
           </Button>
         </View>
       </View>

@@ -7,5 +7,6 @@ export const styles = StyleSheet.create({
   },
   errorText: {
     textAlign: 'center',
+    fontFamily: 'Acme',
   },
 });

@@ -55,7 +55,7 @@ export const styles = StyleSheet.create({
     borderLeftWidth: 1,
   },
   qty: {
-    paddingVertical: 4.1,
+    paddingVertical: 3.9,
     paddingHorizontal: 8,
     borderWidth: 1,
     fontSize: 12,

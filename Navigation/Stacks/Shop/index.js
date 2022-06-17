@@ -27,13 +27,11 @@ const ShopStack = () => {
           backgroundColor: colors.background,
         },
         headerTintColor: colors.header,
-        // headerTitleStyle: {
-        //   fontFamily: "Nunito",
-        //   fontSize: 25,
-        // },
+        headerTitleStyle: {
+          fontFamily: 'Acme',
+          fontSize: 25,
+        },
         headerTitleAlign: 'center',
-        // headerRight: () => <LogOutBtn />,
-        // headerTitleStyle: { width: Dimensions.get("window").width },
       }}
     >
       <Stack.Screen name="Categories" component={CategoriesScreen} />

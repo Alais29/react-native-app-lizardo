@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
   text: {
     color: colors.light,
     fontSize: 18,
+    fontFamily: 'Acme',
   },
   trianglesContainer: {
     height: 32,
