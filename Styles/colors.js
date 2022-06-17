@@ -2,7 +2,7 @@ import { DefaultTheme } from 'react-native-paper';
 
 export const colors = {
   primaryDark: '#562505',
-  secondaryDark: '#F9DC5C',
+  secondaryDark: '#B68E2F',
   tertiaryDark: '#1C0E05',
   primaryLight: '#A25F09',
   secondaryLight: '#031D44',

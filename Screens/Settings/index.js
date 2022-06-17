@@ -8,6 +8,7 @@ import { resetAddresses } from '../../Features/addresses/addressesSlice';
 import { logout } from '../../Features/auth/authSlice';
 import { emptyCart } from '../../Features/cart/cartSlice';
 import { Theme } from '../../Features/interfaces';
+import { resetOrders } from '../../Features/orders/ordersSlice';
 import { changeTheme } from '../../Features/theme/themeSlice';
 import { styles } from './styles';
 
@@ -31,6 +32,7 @@ const SettingsScreen = () => {
     dispatch(logout());
     dispatch(emptyCart());
     dispatch(resetAddresses());
+    dispatch(resetOrders());
   };
 
   return (

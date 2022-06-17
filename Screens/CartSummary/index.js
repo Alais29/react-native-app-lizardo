@@ -11,7 +11,7 @@ import Toast from 'react-native-toast-message';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Button from '../../Components/Button';
-import CartSummaryItem from '../../Components/List/CartSummaryItem';
+import SummaryItem from '../../Components/List/SummaryItem';
 import ScreenContainer from '../../Components/ScreenContainer';
 import { emptyCart } from '../../Features/cart/cartSlice';
 import { Status } from '../../Features/interfaces';
@@ -67,7 +67,7 @@ const CartSummary = ({ navigation }) => {
           <Divider style={{ backgroundColor: colors.text }} />
           <View>
             {products.map(item => (
-              <CartSummaryItem item={item} key={item.id} />
+              <SummaryItem item={item} key={item.id} />
             ))}
           </View>
           <Divider style={{ backgroundColor: colors.text }} />

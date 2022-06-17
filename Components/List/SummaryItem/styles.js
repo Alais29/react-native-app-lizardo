@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
   productTitle: {
     fontSize: 16,
     flexGrow: 1,
+    flexBasis: '80%',
   },
   productPrice: {
     fontSize: 16,

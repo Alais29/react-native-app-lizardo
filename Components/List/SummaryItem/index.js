@@ -4,7 +4,7 @@ import { useTheme, Text } from 'react-native-paper';
 
 import { styles } from './styles';
 
-const CartSummaryItem = ({ item }) => {
+const SummaryItem = ({ item, customBackgroundColor, customTextColor }) => {
   const { colors } = useTheme();
   const platformsQty = Object.entries(item.quantities);
 
@@ -12,20 +12,32 @@ const CartSummaryItem = ({ item }) => {
     return (total += item[1]);
   }, 0);
 
+  const textColor = customTextColor ? customTextColor : colors.text;
+
   return (
     <View
-      style={{ ...styles.product, backgroundColor: colors.accent }}
+      style={{
+        ...styles.product,
+        backgroundColor: customBackgroundColor
+          ? customBackgroundColor
+          : colors.accent,
+      }}
       key={item.id}
     >
       <View style={styles.productTitleContainer}>
-        <Text style={styles.productTitle}>
+        <Text style={{ ...styles.productTitle, color: textColor }}>
           {qty} {item.name}
         </Text>
-        <Text style={styles.productPrice}>${item.totalPrice}</Text>
+        <Text style={{ ...styles.productPrice, color: textColor }}>
+          ${item.totalPrice}
+        </Text>
       </View>
       <View style={styles.quantities}>
         {platformsQty.map(platform => (
-          <Text style={styles.platform} key={`${item.id}-${platform[0]}`}>
+          <Text
+            style={{ ...styles.platform, color: textColor }}
+            key={`${item.id}-${platform[0]}`}
+          >
             {platform[1]}x {platform[0]}
           </Text>
         ))}
@@ -34,4 +46,4 @@ const CartSummaryItem = ({ item }) => {
   );
 };
 
-export default CartSummaryItem;
+export default SummaryItem;

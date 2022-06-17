@@ -1,4 +1,4 @@
-import { Feather, Entypo } from '@expo/vector-icons';
+import { Feather, Entypo, FontAwesome5 } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
 import { View } from 'react-native';
@@ -6,6 +6,7 @@ import { useTheme } from 'react-native-paper';
 
 import CartStack from '../../Stacks/Cart';
 import HomeStack from '../../Stacks/Home';
+import OrdersStack from '../../Stacks/Orders';
 import SettingsStack from '../../Stacks/Settings';
 import ShopStack from '../../Stacks/Shop';
 import { styles } from './styles';
@@ -76,6 +77,24 @@ const UserLogged = () => {
                 }}
               >
                 <Feather name="shopping-bag" size={24} color={colors.text} />
+              </View>
+            );
+          },
+        }}
+      />
+      <BottomTabs.Screen
+        name="OrdersTab"
+        component={OrdersStack}
+        options={{
+          tabBarIcon: ({ focused }) => {
+            return (
+              <View
+                style={{
+                  ...styles.item,
+                  borderTopColor: focused ? colors.primary : colors.surface,
+                }}
+              >
+                <FontAwesome5 name="list-alt" size={24} color={colors.text} />
               </View>
             );
           },

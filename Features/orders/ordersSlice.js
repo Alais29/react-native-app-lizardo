@@ -11,13 +11,13 @@ const initialState = {
 
 export const getOrdersAsync = createAsyncThunk(
   'orders/getOrdersAsync',
-  async (userid, { rejectWithValue }) => {
+  async userid => {
     try {
       const response = await getOrders(userid);
       return response;
     } catch (error) {
       console.log(error);
-      return rejectWithValue(error.response.data);
+      throw new Error(error.message);
     }
   },
 );
@@ -38,7 +38,13 @@ export const createOrderAsync = createAsyncThunk(
 export const ordersSlice = createSlice({
   name: 'orders',
   initialState,
-  reducers: {},
+  reducers: {
+    resetOrders: state => {
+      state.status = Status.idle;
+      state.orders = [];
+      state.error = '';
+    },
+  },
   extraReducers: {
     [getOrdersAsync.pending]: state => {
       state.status = Status.loading;
@@ -70,6 +76,6 @@ export const ordersSlice = createSlice({
   },
 });
 
-// export const {  } = ordersSlice.actions;
+export const { resetOrders } = ordersSlice.actions;
 
 export default ordersSlice.reducer;
