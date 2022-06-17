@@ -12,13 +12,9 @@ import { isEmpty } from '../../utils/isEmpty';
 import { styles } from './styles';
 
 const CartScreen = ({ navigation }) => {
-  const { products } = useSelector(state => state.cart);
+  const { products, total } = useSelector(state => state.cart);
 
   const { colors } = useTheme();
-
-  const total = products.reduce((amount, item) => {
-    return (amount += item.totalPrice);
-  }, 0);
 
   return (
     <ScreenContainer>

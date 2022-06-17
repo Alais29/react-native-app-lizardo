@@ -22,7 +22,7 @@ import {
 import { styles } from './styles';
 
 const CartSummary = ({ navigation }) => {
-  const { products } = useSelector(state => state.cart);
+  const { products, total } = useSelector(state => state.cart);
   const { selectedAddress } = useSelector(state => state.addresses);
   const { user } = useSelector(state => state.auth);
   const { status, error } = useSelector(state => state.orders);
@@ -30,10 +30,6 @@ const CartSummary = ({ navigation }) => {
   const { colors } = useTheme();
 
   const dispatch = useDispatch();
-
-  const total = products.reduce((amount, item) => {
-    return (amount += item.totalPrice);
-  }, 0);
 
   const handleCreateOrder = async () => {
     try {

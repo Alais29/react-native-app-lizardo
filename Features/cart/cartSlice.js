@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   products: [],
+  total: 0,
 };
 
 export const cartSlice = createSlice({
@@ -33,6 +34,7 @@ export const cartSlice = createSlice({
 
         state.products.push({ ...copyProduct, quantities, totalPrice });
       }
+      state.total += payload.price;
     },
     removeItem: (state, { payload }) => {
       // payload will bring the product id, and it may bring the platform to remove items from or not
@@ -50,6 +52,7 @@ export const cartSlice = createSlice({
       // if so then remove the whole product from cart
       if (justOneProductRemains || !platform) {
         state.products = state.products.filter(item => item.id !== payload.id);
+        state.total -= productToRemove.totalPrice;
       } else {
         state.products.map(item => {
           if (item.id === id) {
@@ -60,6 +63,7 @@ export const cartSlice = createSlice({
           }
           return item;
         });
+        state.total -= productToRemove.price;
       }
     },
     emptyCart: state => {
