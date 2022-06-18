@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { View, Text } from 'react-native';
 import { useTheme } from 'react-native-paper';
@@ -27,6 +28,10 @@ const Title = ({ children }) => {
       </View>
     </View>
   );
+};
+
+Title.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default Title;

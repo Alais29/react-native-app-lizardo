@@ -29,11 +29,12 @@ const Button = ({
   );
 };
 
-export default Button;
-
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  onPress: PropTypes.func,
-  disabled: PropTypes.bool,
   color: PropTypes.oneOf(['background', 'surface']),
+  customBtnStyles: PropTypes.object,
+  disabled: PropTypes.bool,
+  onPress: PropTypes.func,
 };
+
+export default Button;

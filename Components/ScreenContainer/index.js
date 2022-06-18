@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { View } from 'react-native';
 import { useTheme } from 'react-native-paper';
@@ -19,6 +20,11 @@ const ScreenContainer = ({ children, paddingBottom = true }) => {
       {children}
     </View>
   );
+};
+
+ScreenContainer.propTypes = {
+  children: PropTypes.node.isRequired,
+  paddingBottom: PropTypes.bool,
 };
 
 export default ScreenContainer;

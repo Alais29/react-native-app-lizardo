@@ -4,6 +4,7 @@ import {
   FontAwesome5,
 } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { View, ImageBackground, TouchableOpacity } from 'react-native';
 import { useTheme, Text } from 'react-native-paper';
@@ -105,6 +106,18 @@ const ProductItem = ({ navigate, product, height = 220, width = 180 }) => {
       </ImageBackground>
     </TouchableOpacity>
   );
+};
+
+ProductItem.propTypes = {
+  height: PropTypes.number,
+  width: PropTypes.number,
+  navigate: PropTypes.func.isRequired,
+  product: PropTypes.shape({
+    background_image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    platforms: PropTypes.array.isRequired,
+    rating: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default ProductItem;

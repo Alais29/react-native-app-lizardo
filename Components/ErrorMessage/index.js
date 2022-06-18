@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { View } from 'react-native';
 import { useTheme, Text } from 'react-native-paper';
@@ -22,6 +23,11 @@ const ErrorMessage = ({
       ) : null}
     </View>
   );
+};
+
+ErrorMessage.propTypes = {
+  errorMessage: PropTypes.string,
+  showTryLaterMsg: PropTypes.bool,
 };
 
 export default ErrorMessage;

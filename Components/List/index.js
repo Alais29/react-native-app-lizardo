@@ -71,8 +71,9 @@ const List = ({
 export default List;
 
 List.propTypes = {
-  renderItem: PropTypes.func.isRequired,
   data: PropTypes.array.isRequired,
   numColumns: PropTypes.number,
+  renderItem: PropTypes.func.isRequired,
+  searchPlaceholder: PropTypes.string,
   showSearch: PropTypes.bool,
 };

@@ -1,4 +1,5 @@
 import * as Linking from 'expo-linking';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Card, Paragraph, Title } from 'react-native-paper';
 
@@ -21,6 +22,18 @@ const NewsItem = ({ article, cardStyle = {} }) => {
       </Card.Content>
     </Card>
   );
+};
+
+NewsItem.propTypes = {
+  article: PropTypes.shape({
+    source: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }),
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    urlToImage: PropTypes.string.isRequired,
+  }).isRequired,
+  cardStyle: PropTypes.object,
 };
 
 export default NewsItem;

@@ -1,4 +1,5 @@
 import { LinearGradient } from 'expo-linear-gradient';
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   ImageBackground,
@@ -51,6 +52,17 @@ const CategoryItem = ({ category, navigation }) => {
       </ImageBackground>
     </TouchableOpacity>
   );
+};
+
+CategoryItem.propTypes = {
+  category: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 export default CategoryItem;

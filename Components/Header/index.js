@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { View } from 'react-native';
 import { Text, useTheme, Avatar, IconButton } from 'react-native-paper';
 import { useSelector, useDispatch } from 'react-redux';

@@ -1,4 +1,5 @@
 import { AntDesign } from '@expo/vector-icons';
+import PropTypes from 'prop-types';
 import React from 'react';
 import { View, Image, TouchableOpacity } from 'react-native';
 import { useTheme, Text, IconButton } from 'react-native-paper';
@@ -84,6 +85,17 @@ const CartItem = ({ item, isLastItem }) => {
       />
     </View>
   );
+};
+
+CartItem.propTypes = {
+  isLastItem: PropTypes.bool,
+  item: PropTypes.shape({
+    background_image: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    quantities: PropTypes.object.isRequired,
+    totalPrice: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default CartItem;

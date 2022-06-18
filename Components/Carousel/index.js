@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 import { useWindowDimensions, View } from 'react-native';
 import { useTheme, ActivityIndicator } from 'react-native-paper';
@@ -26,6 +27,12 @@ const Carousel = ({ data, renderItem, itemWidth }) => {
       contentContainerCustomStyle={styles.container}
     />
   );
+};
+
+Carousel.propTypes = {
+  data: PropTypes.array.isRequired,
+  itemWidth: PropTypes.number,
+  renderItem: PropTypes.func.isRequired,
 };
 
 export default Carousel;

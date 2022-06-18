@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { View } from 'react-native';
 import { useTheme, Text } from 'react-native-paper';
@@ -44,6 +45,17 @@ const SummaryItem = ({ item, customBackgroundColor, customTextColor }) => {
       </View>
     </View>
   );
+};
+
+SummaryItem.propTypes = {
+  customBackgroundColor: PropTypes.string,
+  customTextColor: PropTypes.string,
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    quantities: PropTypes.object.isRequired,
+    totalPrice: PropTypes.number.isRequired,
+  }).isRequired,
 };
 
 export default SummaryItem;
