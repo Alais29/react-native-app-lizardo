@@ -12,7 +12,7 @@ import { resetOrders } from '../../Features/orders/ordersSlice';
 import { changeTheme } from '../../Features/theme/themeSlice';
 import { styles } from './styles';
 
-const SettingsScreen = () => {
+const SettingsScreen = ({ navigation }) => {
   const [isSwitchOn, setIsSwitchOn] = useState(false);
 
   const { theme } = useSelector(state => state.theme);
@@ -26,6 +26,10 @@ const SettingsScreen = () => {
   const onToggleSwitch = () => {
     setIsSwitchOn(!isSwitchOn);
     dispatch(changeTheme());
+  };
+
+  const handleUpdateProfile = () => {
+    navigation.navigate('UpdateProfileSettings', { settings: true });
   };
 
   const handleLogout = () => {
@@ -42,6 +46,11 @@ const SettingsScreen = () => {
           <View style={styles.setting}>
             <Text style={styles.text}>Dark Mode</Text>
             <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
+          </View>
+          <View style={styles.setting}>
+            <TouchableOpacity onPress={handleUpdateProfile}>
+              <Text style={styles.text}>Update Profile</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.setting}>
             <TouchableOpacity onPress={handleLogout}>

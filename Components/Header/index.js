@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { Text, useTheme, Avatar, IconButton } from 'react-native-paper';
 import { useSelector, useDispatch } from 'react-redux';
@@ -10,12 +10,12 @@ import { styles } from './styles';
 
 const Header = () => {
   const { colors } = useTheme();
-  const { user } = useSelector(state => state.auth);
+  const { user, updatedProfile } = useSelector(state => state.auth);
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
-  useState(() => {
-    if (!user.photoDownloadUrl) {
+  useEffect(() => {
+    if (!user.photoDownloadUrl || updatedProfile) {
       (async () => {
         const imgPathReference = ref(getStorage(), user.photoUrl);
         const downloadUrl = await getDownloadURL(imgPathReference);

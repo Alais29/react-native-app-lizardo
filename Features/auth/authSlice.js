@@ -13,6 +13,7 @@ const initialState = {
   },
   loading: false,
   error: '',
+  updatedProfile: false,
 };
 
 export const signUpAsync = createAsyncThunk(
@@ -61,6 +62,7 @@ export const authSlice = createSlice({
     },
     setPhotoDownloadUrl: (state, { payload }) => {
       state.user.photoDownloadUrl = payload;
+      state.updatedProfile = false;
     },
   },
   extraReducers: {
@@ -113,6 +115,7 @@ export const authSlice = createSlice({
         state.error = '';
         state.user.displayName = payload.displayName;
         state.user.photoUrl = payload.photoUrl;
+        state.updatedProfile = true;
       }
     },
     [updateProfileAsync.rejected]: (state, { payload }) => {

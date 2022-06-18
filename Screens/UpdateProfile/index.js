@@ -1,6 +1,6 @@
 import * as ImagePicker from 'expo-image-picker';
 import { ref, getStorage, uploadBytes } from 'firebase/storage';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import {
   TextInput,
@@ -17,7 +17,7 @@ import ScreenContainer from '../../Components/ScreenContainer';
 import { updateProfileAsync } from '../../Features/auth/authSlice';
 import { styles } from './styles';
 
-const UpdateProfile = () => {
+const UpdateProfileScreen = ({ navigation, route }) => {
   const [visible, setVisible] = useState(false);
   const [displayName, setDisplayName] = useState('');
   const [photoUrl, setPhotoUrl] = useState('');
@@ -27,6 +27,11 @@ const UpdateProfile = () => {
 
   const dispatch = useDispatch();
   const { colors } = useTheme();
+
+  useEffect(() => {
+    setDisplayName(user.displayName);
+    setPhotoUrl(user.photoDownloadUrl);
+  }, [user.displayName, user.photoDownloadUrl]);
 
   const handlePickLibrary = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
@@ -94,15 +99,23 @@ const UpdateProfile = () => {
   };
 
   const handleUpdate = async () => {
-    const uploadUrl = await uploadImageAsync(photoUrl);
+    let uploadUrl = photoUrl;
+    if (photoUrl.startsWith('file')) {
+      uploadUrl = await uploadImageAsync(photoUrl);
+    } else {
+      uploadUrl = user.photoUrl;
+    }
     setUploading(false);
-    dispatch(
+    await dispatch(
       updateProfileAsync({
         idToken: user.token,
         displayName,
         photoUrl: uploadUrl,
       }),
-    );
+    ).unwrap();
+    if (route.params.settings) {
+      navigation.navigate('Settings');
+    }
   };
 
   const toggleModal = () => {
@@ -187,4 +200,4 @@ const UpdateProfile = () => {
   );
 };
 
-export default UpdateProfile;
+export default UpdateProfileScreen;

@@ -3,6 +3,7 @@ import React from 'react';
 import { useTheme } from 'react-native-paper';
 
 import SettingsScreen from '../../../Screens/Settings';
+import UpdateProfileScreen from '../../../Screens/UpdateProfile';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,10 @@ const SettingsStack = () => {
       }}
     >
       <Stack.Screen name="Settings" component={SettingsScreen} />
+      <Stack.Screen
+        name="UpdateProfileSettings"
+        component={UpdateProfileScreen}
+      />
     </Stack.Navigator>
   );
 };
