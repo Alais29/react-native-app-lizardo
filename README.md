@@ -34,6 +34,8 @@ yarn install
 
 Create an .env file with all the necessary variables (use .env.example file as an example), you'll need to create a project on firebase, a google maps api key and a News API key (https://newsapi.org).
 
+Also, on firebase Realtime Database you need to import a json that includes products and categories, you can import the one on data/RTDB.json which is the data I used.
+
 With that done you can run:
 
 ```sh
@@ -41,6 +43,12 @@ yarn run start
 ```
 
 Once running, type "a" to run on Android Studio emulator or "w" to run on web (although the styles look terrible on web, not recommended).
+
+## Resources
+* Design inspiration: [Game Store App Light & Dark Design](https://dribbble.com/shots/17991468-Game-Store-App-Light-Dark-Design)
+* App icon: [Gaming icons created by mynamepong - Flaticon](https://www.flaticon.com/free-icons/gaming)
+* Fonts: [Google Fonts](https://fonts.google.com/)
+* Products information: [RAWG](https://rawg.io/)
 
 ## Author
 
