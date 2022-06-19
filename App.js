@@ -3,8 +3,8 @@ import { initializeApp } from 'firebase/app';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import { init } from './DB';
-import { firebaseConfig } from './Database/firebase';
+import { firebaseConfig } from './DB/firebase';
+import { init } from './DB/sqlite';
 import MainNavigation from './Navigation';
 import { store } from './Store/store';
 

@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-import { deleteAddress, fetchAddress, insertAddress } from '../../DB';
+import { deleteAddress, fetchAddress, insertAddress } from '../../DB/sqlite';
 import { Status } from '../interfaces';
 
 const initialState = {

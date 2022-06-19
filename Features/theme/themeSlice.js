@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Appearance } from 'react-native';
+// import { Appearance } from 'react-native';
 
 import { Theme } from '../interfaces';
 
 const initialState = {
-  theme: Appearance.getColorScheme(),
+  theme: Theme.light,
 };
 
 export const themeSlice = createSlice({

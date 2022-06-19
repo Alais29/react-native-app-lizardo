@@ -1,4 +1,3 @@
-import { GOOGLE_API_KEY } from '@env';
 import * as Location from 'expo-location';
 import React, { useEffect, useState } from 'react';
 import { View, Dimensions } from 'react-native';
@@ -14,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Button from '../../Components/Button';
 import ErrorMessage from '../../Components/ErrorMessage';
 import ScreenContainer from '../../Components/ScreenContainer';
+import { config } from '../../Config';
 import {
   addAddress,
   addAddressAsync,
@@ -73,7 +73,7 @@ const SetNewAddressScreen = ({ navigation }) => {
 
   const formatLocation = async () => {
     const response = await fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&key=${GOOGLE_API_KEY}`,
+      `https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&key=${config.GOOGLE_API_KEY}`,
     );
     const reverseGeocode = await response.json();
     const formattedAddress = reverseGeocode.results[0].formatted_address;
