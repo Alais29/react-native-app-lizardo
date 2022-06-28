@@ -20,7 +20,7 @@ const Orders = () => {
 
   useEffect(() => {
     if (status === Status.idle) {
-      dispatch(getOrdersAsync(user.userID));
+      dispatch(getOrdersAsync({userid: user.userID, token: user.token}));
     }
   }, []);
 

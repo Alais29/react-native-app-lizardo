@@ -14,8 +14,8 @@ const initialState = {
 
 export const getProductsAsync = createAsyncThunk(
   'products/getProducts',
-  async () => {
-    const response = await getProducts();
+  async (token) => {
+    const response = await getProducts(token);
     return response;
   },
 );

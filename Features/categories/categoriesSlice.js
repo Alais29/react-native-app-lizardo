@@ -12,8 +12,8 @@ const initialState = {
 
 export const getCategoriesAsync = createAsyncThunk(
   'categories/getCategories',
-  async () => {
-    const response = await getCategories();
+  async (token) => {
+    const response = await getCategories(token);
     return response;
   },
 );

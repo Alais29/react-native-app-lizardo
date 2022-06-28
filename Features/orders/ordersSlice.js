@@ -11,9 +11,9 @@ const initialState = {
 
 export const getOrdersAsync = createAsyncThunk(
   'orders/getOrdersAsync',
-  async userid => {
+  async (userinfo) => {
     try {
-      const response = await getOrders(userid);
+      const response = await getOrders(userinfo.userid, userinfo.token);
       return response;
     } catch (error) {
       console.log(error);
@@ -26,7 +26,7 @@ export const createOrderAsync = createAsyncThunk(
   'orders/createOrderAsync',
   async (orderInfo, { rejectWithValue }) => {
     try {
-      const response = await createOrder(orderInfo.order, orderInfo.userid);
+      const response = await createOrder(orderInfo.order, orderInfo.userid, orderInfo.token);
       return response;
     } catch (error) {
       console.log(error);

@@ -13,12 +13,13 @@ import { styles } from './styles';
 
 const CategoriesScreen = ({ navigation }) => {
   const { status, error, items } = useSelector(state => state.categories);
+  const { user } = useSelector(state => state.auth);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (status === Status.idle) {
-      dispatch(getCategoriesAsync());
+      dispatch(getCategoriesAsync(user.token));
     }
   }, []);
 

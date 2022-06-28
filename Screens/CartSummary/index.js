@@ -41,8 +41,8 @@ const CartSummary = ({ navigation }) => {
         userid: user.userID,
         deliveryAddress: selectedAddress,
       };
-      await dispatch(createOrderAsync({ order, userid: user.userID })).unwrap();
-      await dispatch(getOrdersAsync(user.userID)).unwrap();
+      await dispatch(createOrderAsync({ order, userid: user.userID, token: user.token })).unwrap();
+      await dispatch(getOrdersAsync({userid: user.userID, token: user.token})).unwrap();
       dispatch(emptyCart());
       navigation.navigate('OrderSuccessful');
     } catch (e) {

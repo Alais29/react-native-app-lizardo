@@ -30,12 +30,13 @@ const HomeScreen = ({ navigation }) => {
     error: errorNews,
     articles,
   } = useSelector(state => state.news);
+  const {user} = useSelector(state => state.auth)
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (statusProducts === Status.idle) {
-      dispatch(getProductsAsync());
+      dispatch(getProductsAsync(user.token));
     }
     if (statusNews === Status.idle) {
       dispatch(getNewsAsync());

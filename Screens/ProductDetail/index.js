@@ -21,13 +21,14 @@ const ProductDetailScreen = () => {
 
   const { status, items: categories } = useSelector(state => state.categories);
   const { productSelected } = useSelector(state => state.products);
+  const { user } = useSelector(state => state.auth);
   const { colors: themeColors } = useTheme();
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (status === Status.idle) {
-      dispatch(getCategoriesAsync());
+      dispatch(getCategoriesAsync(user.token));
     }
   }, []);
 
